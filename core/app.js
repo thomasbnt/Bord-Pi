@@ -87,7 +87,7 @@ bot.on('message', (msg) => {
     if (msg.author.bot) return;
 
    // --- Commande bord | help ---
-    if (msg.content === prefix + "bord" || prefix + "help") {
+    if (msg.content === prefix + "bord") {
         if(msg.channel.recipient) return
         hook.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
         const embed = {
