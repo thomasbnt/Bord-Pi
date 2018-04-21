@@ -100,7 +100,7 @@ bot.on('message', (msg) => {
         "fields": [
           {
             "name": ":black_small_square: " + prefix + "mrrobot [on/off]",
-            "value": "Vous **serez notifié de chaque mise à jour** du projet `Mr_Robot`. ",
+            "value": "Vous **serez notifié à chaque mise à jour** du projet `Mr_Robot`. ",
             "inline": false
         },
           {
