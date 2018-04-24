@@ -1,281 +1,131 @@
 const Discord = require('discord.js');
+const colors = require('./consoleColors');
+const config = require('./config') || 'ok';
+const {oneLine, stripIndents} = require('common-tags');
+
 const bot = new Discord.Client({
-  autoReconnect: true
+    autoReconnect: true
 });
-const colors = require("colors");
-const consola = require('consola')
-const fs = require('fs')
-const path = require('path')
 
-// -- Charger les fichiers de configuration --
-try {
-    var config = JSON.parse(fs.readFileSync(path.join(__dirname, '.', 'config.json'), 'utf8'))
-} catch (err) {
-    if (err) throw Error("La configuration n'est pas accessible".red)
-}
+process.on('error', e => {
+    console.error(e);
+});
 
+/*
+Si erreur de promise
+ */
+process.on('unhandledRejection', (r, p) => {
+    console.promiseRejected(r, p);
+});
 
-// ------------- Variables de config  ----------------
-let prefix = config.prefix
-let help = config.help
-let token = config.token
-let IdTheGate = config.IdTheGate
-let IdMrRobot = config.IdMrRobot
-let cmdexe = "Commande exécutée : ".red;
-// ---------------------------------------------------
-var hookArray1 = config.hookArray1
-var hookArray2 = config.hookArray2
-// ---------------------------------------------------
-const hook = new Discord.WebhookClient(hookArray1, hookArray2);
-var hookArray = [hookArray1,hookArray2];
-// ---------------------------------------------------
-let cache = {
-  active_warning: false,
-  user_cache: {}
-}
-let userCache = cache.user_cache
-// ---------------------------------------------------
-function checkDays(date) {
-    let now = new Date();
-    let diff = now.getTime() - date.getTime();
-    let days = Math.floor(diff / 86400000);
-    return days + (days == 1 ? " jour" : " jours");
-  }
-
-// ---------------------- Update Presence ----------------------
-
-function updatePresence() {
-    bot.user.setPresence({
-            status: 'online',
-            game : {
-                name: prefix + "bord"
-            }
-    })
-}
-
-// ---------------------- READY ----------------------
+/*
+Bot lancé sans erreur
+ */
 bot.on('ready', () => {
-    updatePresence()
-    console.log("");
-    consola.start("Connecté en tant que " + bot.user.username.red + " avec le prefix '" + prefix.red + "'");
-    console.log("");
-    consola.start("Nombres d'utilisateurs totaux :    ".magenta +  bot.guilds.reduce((mem, g) => mem += g.memberCount, 0));
-    consola.start("Nombres de channels :              ".green + bot.channels.size);
-    consola.start("Nombre d'émojis totaux :           ".cyan + bot.emojis.size);
-    console.log("");
-
+    console.success(`${bot.user.tag} lancé `);
 });
 
-// ---------------------- Ajout/Suppressions d'un user dans un serveur ----------------------
-bot.on("guildMemberAdd", (member) => {
-    updatePresence()
-	consola.info(`>_ ${member.user.username}#${member.user.discriminator} a rejoint le serveur`.green);
+bot.on('guildMemberAdd', member => {
+    console.join(member);
 });
 
-bot.on("guildMemberRemove", (member) => {
-    updatePresence()
-    consola.info(`>_ ${member.user.username}#${member.user.discriminator} a quitté le serveur`.red);
+bot.on('guildMemberRemove', member => {
+    console.leave(member);
 });
 
+bot.on('message', async msg => {
+   try {
+       if (msg.author.bot) return;
 
-// ---------------------- COEUR DU ROBOT ----------------------
+       const {prefix, webhook, TheGate, Mr_Robot} = config;
+       const hook = new Discord.WebhookClient(webhook.id, webhook.token);
+       let isCmd;
+       const antiSpam = new Discord.Collection();
 
-bot.on('message', (msg) => {
+       const cmd = msg.content.split('').splice(prefix.length).join('').split(' ')[0];
+       let args = msg.content.split(' ').splice(1);
 
-    // -- Si le message vient du bot alors passer --
+       const color = 10038562;
 
-    if (msg.author.bot) return;
+       /**
+        *
+        * @param {String} cmd - La commande exécutée (mrrobot ou thegate)
+        * @param {Boolean} hasRole - Si il a le rôle
+        * @returns {Promise<void>}
+        */
+       const changeRole = async (cmd, hasRole) => {
+           try {
+               if (cmd === 'mrrobot') {
+                   hasRole ? msg.member.roles.remove(Mr_Robot) : msg.member.roles.add(Mr_Robot);
 
-   // --- Commande bord | help ---
-    if (msg.content === prefix + "bord") {
-        if(msg.channel.recipient) return
-        hook.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-        const embed = {
-        "color": 10038562,
-        "title": "BORD Pi | Panel d'aide.",
-        "description": "Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.",
-        "thumbnail": {
-          "url": bot.user.displayAvatarURL
-        },
-        "fields": [
-          {
-            "name": ":black_small_square: " + prefix + "mrrobot [on/off]",
-            "value": "Vous **serez notifié à chaque mise à jour** du projet `Mr_Robot`. ",
-            "inline": false
-        },
-          {
-            "name": ":black_small_square: " + prefix + "thegate [on/off]",
-            "value": "Vous **aurez accès à la catégorie** `The Gate`. Vous pourrez donc suggérer une idée et suivre les mises à jour.",
-            "inline": false
-          },
-          {
-              "name": "Les liens utiles",
-              "value": "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://mrrobot.thomasbnt.fr/) • [Code Source](https://github.com/thomasbnt/Bord-Pi)",
-              "inline": false
-          }
-        ]
-        };
-        msg.channel.send({ embed });
-            consola.info(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
-            return
-    };
+                   const MrRobotEmbedRole = new Discord.MessageEmbed()
+                       .setColor(7419530)
+                       .setFooter(`Demandé par ${msg.author.tag}`)
+                       .setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
+                       le rôle **${msg.guild.roles.get(Mr_Robot).name}**`, msg.author.displayAvatarURL());
 
-    // --- Commande  Ping  ---
-    if (msg.content === prefix + "ping"){
-        if(msg.channel.recipient) return
-        if (!msg.member.hasPermission('MANAGE_MESSAGES')) return
-        consola.info(cmdexe + " ping ".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-        hook.send("**"+ prefix + "ping** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-        const embed = {
-          "color": 10038562,
-          "author": {
-            "name": "Ping de " + Math.floor(bot.ping) + " ms !"
-          },
-            "footer": {
-              "icon_url": msg.author.avatarURL,
-              "text": "Demandé par " + msg.author.username
-          }
-        };
-        msg.channel.send({ embed });
-    };
+                   await msg.channel.send(MrRobotEmbedRole);
+               }
 
-    //--- Commande uptime ---
-    if(msg.content === prefix + 'uptime'){
-      if(msg.channel.recipient) return
-      if (!msg.member.hasPermission('MANAGE_MESSAGES')) return
-      const embed = {
-        "color": 10038562,
-        "author": {
-          "name": "En ligne depuis " + (Math.round(bot.uptime / (1000 * 60 * 60))) + 'h  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + 'min ' + (Math.round(bot.uptime / 1000) % 60) + 's'
-        },
-          "footer": {
-            "icon_url": msg.author.avatarURL,
-            "text": "Demandé par " + msg.author.username
-        }
-      };
-      msg.channel.send({ embed });
-      consola.info(cmdexe + " uptime ".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-      hook.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-    }
+               if (cmd === 'thegate') {
+                   hasRole ? msg.member.roles.remove(TheGate) : msg.member.roles.add(TheGate);
 
-    // -- The Gate Access --
-    if (msg.content === prefix + "thegate on"){
-        var RoleTheGate = msg.guild.roles.get(config.IdTheGate)
-        if(msg.channel.recipient) return
-        if (!msg.member.roles.has(RoleTheGate)){
-          msg.member.addRole(RoleTheGate)
-        }
-        const embed = {
-          "color": 2067276,
-          "author": {
-            "name": "Vous êtes désormais inscrit aux nouveautés de The Gate."
-          },
-            "footer": {
-              "icon_url": msg.author.avatarURL,
-              "text": "Demandé par " + msg.author.username
-          }
-        };
-        msg.channel.send({ embed });
-        consola.info(cmdexe + " thegate on".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-        hook.send("**"+ prefix + "thegate on** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-    };
+                   const TheGateEmbedRole = new Discord.MessageEmbed()
+                       .setColor(2067276)
+                       .setFooter(`Demandé par ${msg.author.tag}`)
+                       .setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
+                       le rôle ${msg.guild.roles.get(TheGate).name}`, msg.author.displayAvatarURL());
 
-    if (msg.content === prefix + "thegate off"){
-        var RoleTheGate = msg.guild.roles.get(config.IdTheGate)
-        if(msg.channel.recipient) return
-        if (!msg.member.roles.has(RoleTheGate)){
-          msg.member.removeRole(RoleTheGate)
-        }
-        const embed = {
-          "color": 2067276,
-          "author": {
-            "name": "Vous êtes désormais désinscrit aux nouveautés de The Gate."
-          },
-            "footer": {
-              "icon_url": msg.author.avatarURL,
-              "text": "Demandé par " + msg.author.username
-          }
-        };
-        msg.channel.send({ embed });
-        consola.info(cmdexe + " thegate off".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-        hook.send("**"+ prefix + "thegate off** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-    };
+                   await msg.channel.send
+               }
+           } catch (e) {
+               console.error(e.message);
+           }
+       };
 
+       switch(cmd) {
+           //Commande bord
+           case 'bord':
+               if (msg.channel.type !== 'text') break;
 
-    // -- Mr_Robot Access --
-    if (msg.content === prefix + "mrrobot on"){
-        var RoleMrRobot = msg.guild.roles.get(config.IdMrRobot)
-        if(msg.channel.recipient) return
-        if (!msg.member.roles.has(RoleMrRobot)){
-          msg.member.addRole(RoleMrRobot)
-        }
-        const embed = {
-          "color": 7419530,
-          "author": {
-            "name": "Vous êtes désormais inscrit aux nouveautés de Mr_Robot."
-          },
-            "footer": {
-              "icon_url": msg.author.avatarURL,
-              "text": "Demandé par " + msg.author.username
-          }
-        };
-        msg.channel.send({ embed });
-        consola.info(cmdexe + " mrrobot on".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-        hook.send("**"+ prefix + "mrrobot on** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-    };
+               //Création de l'embed
+               const bordEmbed = new Discord.MessageEmbed()
+                   .setTitle(`BORD Pi`)
+                   .setColor(color)
+                   .setThumbnail(bot.user.displayAvatarURL())
+                   .setDescription(oneLine`Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.
+                   Il est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet
+                   et l'améliorer. Suivez simplement le protocole afin de le modifier`)
+                   .addField(`▪ ${prefix}mrrobot`,
+                       `Vous **serez notifié** à chaque mise à jour du projet \`Mr_Robot.\``)
+                   .addField(`▪ ${prefix}thegate`,
+                       oneLine`Vous **aurez accès à la catégorie** \`The Gate\`.
+                       Vous pourrez donc suggérer une idée et suivre les mises à jour.`)
+                   .addField(`Les liens utiles`,
+                       oneLine`[Serveur Discord](https://discord.gg/9gcxwVY)
+                       • [Me soutenir](https://www.patreon.com/thomasbnt)
+                       • [Site web](https://mrrobot.thomasbnt.fr/)
+                       • [Code Source](https://github.com/thomasbnt/Bord-Pi)`);
 
-    if (msg.content === prefix + "mrrobot off"){
-        var RoleMrRobot = msg.guild.roles.get(config.IdMrRobot)
-        if(msg.channel.recipient) return
-        if (!msg.member.roles.has(RoleMrRobot)){
-          msg.member.removeRole(RoleMrRobot)
-        }
-        const embed = {
-          "color": 7419530,
-          "author": {
-            "name": "Vous êtes désormais désinscrit aux nouveautés de Mr_Robot."
-          },
-            "footer": {
-              "icon_url": msg.author.avatarURL,
-              "text": "Demandé par " + msg.author.username
-          }
-        };
-        msg.channel.send({ embed });
-        consola.info(cmdexe + " mrrobot off".magenta +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-        hook.send("**"+ prefix + "mrrobot off** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-    };
+               await msg.channel.send(bordEmbed);
+               break;
 
+           case 'mrrobot':
+               if (msg.channel.type !== 'text') break;
 
-    // -- Met en cache les membres s'ils n'existent pas encore dans le cache --
-    if (!(msg.author.id in userCache)) {
-        userCache[msg.author.id] = {
-            username: msg.author.username,
-            identifier: msg.author.toString(),
-            last_msg_timestamp: 0
-        }
-    }
+               await changeRole(cmd, msg.member.roles.has(Mr_Robot));
+               break;
 
-    // ---- Anti spam ----
-    if (msg.createdTimestamp - userCache[msg.author.id].last_msg_timestamp <= 200) {
-        if(msg.channel.recipient) return
-        if (msg.member.hasPermission('MANAGE_MESSAGES')) return
-        if (!cache.active_warning) {
-            consola.info("Rôle Muté".red +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
-            hook.send(":anger:  **Rôle Muté** - ``" + msg.author.username + " #"+ msg.author.discriminator + "``");
-            var RoleMuté = msg.guild.roles.find("name","Muté")
-            cache.active_warning = msg.member.addRole(RoleMuté)
-              .catch(e  => consola.error('Erreur des permissions pour donner le rôle Muté.') + console.error(e))
-              .then((msg) => {
-                  setTimeout(() => {
-                      cache.active_warning = false
-                  }, 2000)
-              });
-        }
-        return
-    }
+           case 'thegate':
+               if (msg.channel.type !== 'text') break;
 
-    // Updates last message timestamp for user
-    userCache[msg.author.id].last_msg_timestamp = msg.createdTimestamp
+               await changeRole(cmd, msg.member.roles.has(TheGate));
+               break;
+       }
+   } catch (e) {
+       console.error(e.message);
+   }
 });
 
-bot.login(token);
+bot.login(config.token)
+    .catch(e => console.error(e.message));
