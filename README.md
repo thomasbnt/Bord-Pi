@@ -25,7 +25,13 @@ Veuillez vous assurer que votre demande de pull request respecte les lignes dire
 Merci pour vos suggestions!
 
 
-## III Informations complémentaires
+## III Les codes couleurs
+
+| **Partie**  | Par défaut | Mr_Robot | The Gate |
+|---------|------------|----------|----------|
+| **Couleur** | 15158332   | 7419530  | 2067276  |
+
+## IV Informations complémentaires
 
 
 
