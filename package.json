@@ -1,7 +1,7 @@
 {
   "name": "bordpi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Un robot Discord gérant et aidant les utilisateurs pour le serveur La Hype_ ",
   "main": "core/app.js",
   "scripts": {
     "start": "node core/app.js",
@@ -13,7 +13,7 @@
     "js"
   ],
   "author": "Thomas Bnt",
-  "license": "ISC",
+  "license": "GNU GPLv3.0",
   "dependencies": {
     "chalk": "^2.4.0",
     "common-tags": "^1.7.2",

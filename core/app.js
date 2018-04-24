@@ -11,20 +11,16 @@ process.on('error', e => {
     console.error(e);
 });
 
-/*
-Si erreur de promise
- */
+ // ---------------------- Si erreur de promise ---------------------------
 process.on('unhandledRejection', (r, p) => {
     console.promiseRejected(r, p);
 });
 
-/*
-Bot lancé sans erreur
- */
+  // ---------------------- Robot lancé sans erreur ----------------------
 bot.on('ready', () => {
     console.info(stripIndents`
     Connecté en tant que ${bot.user.tag} avec le préfixe '${config.prefix}'
-    
+
     Nombre d'utilisateurs totaux : ${bot.users.size}
     Nombre de channels : ${bot.channels.size}
     Nomre d'émojis totaux : ${bot.emojis.size
@@ -39,6 +35,8 @@ bot.on('guildMemberRemove', member => {
     console.leave(member);
 });
 
+
+// ---------------------- Messages ----------------------
 bot.on('message', async msg => {
    try {
        if (msg.author.bot) return;
@@ -51,6 +49,8 @@ bot.on('message', async msg => {
        const cmd = msg.content.split('').splice(prefix.length).join('').split(' ')[0];
        let args = msg.content.split(' ').splice(1);
 
+
+       // ---------------------- Couleur par défaut ----------------------
        const color = 10038562;
 
        /**
@@ -90,13 +90,12 @@ bot.on('message', async msg => {
        };
 
        switch(cmd) {
-           //Commande bord
+          // ---------------------- Commande bord ----------------------
            case 'bord':
                if (msg.channel.type !== 'text') break;
 
-               //Création de l'embed
                const bordEmbed = new Discord.MessageEmbed()
-                   .setTitle(`BORD Pi`)
+                   .setTitle(`BORD Pi | Panel d'aide et d'information`)
                    .setColor(color)
                    .setThumbnail(bot.user.displayAvatarURL())
                    .setDescription(oneLine`Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.
@@ -110,18 +109,18 @@ bot.on('message', async msg => {
                    .addField(`Les liens utiles`,
                        oneLine`[Serveur Discord](https://discord.gg/9gcxwVY)
                        • [Me soutenir](https://www.patreon.com/thomasbnt)
-                       • [Site web](https://mrrobot.thomasbnt.fr/)
+                       • [Site web](https://thomasbnt.fr/)
                        • [Code Source](https://github.com/thomasbnt/Bord-Pi)`);
 
                await msg.channel.send(bordEmbed);
                break;
-
+          // ---------------------- Commande mrrobot ----------------------
            case 'mrrobot':
                if (msg.channel.type !== 'text') break;
 
                await changeRole(cmd, msg.member.roles.has(Mr_Robot));
                break;
-
+          // ---------------------- Commande thegate ----------------------
            case 'thegate':
                if (msg.channel.type !== 'text') break;
 
