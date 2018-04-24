@@ -22,7 +22,7 @@ process.on('unhandledRejection', (r, p) => {
 Bot lancé sans erreur
  */
 bot.on('ready', () => {
-    console.success(`${bot.user.tag} lancé `);
+    console.log(stripIndents``);
 });
 
 bot.on('guildMemberAdd', member => {
