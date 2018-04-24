@@ -22,7 +22,13 @@ process.on('unhandledRejection', (r, p) => {
 Bot lancé sans erreur
  */
 bot.on('ready', () => {
-    console.log(stripIndents``);
+    console.info(stripIndents`
+    Connecté en tant que ${bot.user.tag} avec le préfixe '${config.prefix}'
+    
+    Nombre d'utilisateurs totaux : ${bot.users.size}
+    Nombre de channels : ${bot.channels.size}
+    Nomre d'émojis totaux : ${bot.emojis.size
+    }`);
 });
 
 bot.on('guildMemberAdd', member => {
