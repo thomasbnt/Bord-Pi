@@ -62,7 +62,7 @@ bot.on('message', async msg => {
                        .setColor(7419530)
                        .setFooter(`Demandé par ${msg.author.tag}`)
                        .setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
-                       le rôle **${msg.guild.roles.get(Mr_Robot).name}**`, msg.author.displayAvatarURL());
+                       le rôle ${msg.guild.roles.get(Mr_Robot).name}`, msg.author.displayAvatarURL());
 
                    await msg.channel.send(MrRobotEmbedRole);
                }
@@ -76,7 +76,7 @@ bot.on('message', async msg => {
                        .setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
                        le rôle ${msg.guild.roles.get(TheGate).name}`, msg.author.displayAvatarURL());
 
-                   await msg.channel.send
+                   await msg.channel.send(TheGateEmbedRole);
                }
            } catch (e) {
                console.error(e.message);
