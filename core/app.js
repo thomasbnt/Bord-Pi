@@ -46,6 +46,8 @@ bot.on('message', async msg => {
        let isCmd;
        const antiSpam = new Discord.Collection();
 
+       if (!msg.content.startsWith(prefix)) return;
+
        const cmd = msg.content.split('').splice(prefix.length).join('').split(' ')[0];
        let args = msg.content.split(' ').splice(1);
 
@@ -58,6 +60,7 @@ bot.on('message', async msg => {
         * @param {String} cmd - La commande exécutée (mrrobot ou thegate)
         * @param {Boolean} hasRole - Si il a le rôle
         * @returns {Promise<void>}
+        *
         */
        const changeRole = async (cmd, hasRole) => {
            try {
@@ -114,17 +117,43 @@ bot.on('message', async msg => {
 
                await msg.channel.send(bordEmbed);
                break;
+               // ---------------------- Commande ping ----------------------
+                case 'ping':
+                    if (msg.channel.type !== 'text') break;
+                    if (!msg.member.hasPermission('MANAGE_MESSAGES')) break
+
+                  const PingEmbed = new Discord.MessageEmbed()
+                  .setColor(color)
+                  .setAuthor(`Ping de ${bot.ping} ms`, msg.author.displayAvatarURL())
+                  console.cmd(cmd, msg.author.tag);
+
+                    await msg.channel.send(PingEmbed);
+                    break;
+            // ---------------------- Commande uptime ----------------------
+             case 'uptime':
+                 if (msg.channel.type !== 'text') break;
+                 if (!msg.member.hasPermission('MANAGE_MESSAGES')) break
+
+               const UptimeEmbed = new Discord.MessageEmbed()
+               .setColor(color)
+               .setAuthor("En ligne depuis " + (Math.round(bot.uptime / (1000 * 60 * 60))) + 'h  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + 'min ' + (Math.round(bot.uptime / 1000) % 60) + 's', msg.author.displayAvatarURL())
+                 console.cmd(cmd, msg.author.tag);
+
+                 await msg.channel.send(UptimeEmbed);
+                 break;
           // ---------------------- Commande mrrobot ----------------------
            case 'mrrobot':
                if (msg.channel.type !== 'text') break;
 
                await changeRole(cmd, msg.member.roles.has(Mr_Robot));
+               console.cmd(cmd, msg.author.tag);
                break;
           // ---------------------- Commande thegate ----------------------
            case 'thegate':
                if (msg.channel.type !== 'text') break;
 
                await changeRole(cmd, msg.member.roles.has(TheGate));
+               console.cmd(cmd, msg.author.tag);
                break;
        }
    } catch (e) {
