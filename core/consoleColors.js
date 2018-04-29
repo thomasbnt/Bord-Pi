@@ -4,7 +4,7 @@ const chalk = require('chalk');
 Object.defineProperties(console, {
     error: {
         value: (errMessage = '') => {
-            return console.log(chalk`{hex('#9F0514') ❌ ${date()()} Erreur : ${errMessage}}`);
+            return console.log(chalk`{hex('#9F0514') ❌ ${date()} Erreur : ${errMessage}}`);
             },
         writable: true
     },
