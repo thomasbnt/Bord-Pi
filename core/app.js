@@ -7,6 +7,10 @@ const bot = new Discord.Client({
     autoReconnect: true
 });
 
+function updatePresence() {
+    bot.user.setActivity(bot.guilds.reduce((mem, g) => mem += g.memberCount, 0) + " utilisateurs | /bord", {type: "WATCHING"})
+}
+
 process.on('error', e => {
     console.error(e);
 });
@@ -28,10 +32,12 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
+    updatePresence()
     console.join(member);
 });
 
 bot.on('guildMemberRemove', member => {
+    updatePresence()
     console.leave(member);
 });
 
