@@ -22,6 +22,7 @@ process.on('unhandledRejection', (r, p) => {
 
   // ---------------------- Robot lancé sans erreur ----------------------
 bot.on('ready', () => {
+    updatePresence()
     console.info(stripIndents`
     Connecté en tant que ${bot.user.tag} avec le préfixe '${config.prefix}'
 
