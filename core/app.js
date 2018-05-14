@@ -107,14 +107,14 @@ bot.on('message', async msg => {
                const bordEmbed = new Discord.MessageEmbed()
                    .setTitle(`BORD Pi | Panel d'aide et d'information`)
                    .setColor(color)
-                   .setThumbnail(bot.user.displayAvatarURL())
+                   //.setThumbnail(bot.user.displayAvatarURL())
                    .setDescription(oneLine`Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.
                    Il est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet
                    et l'améliorer. Suivez simplement le protocole afin de le modifier`)
                    .addField(`▪ ${prefix}mrrobot`,
-                       `Vous **serez notifié** à chaque mise à jour du projet \`Mr_Robot.\``)
+                       `Vous **serez notifié** à chaque mise à jour du projet \`Mr. Robøt.\``)
                    .addField(`▪ ${prefix}thegate`,
-                       oneLine`Vous **aurez accès à la catégorie** \`The Gate\`.
+                       oneLine`Vous **aurez accès à la catégorie et vous serrez notifié pour le projet** \`The Gate\`.
                        Vous pourrez donc suggérer une idée et suivre les mises à jour.`)
                    .addField(`Les liens utiles`,
                        oneLine`[Serveur Discord](https://discord.gg/9gcxwVY)
