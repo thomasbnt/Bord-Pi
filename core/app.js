@@ -110,7 +110,7 @@ bot.on('message', async msg => {
                    //.setThumbnail(bot.user.displayAvatarURL())
                    .setDescription(oneLine`Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.
                    Il est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet
-                   et l'améliorer. Suivez simplement le protocole afin de le modifier`)
+                   et l'améliorer. Suivez simplement le protocole afin de le modifier.`)
                    .addField(`▪ ${prefix}mrrobot`,
                        `Vous **serez notifié** à chaque mise à jour du projet \`Mr. Robøt.\``)
                    .addField(`▪ ${prefix}thegate`,
