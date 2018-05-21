@@ -7,6 +7,9 @@ const bot = new Discord.Client({
     autoReconnect: true
 });
 
+// ---------------------- Couleur par défaut ----------------------
+const color = 10038562;
+
 function updatePresence() {
     bot.user.setActivity(bot.guilds.reduce((mem, g) => mem += g.memberCount, 0) + " utilisateurs | /bord", {type: "WATCHING"})
 }
@@ -32,9 +35,21 @@ bot.on('ready', () => {
     }`);
 });
 
-bot.on('guildMemberAdd', member => {
+bot.on("guildMemberAdd", (member) => {
     updatePresence()
     console.join(member);
+    const ChannelGeneral = member.guild.channels.find("name", "general");
+
+      const embed = {
+      "color": color,
+      "fields": [
+        {
+          "name": "Bienvenue à " + member.user.username + " | Fiche d'aide",
+          "value": "Veuillez lire les <#399600870804684803>.\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/#FAQ) sur le site.\nSi vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en **suivant le protocole dans les messages épinglés**.\nSi vous voulez être notifié à chaque mise à jour du robot et recevoir toutes les informations importantes, faites `/mrrobot`."
+        }
+      ]
+    }
+   ChannelGeneral.send({ embed });
 });
 
 bot.on('guildMemberRemove', member => {
@@ -48,7 +63,7 @@ bot.on('message', async msg => {
    try {
        if (msg.author.bot) return;
 
-       const {prefix, webhook, TheGate, Mr_Robot} = config;
+       const {prefix, webhook, Mr_Robot} = config;
        const hook = new Discord.WebhookClient(webhook.id, webhook.token);
        let isCmd;
        const antiSpam = new Discord.Collection();
@@ -58,9 +73,6 @@ bot.on('message', async msg => {
        const cmd = msg.content.split('').splice(prefix.length).join('').split(' ')[0];
        let args = msg.content.split(' ').splice(1);
 
-
-       // ---------------------- Couleur par défaut ----------------------
-       const color = 10038562;
 
        /**
         *
@@ -83,17 +95,17 @@ bot.on('message', async msg => {
                    await msg.channel.send(MrRobotEmbedRole);
                }
 
-               if (cmd === 'thegate') {
-                   hasRole ? msg.member.roles.remove(TheGate) : msg.member.roles.add(TheGate);
+               //if (cmd === 'thegate') {
+                   //hasRole ? msg.member.roles.remove(TheGate) : msg.member.roles.add(TheGate);
 
-                   const TheGateEmbedRole = new Discord.MessageEmbed()
-                       .setColor(2067276)
-                       .setFooter(`Demandé par ${msg.author.tag}`)
-                       .setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
-                       le rôle ${msg.guild.roles.get(TheGate).name}`, msg.author.displayAvatarURL());
+                  //const TheGateEmbedRole = new Discord.MessageEmbed()
+                       //.setColor(2067276)
+                       //.setFooter(`Demandé par ${msg.author.tag}`)
+                        //.setAuthor(oneLine`Vous vous êtes bien ${hasRole ? 'retiré' : 'donné'}
+                        //le rôle ${msg.guild.roles.get(TheGate).name}`, msg.author.displayAvatarURL());
 
-                   await msg.channel.send(TheGateEmbedRole);
-               }
+                    //await msg.channel.send(TheGateEmbedRole);
+                //}
            } catch (e) {
                console.error(e.message);
            }
@@ -112,10 +124,10 @@ bot.on('message', async msg => {
                    Il est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet
                    et l'améliorer. Suivez simplement le protocole afin de le modifier.`)
                    .addField(`▪ ${prefix}mrrobot`,
-                       `Vous **serez notifié** à chaque mise à jour du projet \`Mr. Robøt.\``)
-                   .addField(`▪ ${prefix}thegate`,
-                       oneLine`Vous **aurez accès à la catégorie et vous serrez notifié pour le projet** \`The Gate\`.
-                       Vous pourrez donc suggérer une idée et suivre les mises à jour.`)
+                       `Vous **serez notifié** à chaque mise à jour du projet \`Mr. Robøt\``)
+                    //.addField(`▪ ${prefix}thegate`,
+                        //oneLine`Vous **aurez accès à la catégorie et vous serrez notifié pour le projet** \`The Gate\`.
+                        //Vous pourrez donc suggérer une idée et suivre les mises à jour.`)
                    .addField(`Les liens utiles`,
                        oneLine`[Serveur Discord](https://discord.gg/9gcxwVY)
                        • [Me soutenir](https://www.patreon.com/thomasbnt)
@@ -123,6 +135,7 @@ bot.on('message', async msg => {
                        • [Code Source](https://github.com/thomasbnt/Bord-Pi)`);
 
                await msg.channel.send(bordEmbed);
+               console.cmd(cmd, msg.author.tag);
                break;
                // ---------------------- Commande ping ----------------------
                 case 'ping':
@@ -131,7 +144,7 @@ bot.on('message', async msg => {
 
                   const PingEmbed = new Discord.MessageEmbed()
                   .setColor(color)
-                  .setAuthor(`Ping de ${bot.ping} ms`, msg.author.displayAvatarURL())
+                  .setAuthor(`Ping de ${Math.floor(bot.ping)} ms`, msg.author.displayAvatarURL())
                   console.cmd(cmd, msg.author.tag);
 
                     await msg.channel.send(PingEmbed);
@@ -156,12 +169,12 @@ bot.on('message', async msg => {
                console.cmd(cmd, msg.author.tag);
                break;
           // ---------------------- Commande thegate ----------------------
-           case 'thegate':
-               if (msg.channel.type !== 'text') break;
+            //case 'thegate':
+               // if (msg.channel.type !== 'text') break;
 
-               await changeRole(cmd, msg.member.roles.has(TheGate));
-               console.cmd(cmd, msg.author.tag);
-               break;
+                //await changeRole(cmd, msg.member.roles.has(TheGate));
+                //console.cmd(cmd, msg.author.tag);
+                //break;
        }
    } catch (e) {
        console.error(e.message);
