@@ -49,11 +49,13 @@ bot.on("guildMemberAdd", (member) => {
         }
       ]
     }
-   ChannelGeneral.send({ embed })
-       .then((msg) => {
-       setTimeout(() => {
-       msg.delete()
-   }, 30000)
+    ChannelGeneral.send({ embed })
+                    .then((msg) => {
+                    setTimeout(() => {
+                    msg.delete()
+                }, 30000)
+                return
+            });
 });
 
 bot.on('guildMemberRemove', member => {
