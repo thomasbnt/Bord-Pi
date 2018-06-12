@@ -50,12 +50,12 @@ bot.on("guildMemberAdd", (member) => {
       ]
     }
     ChannelGeneral.send({ embed })
-                    .then((msg) => {
-                    setTimeout(() => {
-                    msg.delete()
-                }, 30000)
-                return
-            });
+            .then((msg) => {
+            setTimeout(() => {
+            msg.delete()
+        }, 30000)
+        return
+    });
 });
 
 bot.on('guildMemberRemove', member => {
@@ -68,6 +68,17 @@ bot.on('guildMemberRemove', member => {
 bot.on('message', async msg => {
    try {
        if (msg.author.bot) return;
+
+       if(msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite')) {
+         if (msg.member.hasPermission('MANAGE_MESSAGES')) return
+         else {
+           msg.delete()
+           console.warn(msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
+           msg.reply(' merci de revoir les <#399600870804684803> . Les liens discord sont interdits.')
+             .then(m => { setTimeout(() => { m.delete() }, 5000) })
+
+         }
+       }
 
        const {prefix, webhook, Mr_Robot} = config;
        const hook = new Discord.WebhookClient(webhook.id, webhook.token);
