@@ -44,8 +44,8 @@ bot.on("guildMemberAdd", (member) => {
       "color": color,
       "fields": [
         {
-          "name": "Bienvenue à " + member.user.username + " | Fiche d'aide",
-          "value": "Veuillez lire les <#399600870804684803>.\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/#FAQ) sur le site.\nSi vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en **suivant le protocole dans les messages épinglés**.\nSi vous voulez être notifié à chaque mise à jour du robot et recevoir toutes les informations importantes, faites `/mrrobot`."
+          "name": "Bord Pi | Fiche d'aide",
+          "value": "Veuillez lire les <#399600870804684803>.\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/#faq) sur le site.\nSi vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en **suivant le protocole dans les messages épinglés**.\nSi vous voulez être notifié à chaque mise à jour du robot et recevoir toutes les informations importantes, faites `/mrrobot`.Passez une bonne journée/soirée " + msg.author.tag + " !"
         }
       ]
     }
@@ -136,7 +136,7 @@ bot.on('message', async msg => {
                const bordEmbed = new Discord.MessageEmbed()
                    .setTitle(`BORD Pi | Panel d'aide et d'information`)
                    .setColor(color)
-                   //.setThumbnail(bot.user.displayAvatarURL())
+                   .setThumbnail(bot.user.displayAvatarURL())
                    .setDescription(oneLine`Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.
                    Il est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet
                    et l'améliorer. Suivez simplement le protocole afin de le modifier.`)
