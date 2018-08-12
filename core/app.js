@@ -57,8 +57,6 @@ bot.on('guildMemberRemove', member => {
 bot.on('message', (msg) => { 
 
        if (msg.author.bot) return
-       if (!msg.content.startsWith(prefix)) return
-
 
         // --- Commande bord | help ---
         if (msg.content === prefix + "bord") {
@@ -120,17 +118,17 @@ bot.on('message', (msg) => {
 
        // --- Filtre contre les liens Discord ---
        if(msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite')) {
-         if (msg.member.hasPermission('MANAGE_MESSAGES')) return
-         else {
-           msg.delete()
-           console.log(msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
-           WebhookLogs.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
-           WebhookPublic.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
-           msg.reply(' merci de revoir les <#399600870804684803> . Les liens discord sont interdits.')
-             .then(m => { setTimeout(() => { m.delete() }, 5000) })
-
-         }
+            if(msg.member.hasPermission('MANAGE_MESSAGES')) return    
+            msg.delete()
+            console.log(msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
+            WebhookLogs.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
+            WebhookPublic.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
+            msg.reply(' merci de revoir les <#399600870804684803> . Les liens discord sont interdits.')
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
        }
+
+
+      
 
        // --- Commande uptime (réservé à ceux qui ont la permission de gérer les messages) ---
       if (msg.content === prefix + 'uptime'){
