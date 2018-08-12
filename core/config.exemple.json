@@ -1,7 +1,11 @@
 {
   "prefix": "/",
   "token": "",
-  "webhook": {
+  "webhookLogs": {
+    "id": "",
+    "token": ""
+  },
+  "webhookPublic": {
     "id": "",
     "token": ""
   },
