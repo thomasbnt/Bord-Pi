@@ -88,7 +88,7 @@ bot.on('message', (msg) => {
             },
             {
                 "name": "Les liens utiles",
-                "value": "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://mrrobot.thomasbnt.fr/) • [Code Source](https://github.com/thomasbnt/Bord-Pi)",
+                "value": "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://thomasbnt.fr/) • [Code Source](https://github.com/thomasbnt/Bord-Pi)",
                 "inline": false
             }
             ]
