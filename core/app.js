@@ -35,7 +35,7 @@ bot.on("guildMemberAdd", (member) => {
       "fields": [
         {
           "name": "Bienvenue à " + member.user.username + " | Fiche d'aide",
-          "value": "Veuillez lire les <#399600870804684803>.\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/#FAQ) sur le site.\nSi vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en **suivant le protocole dans les messages épinglés**.\nSi vous voulez être notifié à chaque mise à jour du robot et recevoir toutes les informations importantes, faites `/mrrobot`."
+          "value": "Veuillez lire les <#399600870804684803>.\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/#FAQ/) sur le site.\nSi vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en **suivant le protocole dans les messages épinglés**.\nSi vous voulez être notifié à chaque mise à jour du robot et recevoir toutes les informations importantes, faites `/mrrobot`."
         }
       ]
     }
@@ -76,16 +76,21 @@ bot.on('message', (msg) => {
                 "value": "Vous **serez notifié de chaque mise à jour** du projet <@308655472452304896>. ",
                 "inline": false
             },
-            // {
-            //     "name": ":black_small_square: " + prefix + "liens",
-            //     "value": "Vous aurez l'accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !",
-            //     "inline": false
-            // },
-            // {
-            //     "name": ":black_small_square: " + prefix + "musiques",
-            //     "value": "Vous aurez l'accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !",
-            //     "inline": false
-            // },
+            {
+                "name": ":black_small_square: " + prefix + "thegate",
+                "value": "Vous aurez l'accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.",
+                "inline": false
+            },
+            {
+                "name": ":black_small_square: " + prefix + "liens",
+                "value": "Vous aurez l'accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !",
+                "inline": false
+            },
+            {
+                "name": ":black_small_square: " + prefix + "musiques",
+                "value": "Vous aurez l'accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !",
+                "inline": false
+            },
             {
                 "name": "Les liens utiles",
                 "value": "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://thomasbnt.fr/) • [Code Source](https://github.com/thomasbnt/Bord-Pi)",
@@ -125,59 +130,86 @@ bot.on('message', (msg) => {
             }
           }
 
-        //   if(msg.content === prefix + 'liens') {
-        //     msg.delete()
-        //     if(msg.member.roles.has(Liens)) {
-        //         msg.member.removeRole(Liens).catch(console.error)
-        //         msg.channel.send("Vous n'avez plus accès au **channel des liens**.")
-        //         .then(m => { setTimeout(() => { m.delete() }, 5000) })
-        //         WebhookLogs.send("Rôle **Liens [Accès]** supprimé pour " + msg.author)
-        //         const embed = new Discord.RichEmbed()
-        //         WebhookPublic.send(embed
-        //             .setColor(10038562)
-        //             .setDescription("Rôle **Liens [Accès]** supprimé pour "+ msg.author)
-        //             .setThumbnail(msg.author.displayAvatarURL)
-        //         )
-        //     } else {
-        //         msg.member.addRole(Liens).catch(console.error)
-        //         msg.channel.send('Vous avez accès aux <#399602969810829312>, proposez des articles et des nouveautés à nous faire découvrir !')
-        //         .then(m => { setTimeout(() => { m.delete() }, 5000) })
-        //         WebhookLogs.send("Rôle **Liens [Accès]** ajouté pour " + msg.author)
-        //         const embed = new Discord.RichEmbed()
-        //         WebhookPublic.send(embed
-        //             .setColor(10038562)
-        //             .setDescription("Rôle **Liens [Accès]** ajouté pour "+ msg.author)
-        //             .setThumbnail(msg.author.displayAvatarURL)
-        //         )
-        //     }
-        //   }
+          if(msg.content === prefix + 'liens') {
+            msg.delete()
+            if(msg.member.roles.has(Liens)) {
+                msg.member.removeRole(Liens).catch(console.error)
+                msg.channel.send("Vous n'avez plus accès au **channel des liens**.")
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **Liens [Accès]** supprimé pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **Liens [Accès]** supprimé pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            } else {
+                msg.member.addRole(Liens).catch(console.error)
+                msg.channel.send('Vous avez accès aux <#399602969810829312>, proposez des articles et des nouveautés à nous faire découvrir !')
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **Liens [Accès]** ajouté pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **Liens [Accès]** ajouté pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            }
+          }
 
-        //   if(msg.content === prefix + 'musiques') {
-        //     msg.delete()
-        //     if(msg.member.roles.has(Musiques)) {
-        //         msg.member.removeRole(Musiques).catch(console.error)
-        //         msg.channel.send("Vous n'avez plus accès au **channel des musiques**.")
-        //         .then(m => { setTimeout(() => { m.delete() }, 5000) })
-        //         WebhookLogs.send("Rôle **Musiques [Accès]** supprimé pour " + msg.author)
-        //         const embed = new Discord.RichEmbed()
-        //         WebhookPublic.send(embed
-        //             .setColor(10038562)
-        //             .setDescription("Rôle **Musiques [Accès]** supprimé pour "+ msg.author)
-        //             .setThumbnail(msg.author.displayAvatarURL)
-        //         )
-        //     } else {
-        //         msg.member.addRole(Musiques).catch(console.error)
-        //         msg.channel.send('Vous avez accès aux <#478578178672164874>, proposez vos musiques à nous faire écouter !')
-        //         .then(m => { setTimeout(() => { m.delete() }, 5000) })
-        //         WebhookLogs.send("Rôle **Musiques [Accès]** ajouté pour " + msg.author)
-        //         const embed = new Discord.RichEmbed()
-        //         WebhookPublic.send(embed
-        //             .setColor(10038562)
-        //             .setDescription("Rôle **Musiques [Accès]** ajouté pour "+ msg.author)
-        //             .setThumbnail(msg.author.displayAvatarURL)
-        //         )
-        //     }
-        //   }
+          if(msg.content === prefix + 'musiques') {
+            msg.delete()
+            if(msg.member.roles.has(Musiques)) {
+                msg.member.removeRole(Musiques).catch(console.error)
+                msg.channel.send("Vous n'avez plus accès au **channel des musiques**.")
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **Musiques [Accès]** supprimé pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **Musiques [Accès]** supprimé pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            } else {
+                msg.member.addRole(Musiques).catch(console.error)
+                msg.channel.send('Vous avez accès aux <#478578178672164874>, proposez vos musiques à nous faire écouter !')
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **Musiques [Accès]** ajouté pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **Musiques [Accès]** ajouté pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            }
+          }
+
+          if(msg.content === prefix + 'thegate') {
+            msg.delete()
+            if(msg.member.roles.has(TheGate)) {
+                msg.member.removeRole(TheGate).catch(console.error)
+                msg.channel.send("Vous n'avez plus accès à la **catégorie de The Gate**.")
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **The Gate [Accès]** supprimé pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **The Gate [Accès]** supprimé pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            } else {
+                msg.member.addRole(TheGate).catch(console.error)
+                msg.channel.send('Vous avez accès à <#416001338929971201> ainsi que <#416001389605683200>, proposez vos suggestions pour améliorer le projet.')
+                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                WebhookLogs.send("Rôle **The Gate [Accès]** ajouté pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **The Gate [Accès]** ajouté pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            }
+          }
 
 
        // --- Filtre contre les liens Discord ---
