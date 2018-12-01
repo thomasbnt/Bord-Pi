@@ -43,7 +43,7 @@ bot.on("guildMemberAdd", (member) => {
             .then((msg) => {
             setTimeout(() => {
             msg.delete()
-        }, 40000)
+        }, 60000)
         return
     });
 });
@@ -233,7 +233,7 @@ bot.on('message', (msg) => {
             const embed = {
             "author": {
                 "name": "🔌 Uptime",
-                "url": "https://thomasbnt.fr"
+                "url": "https://www.thomasbnt.fr"
             },
             "description": (Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s",
             "color": 10038562
