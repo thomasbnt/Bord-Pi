@@ -108,7 +108,7 @@ bot.on('message', (msg) => {
             if(msg.member.roles.has(Mr_Robot)) {
                 msg.member.removeRole(Mr_Robot).catch(console.error)
                 msg.channel.send('Vous ne serrez plus notifié pour les mises à jour mineures de **Mr. Robøt**.')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Mr_Robot [Accès]** supprimé pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -119,7 +119,7 @@ bot.on('message', (msg) => {
             } else {
                 msg.member.addRole(Mr_Robot).catch(console.error)
                 msg.channel.send('Vous serrez désormais notifié pour les mises à jour mineures de **Mr. Robøt**.')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Mr_Robot [Accès]** ajouté pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -135,7 +135,7 @@ bot.on('message', (msg) => {
             if(msg.member.roles.has(Liens)) {
                 msg.member.removeRole(Liens).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès au **channel des liens**.")
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Liens [Accès]** supprimé pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -146,7 +146,7 @@ bot.on('message', (msg) => {
             } else {
                 msg.member.addRole(Liens).catch(console.error)
                 msg.channel.send('Vous avez accès aux <#399602969810829312>, proposez des articles et des nouveautés à nous faire découvrir !')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Liens [Accès]** ajouté pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -162,7 +162,7 @@ bot.on('message', (msg) => {
             if(msg.member.roles.has(Musiques)) {
                 msg.member.removeRole(Musiques).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès au **channel des musiques**.")
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Musiques [Accès]** supprimé pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -173,7 +173,7 @@ bot.on('message', (msg) => {
             } else {
                 msg.member.addRole(Musiques).catch(console.error)
                 msg.channel.send('Vous avez accès aux <#478578178672164874>, proposez vos musiques à nous faire écouter !')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **Musiques [Accès]** ajouté pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -189,7 +189,7 @@ bot.on('message', (msg) => {
             if(msg.member.roles.has(TheGate)) {
                 msg.member.removeRole(TheGate).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès à la **catégorie de The Gate**.")
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **The Gate [Accès]** supprimé pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -200,7 +200,7 @@ bot.on('message', (msg) => {
             } else {
                 msg.member.addRole(TheGate).catch(console.error)
                 msg.channel.send('Vous avez accès à <#416001338929971201> ainsi que <#416001389605683200>, proposez vos suggestions pour améliorer le projet.')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
                 WebhookLogs.send("Rôle **The Gate [Accès]** ajouté pour " + msg.author)
                 const embed = new Discord.RichEmbed()
                 WebhookPublic.send(embed
@@ -220,7 +220,7 @@ bot.on('message', (msg) => {
             WebhookLogs.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
             WebhookPublic.send(msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
             msg.reply(' merci de revoir les <#399600870804684803> . Les liens discord sont interdits.')
-                .then(m => { setTimeout(() => { m.delete() }, 5000) })
+                .then(m => { setTimeout(() => { m.delete() }, 10000) })
        }
 
 
