@@ -35,7 +35,7 @@ Merci pour vos suggestions!
 
 
 
-- 💬  Chat : Rejoins-nous sur [Discord](https://discord.gg/9gcxwVY)
+- 💬  Chat : Rejoins-nous sur [Discord](https://www.thomasbnt.fr/discord/)
 - 📣  News : Suis-moi sur [Twitter](https://twitter.com/Hyprimort)
 - 📕  Sous licence [GNU GPL v3.0](LICENSE)
-- 🔗  Visite le [Site Web](https://thomasbnt.fr)
+- 🔗  Visite le [Site Web](https://www.thomasbnt.fr)
