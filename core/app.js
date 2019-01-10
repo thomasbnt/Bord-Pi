@@ -89,22 +89,22 @@ bot.on('message', (msg) => {
             },
             {
                 "name": ":black_small_square: " + prefix + "thegate",
-                "value": "Vous aurez l'accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.",
+                "value": "Vous aurez accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.",
                 "inline": false
             },
             {
                 "name": ":black_small_square: " + prefix + "liens",
-                "value": "Vous aurez l'accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !",
+                "value": "Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !",
                 "inline": false
             },
             {
                 "name": ":black_small_square: " + prefix + "musiques",
-                "value": "Vous aurez l'accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !",
+                "value": "Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !",
                 "inline": false
             },
             {
                 "name": ":black_small_square: " + prefix + "feed",
-                "value": "Vous aurez l'accès au **channel textuel des flux RSS**.",
+                "value": "Vous aurez accès au **channel textuel des flux RSS**.",
                 "inline": false
             },
             {
