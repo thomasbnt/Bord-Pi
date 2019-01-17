@@ -32,7 +32,7 @@ bot.on('ready', () => {
     console.info("Connecté en tant que ".bgMagenta + bot.user.tag.bgMagenta)
 });
 
-bot.on("guildMemberAdd", (member) => {
+bot.on("guildMemberAdd", (member, msg) => {
     updatePresence()
     const guild = member.guild;
     console.log(`📥 ${member.user.username}#${member.user.discriminator} (${member.user.id}) a rejoint ${guild.name}`.green);
@@ -50,7 +50,7 @@ bot.on("guildMemberAdd", (member) => {
     ChannelGeneral.send({ embed })
             .then((msg) => {
             setTimeout(() => {
-            msg.delete()
+                if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
         }, 60000)
         return
     });
@@ -120,7 +120,7 @@ bot.on('message', (msg) => {
         };
 
         if(msg.content === prefix + 'mrrobot') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if(msg.member.roles.has(Mr_Robot)) {
                 msg.member.removeRole(Mr_Robot).catch(console.error)
                 msg.channel.send('Vous ne serrez plus notifié pour les mises à jour mineures de **Mr. Robøt**.')
@@ -147,7 +147,7 @@ bot.on('message', (msg) => {
         };
 
         if(msg.content === prefix + 'liens') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if(msg.member.roles.has(Liens)) {
                 msg.member.removeRole(Liens).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès au **channel des liens**.")
@@ -174,7 +174,7 @@ bot.on('message', (msg) => {
         };
 
         if(msg.content === prefix + 'musiques') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if(msg.member.roles.has(Musiques)) {
                 msg.member.removeRole(Musiques).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès au **channel des musiques**.")
@@ -201,7 +201,7 @@ bot.on('message', (msg) => {
         };
 
         if(msg.content === prefix + 'thegate') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if(msg.member.roles.has(TheGate)) {
                 msg.member.removeRole(TheGate).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès à la **catégorie de The Gate**.")
@@ -227,7 +227,7 @@ bot.on('message', (msg) => {
             }
         };
         if(msg.content === prefix + 'feed') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if(msg.member.roles.has(Feed)) {
                 msg.member.removeRole(Feed).catch(console.error)
                 msg.channel.send("Vous n'avez plus accès au channel des **flux RSS**.")
@@ -265,7 +265,7 @@ bot.on('message', (msg) => {
         // --- Filtre contre les liens Discord ---
         if(msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite') || msg.content.includes('discord.me')) {
             if(msg.member.hasPermission('MANAGE_MESSAGES')) return    
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             console.log(msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
             WebhookLogs.send(":x:" + msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
             WebhookPublic.send(":x:" + msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
@@ -317,7 +317,7 @@ bot.on('message', (msg) => {
 
        // --- Commande ping (réservé à ceux qui ont la permission de gérer les messages) ---
        if (msg.content === prefix + 'ping') {
-            msg.delete()
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
             if (!msg.member.hasPermission('MANAGE_MESSAGES')) return
             const embed = new Discord.RichEmbed()
             .setColor(10038562)
