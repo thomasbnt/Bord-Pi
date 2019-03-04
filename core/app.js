@@ -3,7 +3,7 @@ const config = require('./config.json');
 const colors = require("colors");
 
 cmdexe = 'Commande exécuté : ';
-const { prefix, webhookLogs, webhookPublic, Mr_Robot, TheGate, Liens, Musiques, Feed, ChannelMessagedeBienvenue, Muted } = config;
+const { prefix, webhookLogs, webhookPublic, Mr_Robot, TheGate, Liens, Musiques, Feed, LoupsGarous, ChannelMessagedeBienvenue, Muted } = config;
 const WebhookLogs = new Discord.WebhookClient(webhookLogs.id, webhookLogs.token);
 const WebhookPublic = new Discord.WebhookClient(webhookPublic.id, webhookPublic.token);
 
@@ -105,6 +105,11 @@ bot.on('message', (msg) => {
             {
                 "name": ":black_small_square: " + prefix + "feed",
                 "value": "Vous aurez accès au **channel textuel des flux RSS**.",
+                "inline": false
+            },
+            {
+                "name": ":black_small_square: " + prefix + "lg",
+                "value": "Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.",
                 "inline": false
             },
             {
@@ -248,6 +253,33 @@ bot.on('message', (msg) => {
                 WebhookPublic.send(embed
                     .setColor(10038562)
                     .setDescription("Rôle **Feed [Accès]** ajouté pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            }
+        };
+
+        if(msg.content === prefix + 'lg') {
+            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))};
+            if(msg.member.roles.has(LoupsGarous)) {
+                msg.member.removeRole(LoupsGarous).catch(console.error)
+                msg.channel.send("Vous n'avez plus accès au **channel du village**.")
+                    .then(m => { setTimeout(() => { m.delete() }, 10000) })
+                WebhookLogs.send("Rôle **🐺** supprimé pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **🐺** supprimé pour "+ msg.author)
+                    .setThumbnail(msg.author.displayAvatarURL)
+                )
+            } else {
+                msg.member.addRole(LoupsGarous).catch(console.error)
+                msg.channel.send('Vous avez accès au channel vocal de ~~la meute~~ du village, soyez vigilants !')
+                    .then(m => { setTimeout(() => { m.delete() }, 10000) })
+                WebhookLogs.send("Rôle **🐺** ajouté pour " + msg.author)
+                const embed = new Discord.RichEmbed()
+                WebhookPublic.send(embed
+                    .setColor(10038562)
+                    .setDescription("Rôle **🐺** ajouté pour "+ msg.author)
                     .setThumbnail(msg.author.displayAvatarURL)
                 )
             }
