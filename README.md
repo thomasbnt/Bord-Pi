@@ -1,7 +1,5 @@
 ## I Introduction
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/thomasbnt/Bord-Pi.svg)](https://greenkeeper.io/)
-
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord.js et paramétré en fonction du serveur Discord **La Hype_**.
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
