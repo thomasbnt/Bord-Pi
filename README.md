@@ -27,13 +27,13 @@ Merci pour vos suggestions!
 
 ## III Les codes couleurs
 
-| **Partie**  | Par défaut | Mr_Robot | The Gate |
+| **Partie**  | Par défaut | Mr. Robøt | The Gate |
 |---------|------------|----------|----------|
-| **Couleur** | 15158332   | 7419530  | 2067276  |
+| **Couleur Hexa** | #E74C3C   | #71368A  | #1F8B4C  |
 
 ## IV Informations complémentaires
 
-
+L'image a été modifié par mes soins, veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. Elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
 - 💬  Chat : Rejoins-nous sur [Discord](https://www.thomasbnt.fr/discord/)
 - 📣  News : Suis-moi sur [Twitter](https://twitter.com/Hyprimort)

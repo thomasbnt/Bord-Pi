@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e215f2d1-4f08-4ae4-9731-cd192c6c5f6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config.exemple.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.exemple.json" afterDir="false" />
-    </list>
+    <list default="true" id="e215f2d1-4f08-4ae4-9731-cd192c6c5f6d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -38,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="285" column="10" lean-forward="true" selection-start-line="285" selection-start-column="10" selection-end-line="285" selection-end-column="10" />
+            <state relative-caret-position="245">
+              <caret line="281" column="45" selection-start-line="281" selection-start-column="44" selection-end-line="281" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -123,12 +119,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551727174277</updated>
-      <workItem from="1551727179923" duration="855000" />
+      <workItem from="1551727179923" duration="1547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="855000" />
+    <option name="totallyTimeSpent" value="1547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="728" extended-state="6" />
@@ -181,8 +177,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="285" column="10" lean-forward="true" selection-start-line="285" selection-start-column="10" selection-end-line="285" selection-end-column="10" />
+        <state relative-caret-position="245">
+          <caret line="281" column="45" selection-start-line="281" selection-start-column="44" selection-end-line="281" selection-end-column="45" />
         </state>
       </provider>
     </entry>

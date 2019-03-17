@@ -19,11 +19,12 @@ let cache = {
     user_cache: {}
 }
 let userCache = cache.user_cache
+
 // -- Couleur par défaut --
 const color = 10038562;
 
 function updatePresence() {
-    bot.user.setActivity(bot.guilds.reduce((mem, g) => mem += g.memberCount, 0) + " utilisateurs | /bord", {type: "WATCHING"})
+    bot.user.setActivity(bot.guilds.reduce((mem, g) => mem += g.memberCount, 0) + " utilisateurs | " + prefix + "bord", {type: "WATCHING"})
 }
 
 // ---------------------- Core ----------------------
@@ -74,54 +75,22 @@ bot.on('message', (msg) => {
             if(msg.channel.recipient) return
             WebhookLogs.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
             WebhookPublic.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-            const embed = {
-            "color": 10038562,
-            "title": "BORD Pi | Panel d'aide.",
-            "description": "Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.",
-            "thumbnail": {
-            "url": bot.user.displayAvatarURL
-            },
-            "fields": [
-            {
-                "name": ":black_small_square: " + prefix + "mrrobot",
-                "value": "Vous **serez notifié de chaque mise à jour** du projet <@308655472452304896>. ",
-                "inline": false
-            },
-            {
-                "name": ":black_small_square: " + prefix + "thegate",
-                "value": "Vous aurez accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.",
-                "inline": false
-            },
-            {
-                "name": ":black_small_square: " + prefix + "liens",
-                "value": "Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !",
-                "inline": false
-            },
-            {
-                "name": ":black_small_square: " + prefix + "musiques",
-                "value": "Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !",
-                "inline": false
-            },
-            {
-                "name": ":black_small_square: " + prefix + "feed",
-                "value": "Vous aurez accès au **channel textuel des flux RSS**.",
-                "inline": false
-            },
-            {
-                "name": ":black_small_square: " + prefix + "lg",
-                "value": "Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.",
-                "inline": false
-            },
-            {
-                "name": "Les liens utiles",
-                "value": "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source](https://github.com/thomasbnt/Bord-Pi)",
-                "inline": false
-            }
-            ]
-            };
-            msg.channel.send({ embed });
-                console.log(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
-                return
+            console.log(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
+            const BordEmbed = new Discord.RichEmbed();
+            msg.channel.send( 
+                BordEmbed
+                .setColor('#E74C3C')
+                .setTitle("Bord Pi | Panel d'aide")
+                .setDescription("Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.")
+                .setThumbnail(bot.user.displayAvatarURL)
+                .addField(":black_small_square: " + prefix + "mrrobot","Vous **serez notifié de chaque mise à jour** du projet <@308655472452304896>. ", false)
+                .addField(":black_small_square: " + prefix + "thegate","Vous aurez accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.", false)
+                .addField(":black_small_square: " + prefix + "liens","Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !", false)
+                .addField(":black_small_square: " + prefix + "musiques","Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !", false)
+                .addField(":black_small_square: " + prefix + "feed","Vous aurez accès au **channel textuel des flux RSS**.", false)
+                .addField(":black_small_square: " + prefix + "lg","Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
+                .addField("Les liens utiles","[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source](https://github.com/thomasbnt/Bord-Pi)", false)
+            )
         };
 
         if(msg.content === prefix + 'mrrobot') {
@@ -328,23 +297,17 @@ bot.on('message', (msg) => {
         if (msg.content === prefix + 'uptime'){
             if(msg.channel.recipient) return
             if(!msg.member.hasPermission('MANAGE_MESSAGES')) return
-            const embed = {
-            "author": {
-                "name": "🔌 Uptime",
-                "url": "https://www.thomasbnt.fr"
-            },
-            "description": (Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s",
-            "color": 10038562
-            };
-            msg.channel.send({ embed });
+            const UptimeEmbed = new Discord.RichEmbed();
+            msg.channel.send( 
+                UptimeEmbed
+                .setColor('#E74C3C')
+                .setAuthor("🔌 Uptime","https://www.thomasbnt.fr")
+                .setDescription((Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s")
+
+            );           
             console.log(cmdexe + " uptime ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
             WebhookLogs.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
-            const UptimeEmbed = new Discord.RichEmbed()
-            WebhookPublic.send(UptimeEmbed
-                .setColor(10038562)
-                .setDescription("**"+ prefix + "uptime** - De " + msg.author)
-                .setThumbnail(msg.author.displayAvatarURL)
-            )
+            WebhookPublic.send(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
         };
 
        // --- Commande ping (réservé à ceux qui ont la permission de gérer les messages) ---
