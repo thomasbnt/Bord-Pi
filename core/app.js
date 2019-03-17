@@ -307,7 +307,7 @@ bot.on('message', (msg) => {
             );           
             console.log(cmdexe + " uptime ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
             WebhookLogs.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
-            WebhookPublic.send(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
+            WebhookPublic.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
         };
 
        // --- Commande ping (réservé à ceux qui ont la permission de gérer les messages) ---
