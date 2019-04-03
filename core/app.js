@@ -3,7 +3,7 @@ const config = require('./config.json');
 const colors = require("colors");
 
 cmdexe = 'Commande exécuté : ';
-const { prefix, webhookLogs, webhookPublic, Mr_Robot, TheGate, Liens, Musiques, Feed, LoupsGarous, ChannelMessagedeBienvenue, Muted } = config;
+const { prefix, webhookLogs, webhookPublic, Mr_Robot, TheGate, Liens, Musiques, LoupsGarous, ChannelMessagedeBienvenue, Muted } = config;
 const WebhookLogs = new Discord.WebhookClient(webhookLogs.id, webhookLogs.token);
 const WebhookPublic = new Discord.WebhookClient(webhookPublic.id, webhookPublic.token);
 
@@ -87,7 +87,6 @@ bot.on('message', (msg) => {
                 .addField(":black_small_square: " + prefix + "thegate","Vous aurez accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.", false)
                 .addField(":black_small_square: " + prefix + "liens","Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !", false)
                 .addField(":black_small_square: " + prefix + "musiques","Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !", false)
-                .addField(":black_small_square: " + prefix + "feed","Vous aurez accès au **channel textuel des flux RSS**.", false)
                 .addField(":black_small_square: " + prefix + "lg","Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
                 .addField("Les liens utiles","[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source](https://github.com/thomasbnt/Bord-Pi)", false)
             )
@@ -196,32 +195,6 @@ bot.on('message', (msg) => {
                 WebhookPublic.send(embed
                     .setColor(10038562)
                     .setDescription("Rôle **The Gate [Accès]** ajouté pour "+ msg.author)
-                    .setThumbnail(msg.author.displayAvatarURL)
-                )
-            }
-        };
-        if(msg.content === prefix + 'feed') {
-            if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
-            if(msg.member.roles.has(Feed)) {
-                msg.member.removeRole(Feed).catch(console.error)
-                msg.channel.send("Vous n'avez plus accès au channel des **flux RSS**.")
-                .then(m => { setTimeout(() => { m.delete() }, 10000) })
-                WebhookLogs.send("Rôle **Feed [Accès]** supprimé pour " + msg.author)
-                const embed = new Discord.RichEmbed()
-                WebhookPublic.send(embed
-                    .setColor(10038562)
-                    .setDescription("Rôle **Feed [Accès]** supprimé pour "+ msg.author)
-                    .setThumbnail(msg.author.displayAvatarURL)
-                )
-            } else {
-                msg.member.addRole(Feed).catch(console.error)
-                msg.channel.send("Vous avez accès au channel des **flux RSS** qui se trouve dans <#527127902819581967>")
-                .then(m => { setTimeout(() => { m.delete() }, 10000) })
-                WebhookLogs.send("Rôle **Feed [Accès]** ajouté pour " + msg.author)
-                const embed = new Discord.RichEmbed()
-                WebhookPublic.send(embed
-                    .setColor(10038562)
-                    .setDescription("Rôle **Feed [Accès]** ajouté pour "+ msg.author)
                     .setThumbnail(msg.author.displayAvatarURL)
                 )
             }
