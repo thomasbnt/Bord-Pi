@@ -88,7 +88,7 @@ bot.on('message', (msg) => {
             .addField(":black_small_square: " + prefix + "liens","Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !", false)
             .addField(":black_small_square: " + prefix + "musiques","Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !", false)
             .addField(":black_small_square: " + prefix + "lg","Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
-            .addField("Les liens utiles","[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source](https://github.com/thomasbnt/Bord-Pi)", false)
+            .addField("Les liens utiles","[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
         )
     };
 
@@ -246,7 +246,28 @@ bot.on('message', (msg) => {
             console.log("Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.name === \"Ici le nom du channel\") ")
         }
     }
-    
+
+    if (msg.content === prefix + 'support') {
+        if (msg.channel.recipient) return
+        if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) }; 
+        const ThisIsFole = (msg.guild.roles.find(x => x.id === "416618144027639808"));
+        if (!msg.member.roles.has(ThisIsFole.id)) return 
+        WebhookLogs.send("**" + prefix + "support** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
+        WebhookPublic.send("**" + prefix + "support** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
+        console.log(cmdexe + " support ".yellow + " de " + msg.author.username + " #" + msg.author.discriminator + "  (" + msg.author + ")")
+        const HelpFromSupportEmbed = new Discord.RichEmbed();
+        msg.channel.send(
+            HelpFromSupportEmbed
+                .setColor('#E74C3C')
+                .setTitle("Message d'aide en provenance d'un des membres du support.")
+                .setDescription("Bienvenue dans le channel support de <@308655472452304896>. Veuillez tout d'abord, et avant de poser votre question de **[lire la Foire Aux Questions](https://mrrobot.thomasbnt.fr/#faq)**. \n\nSi vous n'avez pas la solution, envoyez directement ici en incluant :\n\n```markdown\n+ Type de soucis\n+ Précisez ce que ça produit\n```\n\nUne description détaillée est requise sinon votre demande pourrait ne pas être prise en compte. Les membres du <@&416618144027639808> vous donnerons une réponse dans les plus brefs délais.")
+                .setThumbnail(msg.author.displayAvatarURL)
+                .addField(":black_small_square: " + prefix + "bord", "Affichez les fonctionnalités que ce robot même offre sur ce serveur.", false)
+                .addField(":black_small_square:  _website", "Obtenez rapidement le lien du site web de **Mr. Robøt**", false)
+                .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
+        )
+    }
+
     // -- Mise en cache des membres --
     if (!(msg.author.id in userCache)) {
         userCache[msg.author.id] = {
