@@ -44,7 +44,7 @@ bot.on("guildMemberAdd", (member, msg) => {
       "fields": [
         {
           "name": "Bienvenue à " + member.user.username + " | Fiche d'aide",
-          "value": "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de <@308655472452304896>, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `/mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `/bord` est disponible."
+          "value": "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de **Mr. Robøt**, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `/mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `/bord` est disponible."
         }
       ]
     }
@@ -260,7 +260,7 @@ bot.on('message', (msg) => {
             HelpFromSupportEmbed
                 .setColor('#E74C3C')
                 .setTitle("Message d'aide en provenance d'un des membres du support.")
-                .setDescription("Bienvenue dans le channel support de <@308655472452304896>. Veuillez tout d'abord, et avant de poser votre question de **[lire la Foire Aux Questions](https://mrrobot.thomasbnt.fr/#faq)**. \n\nSi vous n'avez pas la solution, envoyez directement ici en incluant :\n\n```markdown\n+ Type de soucis\n+ Précisez ce que ça produit\n```\n\nUne description détaillée est requise sinon votre demande pourrait ne pas être prise en compte. Les membres du <@&416618144027639808> vous donnerons une réponse dans les plus brefs délais.")
+                .setDescription("Bienvenue dans le channel support de **Mr. Robøt**. Veuillez tout d'abord, et avant de poser votre question de **[lire la Foire Aux Questions](https://mrrobot.thomasbnt.fr/#faq)**. \n\nSi vous n'avez pas la solution, envoyez directement ici en incluant :\n\n```markdown\n+ Type de soucis\n+ Précisez ce que ça produit\n```\n\nUne description détaillée est requise sinon votre demande pourrait ne pas être prise en compte. Les membres du <@&416618144027639808> vous donnerons une réponse dans les plus brefs délais.")
                 .setThumbnail(msg.author.displayAvatarURL)
                 .addField(":black_small_square: " + prefix + "bord", "Affichez les fonctionnalités que ce robot même offre sur ce serveur.", false)
                 .addField(":black_small_square:  _website", "Obtenez rapidement le lien du site web de **Mr. Robøt**", false)
