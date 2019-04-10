@@ -1,13 +1,32 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
+const logSymbols = require('log-symbols');
 const colors = require("colors");
+const randomcolor = require('randomcolor');
 
+const truncate = function (str, length, ending) {
+    if (length == null) {
+        length = 100;
+    }
+    if (ending == null) {
+        ending = '...';
+    }
+    if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+    } else {
+        return str;
+    }
+};
 cmdexe = 'Commande exécuté : ';
 const { prefix, webhookLogs, webhookPublic, Mr_Robot, TheGate, Liens, Musiques, LoupsGarous, ChannelMessagedeBienvenue, Muted } = config;
 const WebhookLogs = new Discord.WebhookClient(webhookLogs.id, webhookLogs.token);
 const WebhookPublic = new Discord.WebhookClient(webhookPublic.id, webhookPublic.token);
 
+const Watcher  = require('feed-watcher'),
+    feed = 'http://lorem-rss.herokuapp.com/feed?unit=second&interval=30',
+    interval = 40
 
+const watcher = new Watcher(feed, interval)
 
 const bot = new Discord.Client({
     autoReconnect: true
@@ -28,28 +47,37 @@ function updatePresence() {
 }
 
 // ---------------------- Core ----------------------
-bot.on('ready', () => {
+bot.on('ready', async ()  =>  {
     updatePresence()
-    console.info("Connecté en tant que ".bgMagenta + bot.user.tag.bgMagenta)
+    watcher.start()
+        .then(function(entries) {})
+        .catch(function(error) { console.log(logSymbols.error, error)})
+    watcher.on('new entries', function(entries) {
+        entries.forEach(function(entry) {
+            const RSSEmbed = new Discord.RichEmbed();
+            WebhookLogs.send( 
+                RSSEmbed
+                .setColor(randomcolor())
+                .setAuthor(entry.title, bot.user.displayAvatarURL , entry.url || entry.link)
+                .setDescription(truncate(entry.description, 2000))
+            )
+            console.log(logSymbols.info,'Nouvelle entrée Flux RSS\nTitre : ' + entry.title + "\nURL : " + (entry.url || entry.link) + "\nDesc. : " + entry.description + "\n\n")
+        })
+    })
+    console.log(logSymbols.success, " Connecté en tant que ".bgMagenta + bot.user.tag.bgMagenta + "\n")
 });
 
 bot.on("guildMemberAdd", (member, msg) => {
     updatePresence()
     const guild = member.guild;
-    console.log(`📥 ${member.user.username}#${member.user.discriminator} (${member.user.id}) a rejoint ${guild.name}`.green);
+    console.log(logSymbols.info,`📥 ${member.user.username}#${member.user.discriminator} (${member.user.id}) a rejoint ${guild.name}`.green);
     const ChannelGeneral = member.guild.channels.find(x => x.id === ChannelMessagedeBienvenue);
-
-      const embed = {
-      "color": color,
-      "fields": [
-        {
-          "name": "Bienvenue à " + member.user.username + " | Fiche d'aide",
-          "value": "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de **Mr. Robøt**, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `/mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `/bord` est disponible."
-        }
-      ]
-    }
-    ChannelGeneral.send({ embed })
-            .then((msg) => {
+    const WelcomeAndHelpMessageEmbed = new Discord.RichEmbed();
+    ChannelGeneral.send(
+        WelcomeAndHelpMessageEmbed
+            .setColor(randomcolor())
+            .addField("Bienvenue à " + member.user.username + " | Fiche d'aide", "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de **Mr. Robøt**, veuillez [revoir la FAQ](https://mrrobot.thomasbnt.fr/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `/mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `/bord` est disponible.", false)
+    ).then((msg) => {
             setTimeout(() => {
                 if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
         }, 60000)
@@ -60,7 +88,7 @@ bot.on("guildMemberAdd", (member, msg) => {
 bot.on("guildMemberRemove", (member) => {
     updatePresence()
     const guild = member.guild;
-    console.log(`📤 ${member.user.username}#${member.user.discriminator} (${member.user.id}) a quitté ${guild.name}`.red);
+    console.log(logSymbols.info,`📤 ${member.user.username}#${member.user.discriminator} (${member.user.id}) a quitté ${guild.name}`.red);
 });
 
 
@@ -75,7 +103,7 @@ bot.on('message', (msg) => {
         if(msg.channel.recipient) return
         WebhookLogs.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
         WebhookPublic.send("**" + prefix + "bord** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``");
-        console.log(cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
+        console.log(logSymbols.info, cmdexe + " bord ".yellow +  " de "  + msg.author.username + " #"+ msg.author.discriminator + "  (" + msg.author + ")")
         const BordEmbed = new Discord.RichEmbed();
         msg.channel.send( 
             BordEmbed
@@ -241,9 +269,9 @@ bot.on('message', (msg) => {
             WebhookLogs.send("Nouveau message pour le Support en provenance de " + msg.author.tag + "(" + msg.author + ").")
             WebhookPublic.send("Nouveau message pour le Support en provenance de " + msg.author.tag + "(" + msg.author + ").")
 
-            .catch(e => console.error(e));
+            .catch(e => console.log(logSymbols.error, e));
         } else {
-            console.log("Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.name === \"Ici le nom du channel\") ")
+            console.log(logSymbols.info, "Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.name === \"Ici le nom du channel\") ")
         }
     }
 
@@ -254,7 +282,7 @@ bot.on('message', (msg) => {
         if (!msg.member.roles.has(ThisIsFole.id)) return 
         WebhookLogs.send("**" + prefix + "support** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
         WebhookPublic.send("**" + prefix + "support** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
-        console.log(cmdexe + " support ".yellow + " de " + msg.author.username + " #" + msg.author.discriminator + "  (" + msg.author + ")")
+        console.log(logSymbols.info, cmdexe + " support ".yellow + " de " + msg.author.username + " #" + msg.author.discriminator + "  (" + msg.author + ")")
         const HelpFromSupportEmbed = new Discord.RichEmbed();
         msg.channel.send(
             HelpFromSupportEmbed
@@ -281,23 +309,24 @@ bot.on('message', (msg) => {
     if(msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite') || msg.content.includes('discord.me')) {
         if(msg.member.hasPermission('MANAGE_MESSAGES')) return    
         if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")){msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))}; 
-        console.log(msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
+        console.log(logSymbols.info, msg.author.tag + " (" + msg.author + ") a fait une publicité Discord.")
         WebhookLogs.send(":x:" + msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
         WebhookPublic.send(":x:" + msg.author.tag + "(" + msg.author + ") a fait une publicité Discord.\nMessage : " + msg.content)
         msg.reply(' merci de revoir les <#399600870804684803> . Les liens discord sont interdits.')
             .then(m => { setTimeout(() => { m.delete() }, 10000) })
     };
+
     // ---- Anti spam ----
     if (msg.createdTimestamp - userCache[msg.author.id].last_msg_timestamp <= 190) {
         if (msg.member.hasPermission('MANAGE_MESSAGES')) return
         if (!cache.active_warning) {
-            console.log("✖ Rôle Muté".red +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
+            console.log(logSymbols.info, "✖ Rôle Muté".red +  " de "  + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
             WebhookLogs.send(":x:" + msg.author.tag + " (" + msg.author + ") a été muté suite à un spam.")
             WebhookPublic.send(":x:" + msg.author.tag + " (" + msg.author + ") a été muté suite à un spam.")
             msg.reply("le spam, c'est mal !")
             const RoleMuted = msg.guild.roles.find(x => x.id === Muted)
             cache.active_warning = msg.member.addRole(RoleMuted)
-            .catch(e  => console.error('Erreur des permissions pour donner le rôle Muté.') + console.error(e))
+            .catch(e  => console.error('Erreur des permissions pour donner le rôle Muté.') + console.log(logSymbols.error, e))
             .then((msg) => {
                 setTimeout(() => {
                     cache.active_warning = false
@@ -319,7 +348,7 @@ bot.on('message', (msg) => {
             .setDescription((Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s")
 
         );           
-        console.log(cmdexe + " uptime ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
+        console.log(logSymbols.info, cmdexe + " uptime ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
         WebhookLogs.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
         WebhookPublic.send("**"+ prefix + "uptime** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
     };
@@ -333,7 +362,7 @@ bot.on('message', (msg) => {
         .setAuthor(`Un ping de ${Math.floor(bot.ping)} ms !`)
         .setFooter(`Demandé par ${msg.author.username}` ,msg.author.avatarURL)
         msg.channel.send({embed})
-        console.log(cmdexe + " ping ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
+        console.log(logSymbols.info, cmdexe + " ping ".magenta +  " de " + msg.author.username + " #"+ msg.author.discriminator + " (" + msg.author + ")")
         WebhookLogs.send("**"+ prefix + "ping** - De ``" + msg.author.username + "#"+ msg.author.discriminator + "``")
         const PingEmbed = new Discord.RichEmbed()
         WebhookPublic.send(PingEmbed
