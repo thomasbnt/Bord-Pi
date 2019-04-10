@@ -54,6 +54,7 @@ bot.on('ready', async ()  =>  {
         .catch(function(error) { console.log(logSymbols.error, error)})
     watcher.on('new entries', function(entries) {
         entries.forEach(function(entry) {
+            /* TODO: Le message s'envoie sur un Webhook, faire en sorte que soit le robot créer un WH soit qu'il l'envoie directement dans un channel */ 
             const RSSEmbed = new Discord.RichEmbed();
             WebhookLogs.send( 
                 RSSEmbed
