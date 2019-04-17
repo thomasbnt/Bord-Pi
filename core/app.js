@@ -88,6 +88,7 @@ bot.on('message', (msg) => {
             .addField(":black_small_square: " + prefix + "liens","Vous aurez accès au **channel textuel liens**. Vous y trouverez de tas de liens d'articles à lire !", false)
             .addField(":black_small_square: " + prefix + "musiques","Vous aurez accès au **channel textuel des musiques**. Vous y trouverez de tas de musiques à découvrir !", false)
             .addField(":black_small_square: " + prefix + "lg","Vous aurez accès à **la partie dédié au jeu LoupsGarous.fr**. Vous serrez donc notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
+            .addField("Formulaire de recrutement et des demandes de partenariat", "Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou bien devenir partenaire ? [Remplissez ce formulaire](https://www.thomasbnt.fr/form).", false)
             .addField("Les liens utiles","[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
         )
     };
@@ -265,6 +266,20 @@ bot.on('message', (msg) => {
                 .addField(":black_small_square: " + prefix + "bord", "Affichez les fonctionnalités que ce robot même offre sur ce serveur.", false)
                 .addField(":black_small_square:  _website", "Obtenez rapidement le lien du site web de **Mr. Robøt**", false)
                 .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
+        )
+    }
+
+    if (msg.content === prefix + 'form') {
+        if (msg.channel.recipient) return
+        if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) }; 
+        WebhookLogs.send("**" + prefix + "form** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
+        WebhookPublic.send("**" + prefix + "form** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``");
+        console.log(cmdexe + " support ".yellow + " de " + msg.author.username + " #" + msg.author.discriminator + "  (" + msg.author + ")")
+        const FormEmbed = new Discord.RichEmbed();
+        msg.channel.send(
+            FormEmbed
+                .setColor('#E74C3C')
+                .setDescription("Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou tout simplement devenir Partenaire ? Remplissez [ce formulaire](https://www.thomasbnt.fr/form) et on vous répondra dès que possible !")
         )
     }
 
