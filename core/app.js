@@ -283,6 +283,19 @@ bot.on('message', (msg) => {
         )
     }
 
+    if (msg.content.includes("archi") || msg.content.includes("archimede")) {
+        msg.react(':archimede:548198988164235294')
+    }
+    if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
+        msg.react(':raspberrypi:411531368938471425')
+    }
+    if (msg.content.includes("mrrobot") || msg.content.includes("robot")) {
+        msg.react(':mrrobot:568456664294883338')
+    }
+    if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
+        msg.react(':cappuccino:419260851426689034')
+    }
+
     // -- Mise en cache des membres --
     if (!(msg.author.id in userCache)) {
         userCache[msg.author.id] = {
