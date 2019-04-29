@@ -1,19 +1,38 @@
 {
-  "prefix": "/",
   "token": "",
-  "webhookLogs": {
+  "prefix": "/",
+  "PrimaryColor": "#E74C3C",
+  "DangerColor": "#B20000",
+  "IDRoleSupport": "",
+  "IDChannelSupport": "",
+  "IDWelcomeChannel": "",
+  "IDAdsChannel": "",
+  "WebhookPrivate": {
     "id": "",
     "token": ""
   },
-  "webhookPublic": {
+  "WebhookPublic": {
     "id": "",
     "token": ""
   },
-  "TheGate": "",
-  "Mr_Robot": "",
-  "Liens": "",
-  "Musiques": "",
-  "LoupsGarous": "",
-  "Muted": "",
-  "ChannelMessagedeBienvenue": ""
+  "roles": {
+    "name": {
+      "Muted": "",
+      "mrrobot": "",
+      "thegate": "",
+      "LoupGarou": ""
+    },
+    "id": {
+      "Muted": "",
+      "mrrobot": "",
+      "thegate": "",
+      "LoupGarou": ""
+    },
+    "color": {
+      "Muted": "#1a1a1a",
+      "mrrobot": "#",
+      "thegate": "#",
+      "LoupGarou": "#"
+    }
+  }
 }

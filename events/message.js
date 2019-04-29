@@ -73,7 +73,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
   if (msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite') || msg.content.includes('discord.me')) {
     if (msg.member.hasPermission('MANAGE_MESSAGES')) return
-    if (msg.channel.id == bot.config.AdsChannel) return
+    if (msg.channel.id == bot.config.IDAdsChannel) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) };
     const LinksProhibedEmbed = new Discord.RichEmbed()
     msg.channel.send(`<@${msg.author.id}> hop hop hop !`, LinksProhibedEmbed
