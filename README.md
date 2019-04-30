@@ -27,9 +27,9 @@ Merci pour vos suggestions!
 
 ## III Les codes couleurs
 
-| **Partie**  | Par défaut | Mr. Robøt | The Gate |
-|---------|------------|----------|----------|
-| **Couleur Hexa** | #E74C3C   | #71368A  | #1F8B4C  |
+| **Partie**  | Par défaut | Mr. Robøt | The Gate | LoupGarou | Muted |
+|---------|------------|----------|----------|----------|----------|
+| **Couleur Hexa** | #E74C3C   | #71368A  | #1F8B4C  | #252132 | #454242 |
 
 ## IV Informations complémentaires
 
