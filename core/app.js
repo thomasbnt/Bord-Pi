@@ -284,7 +284,7 @@ bot.on('message', (msg) => {
     }
 
     if (msg.content.includes("archi") || msg.content.includes("archimede")) {
-        msg.react(':archimede:548198988164235294')
+        msg.react(':archimede:572954869699313694')
     }
     if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
         msg.react(':raspberrypi:411531368938471425')
