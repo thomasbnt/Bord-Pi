@@ -6,6 +6,8 @@
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
+<img src="bordpi.png" alt="Logo Bord Pi" align="right" />
+
 ## II Les intégrations
 
 - Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `mrrobot.js` et sert à se procurer d'un rôle qui, par la suite vous débloque des channels suivant votre configuration du serveur.
@@ -31,8 +33,6 @@ if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
     msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
 }
 ```
-
-<img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
 ## III Contributions
 
