@@ -19,6 +19,7 @@
     "discord.js": "^11.4.2",
     "enmap": "^4.8.4",
     "fs": "0.0.1-security",
-    "log-symbols": "^3.0.0"
+    "log-symbols": "^3.0.0",
+    "moment": "^2.24.0"
   }
 }
