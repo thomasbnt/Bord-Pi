@@ -4,9 +4,9 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.channel.recipient) return
 
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { 
-        msg.delete(msg.author).catch(e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) 
+        msg.delete(msg.author).catch(e => console.log(bot.ls.info, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) 
     };
-    const FormEmbed = new Discord.RichEmbed();
+    const FormEmbed = new Discord.RichEmbed()
     msg.channel.send(
         FormEmbed
             .setColor(bot.config.PrimaryColor)
@@ -14,7 +14,12 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     )
 
     console.log(bot.ls.info, bot.config.prefix + "form " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    WebhookPrivate.send("**" + bot.config.prefix + "form** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``, ID : ``" + msg.author.id + "``")
+    const FormLogPrivateEmbed = new Discord.RichEmbed()
+    WebhookPrivate.send(FormLogPrivateEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription("** " + bot.config.prefix + "form ** - De " + msg.author)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+    )
     const FormLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(FormLogEmbed
         .setColor(bot.config.PrimaryColor)

@@ -9,11 +9,16 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   const PingEmbed = new Discord.RichEmbed()
   m.edit(PingEmbed
     .setColor(bot.config.PrimaryColor)
-    .setFooter(`Une connexion de ${m.createdTimestamp - msg.createdTimestamp} ms ! Et pour l'API elle est de ${Math.floor(bot.ping)}ms`, msg.author.avatarURL)
+    .addField("Latence du robot", `${m.createdTimestamp - msg.createdTimestamp} ms`, true)
+    .addField("Latence de l'API Discord", `${Math.floor(bot.ping)} ms`, true)
   )
 
-  console.log(bot.ls.info, "ping " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-  WebhookPrivate.send("**" + bot.config.prefix + "ping** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``")
+  console.log(bot.ls.info, bot.config.prefix + "ping " + " de " + msg.author.tag + " (" + msg.author.id + ")")
+  const PingLogPrivateEmbed = new Discord.RichEmbed()
+  WebhookPrivate.send(PingLogPrivateEmbed
+    .setColor(bot.config.PrimaryColor)
+    .setDescription("**" + bot.config.prefix + "ping** - De " + msg.author + " (ID : " + msg.author.id + " )")
+  )
   const PingLogEmbed = new Discord.RichEmbed()
   WebhookPublic.send(PingLogEmbed
     .setColor(bot.config.PrimaryColor)

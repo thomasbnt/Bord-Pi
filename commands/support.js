@@ -3,7 +3,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     
     if (msg.channel.recipient) return
 
-    if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) };
+    if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.log(bot.ls.info, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) }
     const ThisIsFole = (msg.guild.roles.find(x => x.id === bot.config.IDRoleSupport));
     if (!msg.member.roles.has(ThisIsFole.id)) return
     const HelpFromSupportEmbed = new Discord.RichEmbed();
@@ -19,7 +19,12 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     )
 
     console.log(bot.ls.info, bot.config.prefix + "support " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    WebhookPrivate.send("**" + bot.config.prefix + "support** - De ``" + msg.author.username + "#" + msg.author.discriminator + "``, ID : ``" + msg.author.id + "``")
+    const SupportLogPrivateEmbed = new Discord.RichEmbed()
+    WebhookPrivate.send(SupportLogPrivateEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription("** " + bot.config.prefix + "support ** - De " + msg.author)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+    )
     const SupportLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(SupportLogEmbed
         .setColor(bot.config.PrimaryColor)
