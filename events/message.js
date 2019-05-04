@@ -15,32 +15,33 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   // -------------------- Customs Réactions --------------------
 
   if (msg.content.includes("salut") || msg.content.includes("bonsoir") || msg.content.includes("bonjour")) {
-    msg.react('👋🏽')
+    msg.react('👋🏽').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("archi") || msg.content.includes("archimede") || msg.content.includes("archimède")) {
-    msg.react(':archimede:548198988164235294')
+    msg.react(':archimede:548198988164235294').catch(e => console.error(bot.ls.error, e))
   }
   if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
-    msg.react(':raspberrypi:411531368938471425')
+    msg.react(':raspberrypi:411531368938471425').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("mrrobot") || msg.content.includes("robot") || msg.content.includes("fsociety") || msg.content.includes("elliot")) {
-    msg.react(':mrrobot:568456664294883338')
+    msg.react(':mrrobot:568456664294883338').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
-    msg.react(':cappuccino:419260851426689034')
+    msg.react(':cappuccino:419260851426689034').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("lowpower") || msg.content.includes("L0wP0wer")) {
-    msg.react(':L0wP0wer:544656379370143784')
+    msg.react(':L0wP0wer:544656379370143784').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("twitch")) {
-    msg.react(':twitch:391315886742568960')
+    msg.react(':twitch:391315886742568960').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("twitter") || msg.content.includes("twitwi")) {
-    msg.react(':twitter:391315885803175936')
+    msg.react(':twitter:391315885803175936').catch(e => console.error(bot.ls.error, e))
   }
   if (msg.content.includes("patreon")) {
-    msg.react(':patreon:491262431805440041')
+    msg.react(':patreon:491262431805440041').catch(e => console.error(bot.ls.error, e))
   }
+  
 
   // -------------------- Notification auprès du @Support --------------------
 
@@ -56,14 +57,18 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
       )
 
       console.log(bot.ls.info,"Nouveau message pour le Support en provenance de " + msg.author.tag + " (" + msg.author.id + ")")
-      WebhookPrivate.send("Nouveau message pour le Support en provenance de ``" + msg.author.username + "#" + msg.author.discriminator + "``, ID : ``" + msg.author.id + "``")
+      const SupportNotifLogPrivateEmbed = new Discord.RichEmbed()
+      WebhookPrivate.send(SupportNotifLogPrivateEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+      ).catch(e => console.error(e))
       const SupportNotifLogEmbed = new Discord.RichEmbed()
       WebhookPublic.send(SupportNotifLogEmbed
         .setColor(bot.config.PrimaryColor)
         .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-      )
-        .catch(e => console.error(e));
+      ).catch(e => console.error(e))
     } else {
       console.log(bot.ls.error, "Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.name === \"Ici le nom du channel\") ")
     }
@@ -74,7 +79,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   if (msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite') || msg.content.includes('discord.me')) {
     if (msg.member.hasPermission('MANAGE_MESSAGES')) return
     if (msg.channel.id == bot.config.IDAdsChannel) return
-    if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) };
+    if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) }
     const LinksProhibedEmbed = new Discord.RichEmbed()
     msg.channel.send(`<@${msg.author.id}> hop hop hop !`, LinksProhibedEmbed
       .setColor(bot.config.DangerColor)
@@ -82,7 +87,12 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     ).then(m => { setTimeout(() => { m.delete() }, 20000) })
 
     console.log(bot.ls.info, msg.author.tag + " (" + msg.author.id + ") a fait une publicité Discord.\nMessage : " + msg.content)
-    WebhookPrivate.send("`" + msg.author.tag + " ` (" + msg.author.id + ") a fait une publicité Discord.\n__Message__ : " + msg.content)
+    const LinksProhibedLogPrivateEmbed = new Discord.RichEmbed()
+    WebhookPrivate.send(LinksProhibedLogPrivateEmbed
+      .setColor(bot.config.DangerColor)
+      .setDescription(msg.author.tag + " a fait une publicité Discord.\n\n__Message__ : " + msg.content)
+      .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+    )
     const LinksProhibedLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(LinksProhibedLogEmbed
       .setColor(bot.config.DangerColor)
