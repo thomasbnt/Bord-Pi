@@ -24,7 +24,7 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
         }, 60000)
         return
     })
-    if (member.user.avatarURL !== member.user.defaultAvatarURL) {
+    if (member.user.avatarURL == member.user.defaultAvatarURL) {
         const DefaultAvatarEmbed = new Discord.RichEmbed()
         ChannelGeneral.send(DefaultAvatarEmbed
             .setColor(bot.config.InfoColor)
