@@ -17,11 +17,11 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   const PingLogPrivateEmbed = new Discord.RichEmbed()
   WebhookPrivate.send(PingLogPrivateEmbed
     .setColor(bot.config.PrimaryColor)
-    .setDescription("**" + bot.config.prefix + "ping** - De " + msg.author + " (ID : " + msg.author.id + " )")
-  )
+    .setDescription("** " + bot.config.prefix + "ping ** - De " + msg.author)
+    .setFooter("ID : " + msg.author.id, msg.author.avatarURL)  )
   const PingLogEmbed = new Discord.RichEmbed()
   WebhookPublic.send(PingLogEmbed
     .setColor(bot.config.PrimaryColor)
-    .setDescription("**" + bot.config.prefix + "ping** - De " + msg.author + " (ID : " + msg.author.id + " )")
-  )
+    .setDescription("** " + bot.config.prefix + "ping ** - De " + msg.author)
+    .setFooter("ID : " + msg.author.id, msg.author.avatarURL)  )
 }
