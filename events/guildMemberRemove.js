@@ -3,7 +3,7 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
     bot.updatePresence()
     const guild = member.guild
 
-    console.log(bot.ls.info, `📤  — ${member.user.tag} (${member.user.id}) a rejoint ${guild.name}`)
+    console.log(bot.ls.info, `📤  — ${member.user.tag} (${member.user.id}) a quitté ${guild.name}`)
     const GuildMemberAddLogPrivateEmbed = new Discord.RichEmbed()
     WebhookPrivate.send(GuildMemberAddLogPrivateEmbed
         .setColor(bot.config.InfoColor)
