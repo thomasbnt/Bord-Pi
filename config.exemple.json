@@ -1,0 +1,40 @@
+{
+  "token": "",
+  "prefix": "/",
+  "PrimaryColor": "#E74C3C",
+  "DangerColor": "#B20000",
+  "InfoColor": "#6897BB",
+  "SuccessColor": "#47b60f",
+  "IDRoleSupport": "",
+  "IDChannelSupport": "",
+  "IDWelcomeChannel": "",
+  "IDAdsChannel": "",
+  "WebhookPrivate": {
+    "id": "",
+    "token": ""
+  },
+  "WebhookPublic": {
+    "id": "",
+    "token": ""
+  },
+  "roles": {
+    "name": {
+      "Muted": "",
+      "mrrobot": "",
+      "thegate": "",
+      "LoupGarou": ""
+    },
+    "id": {
+      "Muted": "",
+      "mrrobot": "",
+      "thegate": "",
+      "LoupGarou": ""
+    },
+    "color": {
+      "Muted": "#1a1a1a",
+      "mrrobot": "#",
+      "thegate": "#",
+      "LoupGarou": "#"
+    }
+  }
+}
