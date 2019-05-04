@@ -4,6 +4,7 @@
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
+<img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
 ## II Contributions
 
@@ -29,7 +30,7 @@ Merci pour vos suggestions!
 
 | **Partie**  | Par défaut | Mr. Robøt | The Gate | LoupGarou | Muted |
 |---------|------------|----------|----------|----------|----------|
-| **Couleur Hexa** | #E74C3C   | #71368A  | #1F8B4C  | #252132 | #454242 |
+| **Couleur Hexadécimal** | #E74C3C   | #71368A  | #1F8B4C  | #252132 | #454242 |
 
 ## IV Informations complémentaires
 
