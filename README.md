@@ -59,13 +59,13 @@ Merci pour vos suggestions !
 
 | **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor | 
 |---------|------------|----------|----------|----------|
-| **Code Hexadécimal** | #E74C3C   | #B20000  | #6897BB  | #47b60f |
+| **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` |
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
 | **Partie**  | Par défaut | Mr. Robøt | The Gate | LoupGarou | Muted |
 |---------|------------|----------|----------|----------|----------|
-| **Code Hexadécimal** | #E74C3C   | #71368A  | #1F8B4C  | #252132 | #454242 |
+| **Code Hexadécimal** | `#E74C3C`   | `#71368A`  | `#1F8B4C`  | `#252132` | `#454242` |
 
 ## V Informations complémentaires
 
