@@ -87,17 +87,17 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
       .setDescription('Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que dans <#510619318183133195>.')
     ).then(m => { setTimeout(() => { m.delete() }, 20000) })
 
-    console.log(bot.ls.info, msg.author.tag + " (" + msg.author.id + ") a fait une publicité Discord.\nMessage : " + msg.content)
+    console.log(bot.ls.info, msg.author.tag + " (" + msg.author.id + ") a fait une publicité Discord dans le channel " + msg.channel.name + " (" + msg.channel.id + ").\nMessage : " + msg.content)
     const LinksProhibedLogPrivateEmbed = new Discord.RichEmbed()
     WebhookPrivate.send(LinksProhibedLogPrivateEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription(msg.author.tag + " a fait une publicité Discord.\n\n__Message__ : " + msg.content)
+      .setDescription(msg.author.tag + " a fait une publicité Discord dans le channel <#" + msg.channel.id + ">.\n\n__Message__ : " + msg.content)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
     const LinksProhibedLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(LinksProhibedLogEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription(msg.author.tag + " a fait une publicité Discord.\n\n__Message__ : " + msg.content)
+      .setDescription(msg.author.tag + " a fait une publicité Discord dans le channel <#" + msg.channel.id + ">.\n\n__Message__ : " + msg.content)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
 
