@@ -18,7 +18,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     msg.react('👋🏽').catch(e => console.error(bot.ls.error,e))
   }
   if (msg.content.includes("archi") || msg.content.includes("archimede") || msg.content.includes("archimède")) {
-    msg.react(':archimede:548198988164235294').catch(e => console.error(bot.ls.error, e))
+    msg.react(':archimede:572954869699313694').catch(e => console.error(bot.ls.error, e))
   }
   if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
     msg.react(':raspberrypi:411531368938471425').catch(e => console.error(bot.ls.error,e))
