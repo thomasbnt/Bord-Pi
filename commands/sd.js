@@ -62,4 +62,18 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         }
     }
 
+    console.log(bot.ls.info, bot.config.prefix + "sd " + " de " + msg.author.tag + " (" + msg.author.id + ")")
+    const SurveyLogPrivateEmbed = new Discord.RichEmbed()
+    WebhookPrivate.send(SurveyLogPrivateEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription("** " + bot.config.prefix + "sd ** - De " + msg.author)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+    )
+    const SurveyLogEmbed = new Discord.RichEmbed()
+    WebhookPublic.send(SurveyLogEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription("** " + bot.config.prefix + "sd ** - De " + msg.author)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+    )
+
 }
