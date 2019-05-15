@@ -51,10 +51,10 @@ discord.js@^11.4.2:
     tweetnacl "^1.0.0"
     ws "^4.0.0"
 
-enmap@^4.8.4:
-  version "4.8.5"
-  resolved "https://registry.yarnpkg.com/enmap/-/enmap-4.8.5.tgz#a006467055d9295351b261b74680dde58ad7dcf0"
-  integrity sha512-KEPus1OGF5X0xaoAYrzvjkc1sT1PIJ1pyVRbmxx1FUOH6D8OtUPMIaiVE+Jylx0411hfJeMaDnBP9NHy2eWksg==
+enmap@^4.8.7:
+  version "4.8.7"
+  resolved "https://registry.yarnpkg.com/enmap/-/enmap-4.8.7.tgz#c8178ded21f41cdc55b969f1357b8fb11a22bb0c"
+  integrity sha512-uDdns7BXSohCQSFO+5RGgJQlgIgKWUHoLY0IPdXmiz90OdlfW+e2SOFAsuaXDCJxdXeKGcJJ9JUvv3wIwF80/Q==
   dependencies:
     lodash "^4.17.11"
 
