@@ -16,7 +16,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
     msg.react(':raspberrypi:411531368938471425').catch(e => console.error(bot.ls.error, e))
   }
-  if (msg.content.includes("mrrobot") || msg.content.includes("robot") || msg.content.includes("fsociety") || msg.content.includes("elliot")) {
+  if (msg.content.includes("mrrobot") || msg.content.includes("fsociety") || msg.content.includes("elliot") || msg.content.includes("alderson")) {
     msg.react(':mrrobot:568456664294883338').catch(e => console.error(bot.ls.error, e))
   }
   if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
