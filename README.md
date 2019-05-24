@@ -1,7 +1,12 @@
 [![Serveur Discord](https://flat.badgen.net/badge//Le%20serveur%20Discord/7289DA?icon=discord)](https://www.thomasbnt.fr/discord/?utm_source=link_discordbotlist?utm_medium=discordbotlist.com)
 [![Supporte le projet sur Patreon](https://flat.badgen.net/badge//Me%20soutenir%20sur%20Patreon/F96854?icon=patreon)](https://www.patreon.com/thomasbnt)
 [![Follow-moi sur Twitter](https://flat.badgen.net/badge//Follow-moi%20sur%20Twitter/33A1F2?icon=twitter)](https://twitter.com/Hyprimort)
+[![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Voir les Releases](https://flat.badgen.net/github/release/thomasbnt/Bord-Pi)](https://github.com/thomasbnt/Bord-Pi/releases)
+![Date du dernier commit](https://flat.badgen.net/github/last-commit/thomasbnt/Bord-Pi)
+
+
+
 
 ## I Introduction
 
