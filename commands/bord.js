@@ -15,7 +15,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
             .addField(":black_small_square: " + bot.config.prefix + "mrrobot", "Vous **serez notifié de chaque mise à jour** du projet <@308655472452304896>. ", false)
             .addField(":black_small_square: " + bot.config.prefix + "thegate", "Vous aurez accès à la **catégorie du projet The Gate** et vous serez notifié de chaque mise à jour.", false)
             .addField(":black_small_square: " + bot.config.prefix + "kimiwa", "Vous aurez accès à la **catégorie du projet Kimiwa** et vous serez notifié de chaque mise à jour.", false)
-            .addField(":black_small_square: " + bot.config.prefix + "lg", "Vous serrez notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
+            .addField(":black_small_square: " + bot.config.prefix + "jeu", "Vous serrez notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
             .addField("Autres commandes", bot.config.prefix + "sd, " + bot.config.prefix + "avatar, " + bot.config.prefix + "form, " + bot.config.prefix + "uptime, " + bot.config.prefix + "ping ")
             .addField("Formulaire de recrutement et des demandes de partenariat", "Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou bien devenir partenaire ? [Remplissez ce formulaire](https://www.thomasbnt.fr/form).", false)
             .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://www.patreon.com/thomasbnt) • [Site web](https://www.thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
