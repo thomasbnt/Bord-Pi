@@ -3,7 +3,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.log(bot.ls.info, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) }
     if (msg.member.roles.has(bot.config.roles.id.Joueur)) {
         msg.member.removeRole(bot.config.roles.id.Joueur).catch(bot.ls.error, console.error)
-        msg.channel.send("Vous avez quitté le village.")
+        msg.channel.send("Vous ne serrez plus notifié lors des évenements et parties.")
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + "lg " + " de " + msg.author.tag + " (" + msg.author.id + ")")
@@ -22,7 +22,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     } else {
         msg.member.addRole(bot.config.roles.id.Joueur).catch(console.error)
-        msg.channel.send('Vous êtes devenus membre ~~de la meute~~ du village, soyez vigilants !')
+        msg.channel.send('Vous serrez notifié lors des évenements et parties.')
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + "lg " + " de " + msg.author.tag + " (" + msg.author.id + ")")
