@@ -22,9 +22,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
     msg.react(':cappuccino:419260851426689034').catch(e => console.error(bot.ls.error, e))
   }
-  if (msg.content.includes("lowpower") || msg.content.includes("L0wP0wer")) {
-    msg.react(':L0wP0wer:544656379370143784').catch(e => console.error(bot.ls.error, e))
-  }
   if (msg.content.includes("twitch")) {
     msg.react(':twitch:391315886742568960').catch(e => console.error(bot.ls.error, e))
   }
