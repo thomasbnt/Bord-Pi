@@ -1,10 +1,11 @@
 [![Serveur Discord](https://flat.badgen.net/badge/Rejoindre%20le/serveur%20Discord/7289DA?icon=discord)](https://www.thomasbnt.fr/discord/?utm_source=link_github?utm_medium=github) 
-[![Supporte le projet sur Patreon](https://flat.badgen.net/badge/Devient/un%20donateur/F96854?icon=patreon)](https://www.patreon.com/thomasbnt)
+[![Supporte le projet sur Patreon](https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/thomasbnt&style=flat-square)](https://www.patreon.com/thomasbnt)
 [![Follow-moi sur Twitter](https://flat.badgen.net/badge/Follow/Moi/33A1F2?icon=twitter)](https://twitter.com/Hyprimort)
+
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Voir les Releases](https://flat.badgen.net/github/release/thomasbnt/Bord-Pi)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![Date du dernier commit](https://flat.badgen.net/github/last-commit/thomasbnt/Bord-Pi)
-
+____
 
 
 
