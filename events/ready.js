@@ -1,4 +1,6 @@
 const Discord = require('discord.js')
+const Twitch = require('./../modules/twitch')
+
 module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   console.log(bot.ls.success,"Connecté en tant que " + bot.user.username)
   bot.updatePresence()
@@ -6,6 +8,11 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   let Motd = ["ThisIsFlume", "Henry III", "👋", "🍣", "😎"]
   let ThisIsMotd = Motd[Math.floor(Math.random() * Motd.length)]
   
+  let twitch = new Twitch(bot)
+  setInterval(() => {
+    twitch.run()
+  }, 300);
+
   const ReadyToPrivateEmbed = new Discord.RichEmbed()
   WebhookPrivate.send(ReadyToPrivateEmbed
     .setColor(bot.config.SuccessColor)
