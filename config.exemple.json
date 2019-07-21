@@ -9,6 +9,7 @@
   "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
+  "twitchID":"",
   "WebhookPrivate": {
     "id": "",
     "token": ""
