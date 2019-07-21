@@ -8,10 +8,10 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   let Motd = ["ThisIsFlume", "Henry III", "👋", "🍣", "😎"]
   let ThisIsMotd = Motd[Math.floor(Math.random() * Motd.length)]
   
-  let twitch = new Twitch(bot, bot.config.TwitchChannelID)
+  let twitch = new Twitch(bot, bot.config.TwitchPseudoID)
   setInterval(() => {
     twitch.run()
-  }, 6000)
+  }, 60000)
 
   const ReadyToPrivateEmbed = new Discord.RichEmbed()
   WebhookPrivate.send(ReadyToPrivateEmbed
