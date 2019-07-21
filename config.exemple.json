@@ -1,14 +1,17 @@
 {
   "token": "",
   "prefix": "/",
+  "TwitchAppID": "",
   "PrimaryColor": "#E74C3C",
   "DangerColor": "#B20000",
   "InfoColor": "#6897BB",
   "SuccessColor": "#47b60f",
+  "TwitchColor": "#4A367B",
   "IDRoleSupport": "",
   "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
+  "TwitchChannelID": "115622131",
   "WebhookPrivate": {
     "id": "",
     "token": ""
