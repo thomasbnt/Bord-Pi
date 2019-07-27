@@ -69,11 +69,4 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setDescription("** " + bot.config.prefix + "sd ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-    const SurveyLogEmbed = new Discord.RichEmbed()
-    WebhookPublic.send(SurveyLogEmbed
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "sd ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
-
 }

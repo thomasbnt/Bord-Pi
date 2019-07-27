@@ -28,10 +28,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setDescription("** " + bot.config.prefix + "bord ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-    const BordLogEmbed = new Discord.RichEmbed()
-    WebhookPublic.send(BordLogEmbed
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "bord ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
 }

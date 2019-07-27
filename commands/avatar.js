@@ -15,11 +15,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setDescription("** " + bot.config.prefix + "avatar ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-    const AvatarLogEmbed = new Discord.RichEmbed()
-    WebhookPublic.send(AvatarLogEmbed
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "avatar ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
-
 }

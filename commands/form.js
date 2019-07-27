@@ -20,11 +20,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setDescription("** " + bot.config.prefix + "form ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-    const FormLogEmbed = new Discord.RichEmbed()
-    WebhookPublic.send(FormLogEmbed
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "form ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
-
 }

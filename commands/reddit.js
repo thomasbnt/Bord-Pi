@@ -12,6 +12,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
   console.log(bot.ls.info, bot.config.prefix + "reddit " + " de " + msg.author.tag + " (" + msg.author.id + ")")
   const RedditLogPrivateEmbed = new Discord.RichEmbed()
   WebhookPrivate.send(RedditLogPrivateEmbed.setColor(bot.config.PrimaryColor).setDescription("** " + bot.config.prefix + "reddit ** - De " + msg.author).setFooter("ID : " + msg.author.id, msg.author.avatarURL))
-  const RedditLogEmbed = new Discord.RichEmbed()
-  WebhookPublic.send(RedditLogEmbed.setColor(bot.config.PrimaryColor).setDescription("** " + bot.config.prefix + "reddit ** - De " + msg.author).setFooter("ID : " + msg.author.id, msg.author.avatarURL))
 }
