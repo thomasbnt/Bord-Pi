@@ -60,7 +60,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
       ).catch(e => console.error(e))
     } else {
-      console.log(bot.ls.error, "Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.name === \"Ici le nom du channel\") ")
+      console.log(bot.ls.error, "Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.id === \"Ici l'ID du channel\") ")
     }
   }
 
@@ -74,23 +74,37 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     const LinksProhibedEmbed = new Discord.RichEmbed()
     msg.channel.send(`<@${msg.author.id}> hop hop hop !`, LinksProhibedEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription('Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que dans <#510619318183133195>.')
+      .setDescription(`Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que dans <#${bot.config.IDAdsChannel}>.`)
     ).then(m => { setTimeout(() => { m.delete() }, 20000) })
 
-    console.log(bot.ls.info, msg.author.tag + " (" + msg.author.id + ") a fait une publicité Discord dans le channel " + msg.channel.name + " (" + msg.channel.id + ").\nMessage : " + msg.content)
+    console.log(bot.ls.info, `${msg.author.tag} (${msg.author.id}) a fait une publicité Discord dans le channel ${msg.channel.name} (${msg.channel.id}).\n> ${msg.content}`)
     const LinksProhibedLogPrivateEmbed = new Discord.RichEmbed()
     WebhookPrivate.send(LinksProhibedLogPrivateEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription(msg.author.tag + " a fait une publicité Discord dans le channel <#" + msg.channel.id + ">.\n\n__Message__ : " + msg.content)
+      .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}">.\n\n> ${msg.content}`)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
     const LinksProhibedLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(LinksProhibedLogEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription(msg.author.tag + " a fait une publicité Discord dans le channel <#" + msg.channel.id + ">.\n\n__Message__ : " + msg.content)
+      .setDescription(`<@${msg.author.id}>} a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-
+  }
+  if (msg.content.startsWith("j'aimerais être développeur certifié")) {
+    const DevCertLogEmbed = new Discord.RichEmbed()
+    WebhookPrivate.send(DevCertLogEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
+        .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)
+    )
+    const DevCertEmbed = new Discord.RichEmbed()
+    WebhookPublic.send(DevCertEmbed
+        .setColor(bot.config.PrimaryColor)
+        .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
+        .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)
+    )
+    console.log(bot.ls.info, `Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
   }
 
   if (msg.content.indexOf(bot.config.prefix) !== 0) return
