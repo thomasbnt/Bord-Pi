@@ -6,7 +6,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.channel.send("Vous ne serrez plus notifié lors des évenements et parties.")
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
-        console.log(bot.ls.info, bot.config.prefix + "lg " + " de " + msg.author.tag + " (" + msg.author.id + ")")
+        console.log(bot.ls.info, bot.config.prefix + "jeu " + " de " + msg.author.tag + " (" + msg.author.id + ")")
         const LogLGIfPrivateEmbed = new Discord.RichEmbed()
         WebhookPrivate.send(LogLGIfPrivateEmbed
             .setColor(bot.config.roles.color.Joueur)
@@ -25,7 +25,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.channel.send('Vous serrez notifié lors des évenements et parties.')
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
-        console.log(bot.ls.info, bot.config.prefix + "lg " + " de " + msg.author.tag + " (" + msg.author.id + ")")
+        console.log(bot.ls.info, bot.config.prefix + "jeu " + " de " + msg.author.tag + " (" + msg.author.id + ")")
         const LogLGElsePrivateEmbed = new Discord.RichEmbed()
         WebhookPrivate.send(LogLGElsePrivateEmbed
             .setColor(bot.config.roles.color.Joueur)
