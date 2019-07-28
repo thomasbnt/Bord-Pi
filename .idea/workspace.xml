@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e215f2d1-4f08-4ae4-9731-cd192c6c5f6d" name="Default Changelist" comment="Bugfix rôle Kimiwa">
-      <change beforePath="$PROJECT_DIR$/events/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/ready.js" afterDir="false" />
+    <list default="true" id="e215f2d1-4f08-4ae4-9731-cd192c6c5f6d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/bord.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/bord.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/events/message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            <state relative-caret-position="311">
+              <caret line="75" column="39" lean-forward="true" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/commands/bord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -37,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/events/ready.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
+            <state relative-caret-position="468">
               <caret line="18" column="17" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="17" />
             </state>
           </provider>
@@ -64,7 +73,6 @@
         <option value="$PROJECT_DIR$/core/config.json" />
         <option value="$PROJECT_DIR$/core/app.js" />
         <option value="$PROJECT_DIR$/commands/avatar.js" />
-        <option value="$PROJECT_DIR$/commands/bord.js" />
         <option value="$PROJECT_DIR$/commands/form.js" />
         <option value="$PROJECT_DIR$/commands/reddit.js" />
         <option value="$PROJECT_DIR$/commands/sd.js" />
@@ -75,6 +83,7 @@
         <option value="$PROJECT_DIR$/modules/twitch.js" />
         <option value="$PROJECT_DIR$/events/ready.js" />
         <option value="$PROJECT_DIR$/events/message.js" />
+        <option value="$PROJECT_DIR$/commands/bord.js" />
       </list>
     </option>
   </component>
@@ -90,7 +99,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,6 +114,11 @@
             <path>
               <item name="Bord-Pi" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bord-Pi" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bord-Pi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bord-Pi" type="462c0819:PsiDirectoryNode" />
               <item name="events" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -117,6 +130,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -162,7 +176,8 @@
       <option name="presentableId" value="Default" />
       <updated>1551727174277</updated>
       <workItem from="1551727179923" duration="1547000" />
-      <workItem from="1564242674208" duration="4933000" />
+      <workItem from="1564242674208" duration="5248000" />
+      <workItem from="1564317741605" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="Supp des logs publics sauf giverôles">
       <created>1564251792325</created>
@@ -178,11 +193,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564251863068</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ajout de la request Dev' certifié">
+      <created>1564251920251</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564251920251</updated>
+    </task>
+    <task id="LOCAL-00004" summary="workspace updated">
+      <created>1564251948907</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564251948907</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6480000" />
+    <option name="totallyTimeSpent" value="6847000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="-4" width="1323" height="773" extended-state="6" />
@@ -200,7 +229,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32886904" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32886904" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32886904" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -214,7 +243,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Supp des logs publics sauf giverôles" />
     <MESSAGE value="Bugfix rôle Kimiwa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfix rôle Kimiwa" />
+    <MESSAGE value="Ajout de la request Dev' certifié" />
+    <MESSAGE value="workspace updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace updated" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -231,13 +262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/bord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -318,10 +342,10 @@
     <entry file="file://$PROJECT_DIR$/.github/FUNDING.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/ready.js">
+    <entry file="file://$PROJECT_DIR$/events/message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="17" />
+        <state relative-caret-position="311">
+          <caret line="75" column="39" lean-forward="true" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -332,10 +356,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/message.js">
+    <entry file="file://$PROJECT_DIR$/events/ready.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="468">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/bord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
