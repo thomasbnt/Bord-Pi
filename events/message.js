@@ -87,7 +87,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     const LinksProhibedLogEmbed = new Discord.RichEmbed()
     WebhookPublic.send(LinksProhibedLogEmbed
       .setColor(bot.config.DangerColor)
-      .setDescription(`<@${msg.author.id}>} a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
+      .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
   }
