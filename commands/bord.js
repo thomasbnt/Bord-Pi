@@ -13,7 +13,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
             .setDescription("Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.")
             .setThumbnail(bot.user.displayAvatarURL)
             .addField(":black_small_square: " + bot.config.prefix + "mrrobot", "Vous **serez notifié de chaque mise à jour** du projet <@308655472452304896>. ", false)
-            .addField(":black_small_square: " + bot.config.prefix + "kimiwa", "Vous aurez accès à la **catégorie du projet Kimiwa** et vous serez notifié de chaque mise à jour.", false)
+            //.addField(":black_small_square: " + bot.config.prefix + "kimiwa", "Vous aurez accès à la **catégorie du projet Kimiwa** et vous serez notifié de chaque mise à jour.", false)
             .addField(":black_small_square: " + bot.config.prefix + "jeu", "Vous serrez notifié à chaque événement et futures parties afin que vous puissez jouer avec nous le tout en __vocal__.", false)
             .addField("Autres commandes", bot.config.prefix + "sd, " + bot.config.prefix + "avatar, " + bot.config.prefix + "form, " + bot.config.prefix + "uptime, " + bot.config.prefix + "ping ")
             .addField("Formulaire de recrutement et des demandes de partenariat", "Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou bien devenir partenaire ? [Remplissez ce formulaire](https://www.thomasbnt.fr/form).", false)
