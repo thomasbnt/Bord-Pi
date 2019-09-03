@@ -31,6 +31,9 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   if (msg.content.includes("patreon")) {
     msg.react(':patreon:588740970028335114').catch(e => console.error(bot.ls.error, e))
   }
+  if (msg.content.includes("devto")) {
+    msg.react(':devto:618474751093899324').catch(e => console.error(bot.ls.error, e))
+  }
 
 
   // -------------------- Notification auprès du @Support --------------------
