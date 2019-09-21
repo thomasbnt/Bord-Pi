@@ -8,7 +8,7 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   let Motd = ["ThisIsFlume", "Henry III", "👋", "🍣", "😎", "E Corpé"]
   let ThisIsMotd = Motd[Math.floor(Math.random() * Motd.length)]
   
-  let twitch = new Twitch(bot, bot.config.TwitchPseudoID)
+  let twitch = new Twitch(bot, bot.config.TwitchChannelID)
   setInterval(() => {
     twitch.run()
   }, 60000)
