@@ -12,7 +12,6 @@
 ____
 
 
-
 ## I Introduction
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
