@@ -1,7 +1,7 @@
 [![Serveur Discord](https://flat.badgen.net/badge/Rejoindre%20le/serveur%20Discord/7289DA?icon=discord)](https://thomasbnt.fr/discord/?utm_source=link_github_bordpi?utm_medium=github) 
 [![Supporte le projet sur Patreon](https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/thomasbnt&style=flat-square)](https://www.patreon.com/thomasbnt)
 [![Follow-moi sur Twitter](https://flat.badgen.net/badge/Follow/Moi/33A1F2?icon=twitter)](https://twitter.com/Hyprimort)
-[![Partager sur Twitter](https://img.shields.io/twitter/url?label=Partager%20sur%20Twitter&url=https%3A%2F%2Fgithub.com%2Fthomasbnt%2FBord-Pi)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fthomasbnt%2FBord-Pi)
+[![Partager sur Twitter](https://img.shields.io/twitter/url?label=Partager%20sur%20Twitter&url=https%3A%2F%2Fgithub.com%2Fthomasbnt%2FBord-Pi)](https://twitter.com/intent/tweet?text=Un%20robot%20Discord%20gérant%20et%20aidant%20les%20utilisateurs%20pour%20le%20serveur%20La%20Hype_&url=https%3A%2F%2Fgithub.com%2Fthomasbnt%2FBord-Pi)
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/maintainability)](https://codeclimate.com/github/thomasbnt/Bord-Pi/maintainability)
