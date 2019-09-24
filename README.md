@@ -87,7 +87,7 @@ Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 L'image a été modifié par mes soins, veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
 Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
-- 💬  Chat : Rejoins-nous sur [Discord](https://www.thomasbnt.fr/discord/)
+- 💬  Chat : Rejoins-nous sur [Discord](https://thomasbnt.fr/discord/)
 - 📣  News : Suis-moi sur [Twitter](https://twitter.com/Hyprimort)
 - 📕  Sous licence [GNU GPL v3.0](LICENSE)
-- 🔗  Visite le [Site Web](https://www.thomasbnt.fr)
+- 🔗  Visite le [Site Web](https://thomasbnt.fr)
