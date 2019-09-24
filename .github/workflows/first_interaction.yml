@@ -1,0 +1,10 @@
+name: 'First interaction'
+author: 'GitHub'
+inputs:
+  repo-token:
+    description: 'Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
+    required: true
+  issue-message:
+    description: 'Hey, merci d'avoir ouvert votre première issue ! 🙂'
+  pr-message:
+    description: 'Hey, merci d'avoir ouvert votre première Pull Request ! N'oubliez pas de [consulter les lignes directrices sur les contributions](https://github.com/thomasbnt/Bord-Pi#iii-contributions'
