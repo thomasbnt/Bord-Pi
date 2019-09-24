@@ -1,6 +1,6 @@
 ---
-name: "\U0001F41EBug report"
-about: Reporter un bug
+name: "\U0001F41E Reporter un bug"
+about: Une erreur dans le code ? Un crash ?
 ---
 
 # 🐞  Reporter un bug
