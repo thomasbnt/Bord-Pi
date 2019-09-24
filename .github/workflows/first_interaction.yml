@@ -1,10 +1,13 @@
-name: 'First interaction'
-author: 'GitHub'
-inputs:
-  repo-token:
-    description: 'Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
-    required: true
-  issue-message:
-    description: 'Hey, merci d'avoir ouvert votre première issue ! 🙂'
-  pr-message:
-    description: 'Hey, merci d'avoir ouvert votre première Pull Request ! N'oubliez pas de [consulter les lignes directrices sur les contributions](https://github.com/thomasbnt/Bord-Pi#iii-contributions'
+name: First Interaction
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Hey, merci d'avoir ouvert votre première issue ! 🙂"
+        pr-message: "Hey, merci d'avoir ouvert votre première Pull Request ! N'oubliez pas de [consulter les lignes directrices sur les contributions](https://github.com/thomasbnt/Bord-Pi#iii-contributions)"
