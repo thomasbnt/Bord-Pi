@@ -78,9 +78,9 @@ Merci pour vos suggestions !
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
-| **Partie**  | Par défaut | Mr. Robøt | The Gate | LoupGarou | Muted |
+| **Partie**  | Par défaut | Mr. Robøt | The Gate | Joueur | Muted |
 |---------|------------|----------|----------|----------|----------|
-| **Code Hexadécimal** | `#E74C3C`   | `#71368A`  | `#1F8B4C`  | `#252132` | `#454242` |
+| **Code Hexadécimal** | `#E74C3C`   | `#71368A`  | `#1F8B4C`  | `#BC5A92` | `#454242` |
 
 ## V Informations complémentaires
 
