@@ -5,7 +5,6 @@
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/maintainability)](https://codeclimate.com/github/thomasbnt/Bord-Pi/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/test_coverage)](https://codeclimate.com/github/thomasbnt/Bord-Pi/test_coverage)
 [![Voir les Releases](https://flat.badgen.net/github/release/thomasbnt/Bord-Pi)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![Date du dernier commit](https://flat.badgen.net/github/last-commit/thomasbnt/Bord-Pi)
 
