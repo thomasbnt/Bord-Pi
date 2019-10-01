@@ -15,18 +15,18 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   }, 60000)
 
 
-  WebhookPrivate.send(Embed
-    .setColor(bot.config.SuccessColor)
-    .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
-    .setFooter(ThisIsMotd)
-    .setTimestamp(new Date())
-  ).catch(e => console.error(e))
+  // WebhookPrivate.send(Embed
+  //   .setColor(bot.config.SuccessColor)
+  //   .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
+  //   .setFooter(ThisIsMotd)
+  //   .setTimestamp(new Date())
+  // ).catch(e => console.error(e))
 
 
-  WebhookPublic.send(Embed
-    .setColor(bot.config.SuccessColor)
-    .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
-    .setFooter(ThisIsMotd)
-    .setTimestamp(new Date())
-  ).catch(e => console.error(e))
+  // WebhookPublic.send(Embed
+  //   .setColor(bot.config.SuccessColor)
+  //   .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
+  //   .setFooter(ThisIsMotd)
+  //   .setTimestamp(new Date())
+  // ).catch(e => console.error(e))
 }
