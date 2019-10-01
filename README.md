@@ -23,15 +23,15 @@ ____
 
 ## II Les intégrations
 
-- Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `mrrobot.js` et sert à se procurer d'un rôle qui, par la suite vous débloque des channels suivant votre configuration du serveur.
+- Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `mrrobot.js` et sert à se procurer un rôle qui, par la suite vous débloque des accés a certains channels suivant votre configuration du serveur.
 
-- Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter votre ID channel de publicité en `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
+- Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 
 - Un **système de logs** interne et externe via Webhooks. Pourquoi en avoir deux? L'un est pour le serveur lui-même, et le second sur un serveur de 'backup', mais il vous est utile que d'un seul si vous le souhaitez. En plus, la console est devenue plus jolie que la v1.
 
-- Un **message de bienvenue personnalisé**, avec un système qui vérifie si son compte est bien enregistré ou non en comparant s'il a un avatar par défaut ou non, et s'il y en a un, il démontre comment s'en procurer un en allant sur le support de Discord. 
+- Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
 
-- Besoin d'une aide particulière auprès d'un rôle? Dès que le rôle est notifié, le robot confirme que ça bien été reçu et que la personne devrait regarder la FAQ si jamais.
+- Besoin d'une aide particulière auprès d'un rôle? Dès que le rôle est notifié, le robot confirme que cela à bien été reçu et afin que la personne regarde la FAQ si jamais.
 
 
 - Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger. 
@@ -55,7 +55,7 @@ Les contributions sont toujours les bienvenues ! Lisez les règles pour les cont
 Veuillez vous assurer que votre demande de pull request respecte les lignes directrices suivantes :
 
 - Alphabétisez votre entrée.
-- Rechercher des suggestions précédentes avant d'en faire une nouvelle, comme le vôtre peut être un doublon.
+- Rechercher des suggestions précédentes avant d'en faire une nouvelle, afin d'éviter les doublon.
 - Les fichiers README suggérés devraient être beaux ou se démarquer d'une manière ou d'une autre.
 - Faire une demande de pull request individuelle pour chaque suggestion.
 - De nouvelles catégories ou des améliorations à la catégorisation existante sont les bienvenues.
