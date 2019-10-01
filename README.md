@@ -23,7 +23,7 @@ ____
 
 ## II Les intégrations
 
-- Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `mrrobot.js` et sert à se procurer un rôle qui, par la suite vous débloque des accés a certains channels suivant votre configuration du serveur.
+- Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `mrrobot.js` et sert à se procurer un rôle qui, par la suite vous débloque des accès a certains channels suivant votre configuration du serveur.
 
 - Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 
@@ -31,7 +31,7 @@ ____
 
 - Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
 
-- Besoin d'une aide particulière auprès d'un rôle? Dès que le rôle est notifié, le robot confirme que cela à bien été reçu et afin que la personne regarde la FAQ si jamais.
+- Besoin d'une aide particulière auprès d'un rôle? Dès que le rôle est notifié, le robot confirme que cela a bien été reçu et afin que la personne regarde la FAQ si jamais.
 
 
 - Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger. 
