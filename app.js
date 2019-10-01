@@ -61,7 +61,7 @@ klaw("./commands/").on("data", (item) => {
 
 function _loadCommand (commandPath, commandName) {
   try {
-    console.log(`Loading Command: ${commandName}`)
+    console.log(`Chargement de la commande : ${commandName}`)
     const props = require(`${commandPath}${path.sep}${commandName}`)
     if (props.init) {
       props.init(bot)
