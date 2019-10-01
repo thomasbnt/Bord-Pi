@@ -1,13 +1,15 @@
 const Discord = require('discord.js')
+const Embed = new Discord.RichEmbed()
+
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
+
     if (msg.channel.recipient) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
         msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
 
-    const BordEmbed = new Discord.RichEmbed()
     msg.channel.send(
-        BordEmbed
+        Embed
             .setColor(bot.config.PrimaryColor)
             .setTitle("Bord Pi — Panel d'aide")
             .setDescription("Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.")
@@ -21,8 +23,8 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     )
 
     console.log(bot.ls.info, bot.config.prefix + "bord " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    const BordLogPrivateEmbed = new Discord.RichEmbed()
-    WebhookPrivate.send(BordLogPrivateEmbed
+
+    WebhookPrivate.send(Embed
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "bord ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)

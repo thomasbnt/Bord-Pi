@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const Twitch = require('./../modules/twitch')
+const Embed = new Discord.RichEmbed()
 
 module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
   console.log(bot.ls.success,"Connecté en tant que " + bot.user.username)
@@ -13,15 +14,16 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, msg, args) => {
     twitch.run()
   }, 60000)
 
-  const ReadyToPrivateEmbed = new Discord.RichEmbed()
-  WebhookPrivate.send(ReadyToPrivateEmbed
+
+  WebhookPrivate.send(Embed
     .setColor(bot.config.SuccessColor)
     .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
     .setFooter(ThisIsMotd)
     .setTimestamp(new Date())
   ).catch(e => console.error(e))
-  const ReadyToEmbed = new Discord.RichEmbed()
-  WebhookPublic.send(ReadyToEmbed
+
+
+  WebhookPublic.send(Embed
     .setColor(bot.config.SuccessColor)
     .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
     .setFooter(ThisIsMotd)

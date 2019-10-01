@@ -1,8 +1,10 @@
 /*
-* Émuler une sortie d'un membre
-*/
+ * Émuler une sortie d'un membre
+ */
 const Discord = require('discord.js')
+const Embed = new Discord.RichEmbed()
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
+
     if (msg.channel.recipient) return
     if (!msg.member.hasPermission("ADMINISTRATOR")) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
@@ -12,14 +14,14 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     bot.emit("guildMemberRemove", msg.member)
 
     console.log(bot.ls.info, bot.config.prefix + "emmitr " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    const EmmitRemoveLogPrivateEmbed = new Discord.RichEmbed()
-    WebhookPrivate.send(EmmitRemoveLogPrivateEmbed
+   
+    WebhookPrivate.send(Embed
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "emmitr ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
-    const EmmitRemoveLogEmbed = new Discord.RichEmbed()
-    WebhookPublic.send(EmmitRemoveLogEmbed
+
+    WebhookPublic.send(Embed
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "emmitr ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
