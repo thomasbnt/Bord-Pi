@@ -9,8 +9,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     
     if (!msg.member.roles.has(ThisIsFole.id)) return
 
-    msg.channel.send(
-        new Discord.RichEmbed()
+    msg.channel.send(new Discord.RichEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Message d'aide en provenance d'un des membres du support.")
             .setDescription("Bienvenue dans le channel support de **Mr. Robøt**. Veuillez tout d'abord, et avant de poser votre question de **[lire la Foire Aux Questions](https://mrrobot.thomasbnt.fr/#faq)**. \n\nSi vous n'avez pas la solution, envoyez directement ici en incluant :\n\n```markdown\n+ Type de soucis\n+ Précisez ce que ça produit\n```\n\nUne description détaillée est requise sinon votre demande pourrait ne pas être prise en compte. Les membres du <@&416618144027639808> vous donnerons une réponse dans les plus brefs délais.")
