@@ -7,8 +7,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
 
-    msg.channel.send(
-        new Discord.RichEmbed()
+    msg.channel.send(new Discord.RichEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Bord Pi — Panel d'aide")
             .setDescription("Un robot gérant et aidant les utilisateurs pour le serveur **La Hype_**.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.")
