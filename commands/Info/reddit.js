@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const Embed = new Discord.RichEmbed()
 
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
-  if (msg.channel.recipient) 
+  if (msg.channel.recipient)
     return
 
   if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
