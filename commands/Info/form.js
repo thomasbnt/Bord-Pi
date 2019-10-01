@@ -8,8 +8,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.delete(msg.author).catch(e => console.log(bot.ls.info, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
 
-    msg.channel.send(
-        new Discord.RichEmbed()
+    msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou tout simplement devenir Partenaire ? Remplissez [ce formulaire](https://www.thomasbnt.fr/form) et on vous répondra dès que possible !")
     )
