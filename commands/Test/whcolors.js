@@ -2,7 +2,7 @@
 * Commande pour tester les Webhooks mais aussi les couleurs intégrés.
 */
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
+
 
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.channel.recipient) return
@@ -11,22 +11,22 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Primary Color")
     )
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.DangerColor)
         .setTitle("Danger Color")
     )
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.SuccessColor)
         .setTitle("Success Color")
     )
     
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.InfoColor)
         .setTitle("Info Color")
     )

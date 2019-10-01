@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
@@ -20,8 +19,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         .split(/ *\/ */g)
 
     if (choice.length < 3) {
-        msg.channel.send(
-            Embed
+        msg.channel.send(new Discord.RichEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Bord Pi — Créer un sondage")
             .setDescription("Créez vos propres sondages avec un maximum de 10 choix.")
@@ -35,8 +33,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     } else if (choice.length > 11) {
 
-        msg.channel.send(
-            Embed
+        msg.channel.send(new Discord.RichEmbed()
             .setColor(bot.config.DangerColor)
             .setFooter("Erreur — Vous ne pouvez pas mettre plus de 10 choix.")
         ).then(m => {
@@ -69,7 +66,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     console.log(bot.ls.info, bot.config.prefix + "sd " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "sd ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)

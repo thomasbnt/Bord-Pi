@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
@@ -54,7 +53,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     const ThisIsFessage = (msg.guild.channels.find(x => x.id === bot.config.IDChannelSupport))
     if (ThisIsFessage) {
 
-      msg.channel.send(Embed
+      msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Bonjour, un membre du support va vous répondre d'ici peu dans <#432552194630352916>")
         .setFooter("Merci de ne pas oublier de lire la FAQ sur le site web de Mr. Robøt.")
@@ -62,13 +61,13 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
       console.log(bot.ls.info, "Nouveau message pour le Support en provenance de " + msg.author.tag + " (" + msg.author.id + ")")
 
-      WebhookPrivate.send(Embed
+      WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
       ).catch(e => console.error(e))
       
-      WebhookPublic.send(Embed
+      WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
@@ -88,20 +87,20 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) }
     
 
-    msg.channel.send(`<@${msg.author.id}> hop hop hop !`, Embed
+    msg.channel.send(`<@${msg.author.id}> hop hop hop !`, new Discord.RichEmbed()
       .setColor(bot.config.DangerColor)
       .setDescription(`Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que dans <#${bot.config.IDAdsChannel}>.`)
     ).then(m => { setTimeout(() => { m.delete() }, 20000) })
 
     
     console.log(bot.ls.info, `${msg.author.tag} (${msg.author.id}) a fait une publicité Discord dans le channel ${msg.channel.name} (${msg.channel.id}).\n> ${msg.content}`)
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
       .setColor(bot.config.DangerColor)
       .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}">.\n\n> ${msg.content}`)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
     
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
       .setColor(bot.config.DangerColor)
       .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
       .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
@@ -110,13 +109,13 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
   if (msg.content.startsWith("j'aimerais être développeur certifié")) {
     
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
         .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)
     )
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
         .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)

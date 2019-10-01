@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
 
@@ -8,7 +7,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
 
-    msg.channel.send(Embed
+    msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor) 
         .setDescription(`Voici ton image de profil.\nPour la voir, clique simplement dessus.\nTu as la possibilité de l'ouvrir dans une \nnouvelle page en cliquant sur [ce lien](${msg.author.displayAvatarURL}).`)
         .setThumbnail(msg.author.displayAvatarURL)
@@ -16,7 +15,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     console.log(bot.ls.info, bot.config.prefix + "avatar " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "avatar ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)

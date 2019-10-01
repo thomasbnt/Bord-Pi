@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
@@ -10,14 +9,14 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     if (!msg.member.hasPermission('MANAGE_MESSAGES')) return
 
-    msg.channel.send(Embed
+    msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setAuthor("🔌 Uptime", msg.author.displayAvatarURL, "https://github.com/thomasbnt/Bord-Pi")
         .setDescription((Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s")
     )
 
     console.log(bot.ls.info, bot.config.prefix + "uptime " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "uptime ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
