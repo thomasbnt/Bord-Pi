@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { 
@@ -9,7 +8,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
   const m = await msg.channel.send("En attente..")
 
-  m.edit(Embed
+  m.edit(new Discord.RichEmbed()
     .setColor(bot.config.PrimaryColor)
     .addField("Latence du robot", `${m.createdTimestamp - msg.createdTimestamp} ms`, true)
     .addField("Latence de l'API Discord", `${Math.floor(bot.ping)} ms`, true)
@@ -17,12 +16,12 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
   console.log(bot.ls.info, bot.config.prefix + "ping " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-  WebhookPrivate.send(Embed
+  WebhookPrivate.send(new Discord.RichEmbed()
     .setColor(bot.config.PrimaryColor)
     .setDescription("** " + bot.config.prefix + "ping ** - De " + msg.author)
     .setFooter("ID : " + msg.author.id, msg.author.avatarURL)  )
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
     .setColor(bot.config.PrimaryColor)
     .setDescription("** " + bot.config.prefix + "ping ** - De " + msg.author)
     .setFooter("ID : " + msg.author.id, msg.author.avatarURL)  )

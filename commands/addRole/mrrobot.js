@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
 
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
@@ -19,13 +18,13 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
         console.log(bot.ls.info, bot.config.prefix + "mrrobot " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-        WebhookPrivate.send(Embed
+        WebhookPrivate.send(new Discord.RichEmbed()
             .setColor(bot.config.roles.color.mrrobot)
             .setDescription("Rôle **" + bot.config.roles.name.mrrobot + "** supprimé pour " + msg.author)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
 
-        WebhookPublic.send(Embed
+        WebhookPublic.send(new Discord.RichEmbed()
             .setColor(bot.config.roles.color.mrrobot)
             .setDescription("Rôle **" + bot.config.roles.name.mrrobot + "** supprimé pour " + msg.author)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
@@ -43,13 +42,13 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
         console.log(bot.ls.info, bot.config.prefix + "mrrobot " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-        WebhookPrivate.send(Embed
+        WebhookPrivate.send(new Discord.RichEmbed()
             .setColor(bot.config.roles.color.mrrobot)
             .setDescription("Rôle **" + bot.config.roles.name.mrrobot + "** ajouté pour " + msg.author)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
 
-        WebhookPublic.send(Embed
+        WebhookPublic.send(new Discord.RichEmbed()
             .setColor(bot.config.roles.color.mrrobot)
             .setDescription("Rôle **" + bot.config.roles.name.mrrobot + "** ajouté pour " + msg.author)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)

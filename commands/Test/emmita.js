@@ -2,7 +2,7 @@
 * Émuler une entrée d'un membre
 */
 const Discord = require('discord.js')
-const Embed = new Discord.RichEmbed()
+
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     if (msg.channel.recipient) return
@@ -15,13 +15,13 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     console.log(bot.ls.info, bot.config.prefix + "emmita " + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
-    WebhookPrivate.send(Embed
+    WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "emmita ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
     )
 
-    WebhookPublic.send(Embed
+    WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("** " + bot.config.prefix + "emmita ** - De " + msg.author)
         .setFooter("ID : " + msg.author.id, msg.author.avatarURL)

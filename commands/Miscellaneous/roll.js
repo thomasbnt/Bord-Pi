@@ -3,7 +3,6 @@
  */
 
 const Discord = require("discord.js")
-const Embed = new Discord.RichEmbed()
 
 exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     if (msg.channel.recipient)
@@ -17,7 +16,7 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     let max = Math.floor(100);
     let roll = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    msg.channel.send(Embed.setColor(bot.config.PrimaryColor)
+    msg.channel.send(new Discord.RichEmbed().setColor(bot.config.PrimaryColor)
         .setDescription(`Vous avez tirée le numéro : ${roll}`)
     )
 }
