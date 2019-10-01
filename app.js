@@ -12,14 +12,14 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const klaw = require('klaw')
-const path = require("path");
+const path = require("path")
 
 
 const config = require('./config.json')
 
 const bot = new Discord.Client({
   autoReconnect: true
-});
+})
 
 // -------------------- Webhooks --------------------
 
@@ -61,19 +61,19 @@ klaw("./commands/").on("data", (item) => {
 
 function _loadCommand (commandPath, commandName) {
   try {
-    console.log(`Loading Command: ${commandName}`);
-    const props = require(`${commandPath}${path.sep}${commandName}`);
+    console.log(`Loading Command: ${commandName}`)
+    const props = require(`${commandPath}${path.sep}${commandName}`)
     if (props.init) {
-      props.init(bot);
+      props.init(bot)
     }
 
-    bot.commands.set(commandName, props);
+    bot.commands.set(commandName, props)
     
-    return false;
+    return false
   } catch (e) {
-    return `Unable to load command ${commandName}: ${e}`;
+    return `Impossible de charger la commande ${commandName}: ${e}`
   }
-};
+}
 
 
 bot.login(config.token)
