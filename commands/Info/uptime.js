@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const humanizeDuration = require('humanize-duration')
 
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
@@ -12,7 +13,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setAuthor("🔌 Uptime", msg.author.displayAvatarURL, "https://github.com/thomasbnt/Bord-Pi")
-        .setDescription((Math.round(bot.uptime / (1000 * 60 * 60))) + ' heure|s  ' + (Math.round(bot.uptime / (1000 * 60)) % 60) + ' minute|s ' + (Math.round(bot.uptime / 1000) % 60) + " seconde|s")
+        .setDescription(humanizeDuration(bot.uptime, {language: 'fr', round: true}))
     )
 
     console.log(bot.ls.info, bot.config.prefix + "uptime " + " de " + msg.author.tag + " (" + msg.author.id + ")")

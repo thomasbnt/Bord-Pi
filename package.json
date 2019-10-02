@@ -22,6 +22,7 @@
     "klaw": "^3.0.0",
     "log-symbols": "^3.0.0",
     "moment": "^2.24.0",
+    "humanize-duration": "^3.21.0",
     "twitch-api-v5": "^2.0.4"
   }
 }
