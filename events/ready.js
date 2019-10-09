@@ -24,7 +24,7 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, msg, arg
     .catch(function(error) { console.log(bot.ls.error, error)})
   watcher.on('new entries', function(entries) {
     entries.forEach(function(entry) {           
-        WebhookRedditRSSc.send(`[${entry.title}](${entry.link}) — Posté par ${entry.author}`)
+        WebhookRedditRSS.send(`[${entry.title}](${entry.link}) — Posté par ${entry.author}`)
         console.log(bot.ls.info,'Nouvelle entrée Flux RSS Reddit\nTitre : ' + entry.title + 
         "\nURL : " + (entry.url || entry.link) + "\n\n")
     })

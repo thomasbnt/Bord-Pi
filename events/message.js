@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
+module.exports = async (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, msg) => {
 
   if (msg.author.bot) return
   if (msg.author.id === bot.user.id) return
