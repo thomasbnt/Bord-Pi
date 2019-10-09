@@ -12,11 +12,16 @@
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
   "TwitchChannelID": "115622131",
+  "NameOfSubreddit": "LaHype",
   "WebhookPrivate": {
     "id": "",
     "token": ""
   },
   "WebhookPublic": {
+    "id": "",
+    "token": ""
+  },
+  "WebhookRedditRSSToken": {
     "id": "",
     "token": ""
   },
