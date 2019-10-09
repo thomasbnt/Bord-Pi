@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
+module.exports = (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, member) => {
     bot.updatePresence()
     const guild = member.guild
 
