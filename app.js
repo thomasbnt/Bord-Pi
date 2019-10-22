@@ -62,7 +62,7 @@ klaw("./commands/").on("data", (item) => {
 
 function _loadCommand (commandPath, commandName) {
   try {
-    console.log(bot.ls.success,`Loading Command: ${commandName}`)
+    console.log(bot.ls.success,`Chargement de la commande — ${commandName}`)
     const props = require(`${commandPath}${path.sep}${commandName}`)
     if (props.init) {
       props.init(bot)
@@ -72,7 +72,7 @@ function _loadCommand (commandPath, commandName) {
     
     return false
   } catch (e) {
-    return `Unable to load command ${commandName}: ${e}`
+    return `Impossible de charger la commande ${commandName} — ${e}`
   }
 }
 

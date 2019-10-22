@@ -95,7 +95,7 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, ms
     )
   }
 
-  if (msg.content.startsWith("j'aimerais être développeur certifié")) {
+  if (msg.content.includes("développeur certifié") || msg.content.includes("developpeur certifie")) {
     
     WebhookPrivate.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
