@@ -8,10 +8,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, ms
 
   // -------------------- Customs Réactions --------------------
 
-  if (msg.content.includes("salut") || msg.content.includes("bonsoir") || msg.content.includes("bonjour")) {
-    msg.react('👋🏽').catch(e => console.error(bot.ls.error, e))
-  }
-
   if (msg.content.includes("archi") || msg.content.includes("archimede") || msg.content.includes("archimède")) {
     msg.react(':archimede:572954869699313694').catch(e => console.error(bot.ls.error, e))
   }
@@ -26,14 +22,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, ms
 
   if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
     msg.react(':cappuccino:419260851426689034').catch(e => console.error(bot.ls.error, e))
-  }
-
-  if (msg.content.includes("twitch")) {
-    msg.react(':twitch:391315886742568960').catch(e => console.error(bot.ls.error, e))
-  }
-
-  if (msg.content.includes("twitter") || msg.content.includes("twitwi")) {
-    msg.react(':twitter:391315885803175936').catch(e => console.error(bot.ls.error, e))
   }
 
   if (msg.content.includes("patreon")) {
