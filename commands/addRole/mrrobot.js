@@ -26,7 +26,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
     } else {
         msg.member.addRole(bot.config.IDRoles.MrRobot).catch(console.error)
-        msg.channel.send(`Vous serrez désormais notifié pour les mises à jour mineures de **Mr. Robøt**.  Vous êtes ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size} membres qui possède ce rôle.`)
+        msg.channel.send(`Vous serrez désormais notifié pour les mises à jour mineures de **Mr. Robøt**.\nVous êtes ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size} membres qui possède ce rôle.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.get(bot.config.IDRoles.MrRobot).name + " de " + msg.author.tag + " (" + msg.author.id + ")")

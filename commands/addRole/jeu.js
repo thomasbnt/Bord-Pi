@@ -22,7 +22,7 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
         )
     } else {
         msg.member.addRole(bot.config.IDRoles.Joueur).catch(console.error)
-        msg.channel.send(`Vous serrez notifié lors des évenements et parties. Vous êtes ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
+        msg.channel.send(`Vous serrez notifié lors des évenements et parties.\nVous êtes ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.get(bot.config.IDRoles.Joueur).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
