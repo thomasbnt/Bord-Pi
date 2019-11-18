@@ -25,7 +25,6 @@ const bot = new Discord.Client({
 
 const WebhookPrivate = new Discord.WebhookClient(config.WebhookPrivate.id, config.WebhookPrivate.token)
 const WebhookPublic = new Discord.WebhookClient(config.WebhookPublic.id, config.WebhookPublic.token)
-const WebhookRedditRSS = new Discord.WebhookClient(config.WebhookRedditRSSToken.id, config.WebhookRedditRSSToken.token)
 
 // -------------------- Config --------------------
 
@@ -47,7 +46,7 @@ fs.readdir('./events/', (err, files) => {
   files.forEach(file => {
     const event = require(`./events/${file}`)
     let eventName = file.split('.')[0]
-    bot.on(eventName, event.bind(null, bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS))
+    bot.on(eventName, event.bind(null, bot, WebhookPrivate, WebhookPublic))
   })
 })
 

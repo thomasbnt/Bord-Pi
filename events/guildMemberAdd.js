@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const moment = require('moment')
 
-module.exports = (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, member) => {
+module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
 
     bot.updatePresence()
     function checkDays(date) {
@@ -26,7 +26,7 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, WebhookRedditRSS, member) 
         return
     })
 
-    if (member.user.avatarURL == member.user.defaultAvatarURL) {
+    if (member.user.avatarURL === member.user.defaultAvatarURL) {
 
         ChannelGeneral.send(new Discord.RichEmbed()
             .setColor(bot.config.InfoColor)

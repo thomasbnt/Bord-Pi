@@ -9,16 +9,11 @@
   "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
-  "NameOfSubreddit": "LaHype",
   "WebhookPrivate": {
     "id": "",
     "token": ""
   },
   "WebhookPublic": {
-    "id": "",
-    "token": ""
-  },
-  "WebhookRedditRSSToken": {
     "id": "",
     "token": ""
   },
