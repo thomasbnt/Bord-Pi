@@ -15,7 +15,7 @@ ____
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord.js et paramétré en fonction du serveur Discord **La Hype_**.
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord [**La Hype_**](https://thomasbnt.fr/discord) .
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
@@ -31,8 +31,7 @@ ____
 
 - Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
 
-- Besoin d'une aide particulière auprès d'un rôle? Dès que le rôle est notifié, le robot confirme que cela a bien été reçu et afin que la personne regarde la FAQ si jamais.
-
+- Besoin d'une aide particulière auprès d'un rôle? Dès que **le rôle est notifié**, le robot confirme que cela a bien été reçu et lui renvoie un message de rappel, par exemple de revoir la FAQ si jamais ça pourrait résoudre son soucis.
 
 - Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger. 
 
@@ -51,24 +50,20 @@ if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
 
 Les contributions sont toujours les bienvenues ! Lisez les règles pour les contributions avant de pouvoir y participer.
 
-
 Veuillez vous assurer que votre demande de pull request respecte les lignes directrices suivantes :
 
-- Alphabétisez votre entrée.
-- Rechercher des suggestions précédentes avant d'en faire une nouvelle, afin d'éviter les doublon.
-- Les fichiers README suggérés devraient être beaux ou se démarquer d'une manière ou d'une autre.
+- Rechercher des suggestions précédentes avant d'en faire une nouvelle, afin d'éviter les doublons.
+- Les fichiers README suggérés devraient être beau ou se démarquer d'une manière ou d'une autre.
 - Faire une demande de pull request individuelle pour chaque suggestion.
 - De nouvelles catégories ou des améliorations à la catégorisation existante sont les bienvenues.
 - Gardez les descriptions courtes et simples, mais descriptives.
-- Commencez la description avec une capitale et terminez par un arrêt / période complet.
+- Commencez la description avec une capitale et terminez par un arrêt/période complet.
 - Vérifiez votre orthographe et votre grammaire.
 - Assurez-vous que votre éditeur de texte est configuré pour supprimer les espaces de fin.
 
 Merci pour vos suggestions !
 
-
 ## IV Les codes couleurs
-
 
 | **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor | 
 |---------|------------|----------|----------|----------|
@@ -76,13 +71,9 @@ Merci pour vos suggestions !
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
-| **Partie**  | Par défaut | Mr. Robøt | The Gate | Joueur | Muted |
-|---------|------------|----------|----------|----------|----------|
-| **Code Hexadécimal** | `#E74C3C`   | `#71368A`  | `#1F8B4C`  | `#BC5A92` | `#454242` |
-
 ## V Informations complémentaires
 
-L'image a été modifié par mes soins, veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
+L'image a été modifié par [mes soins](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
 Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
 - 💬  Chat : Rejoins-nous sur [Discord](https://thomasbnt.fr/discord/)
