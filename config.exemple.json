@@ -17,24 +17,10 @@
     "id": "",
     "token": ""
   },
-  "roles": {
-    "name": {
-      "Muted": "",
-      "mrrobot": "",
-      "Joueur": "",
-      "kimiwa": ""
-    },
-    "id": {
-      "Muted": "",
-      "mrrobot": "",
-      "Joueur": "",
-      "kimiwa": ""
-    },
-    "color": {
-      "Muted": "#1a1a1a",
-      "mrrobot": "#",
-      "Joueur": "#",
-      "kimiwa": ""
-    }
+  "IDRoles": {
+    "MrRobot": "423223448794431488",
+    "Joueur": "552207198868996097",
+    "Kimiwa": "576785325259489280"
   }
+
 }

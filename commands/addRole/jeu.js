@@ -1,46 +1,40 @@
 const Discord = require('discord.js')
-
 exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
     
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.log(bot.ls.info, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) }
     
-    if (msg.member.roles.has(bot.config.roles.id.Joueur)) {
-        msg.member.removeRole(bot.config.roles.id.Joueur).catch(bot.ls.error, console.error)
+    if (msg.member.roles.has(bot.config.IDRoles.Joueur)) {
+        msg.member.removeRole(bot.config.IDRoles.Joueur).catch(bot.ls.error, console.error)
         msg.channel.send("Vous ne serrez plus notifié lors des évenements et parties.")
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
-
             
-        console.log(bot.ls.info, bot.config.prefix + "jeu " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-        
+        console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.get(bot.config.IDRoles.Joueur).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
+
         WebhookPrivate.send(new Discord.RichEmbed()
-            .setColor(bot.config.roles.color.Joueur)
-            .setDescription("Rôle **" + bot.config.roles.name.Joueur + "** supprimé pour " + msg.author)
+            .setColor(msg.guild.roles.get(bot.config.IDRoles.Joueur).hexColor)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.Joueur).name}** supprimé pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
-
         WebhookPublic.send(new Discord.RichEmbed()
-            .setColor(bot.config.roles.color.Joueur)
-            .setDescription("Rôle **" + bot.config.roles.name.Joueur + "** supprimé pour " + msg.author)
+            .setColor(msg.guild.roles.get(bot.config.IDRoles.Joueur).hexColor)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.Joueur).name}** supprimé pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
-
     } else {
-        
-        msg.member.addRole(bot.config.roles.id.Joueur).catch(console.error)
-        msg.channel.send('Vous serrez notifié lors des évenements et parties.')
+        msg.member.addRole(bot.config.IDRoles.Joueur).catch(console.error)
+        msg.channel.send(`Vous serrez notifié lors des évenements et parties. Vous êtes ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
-        console.log(bot.ls.info, bot.config.prefix + "jeu " + " de " + msg.author.tag + " (" + msg.author.id + ")") 
+        console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.get(bot.config.IDRoles.Joueur).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
         WebhookPrivate.send(new Discord.RichEmbed()
-            .setColor(bot.config.roles.color.Joueur)
-            .setDescription("Rôle **" + bot.config.roles.name.Joueur + "** ajouté pour " + msg.author)
+            .setColor(msg.guild.roles.get(bot.config.IDRoles.Joueur).hexColor)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.Joueur).name}** ajouté pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
-
         WebhookPublic.send(new Discord.RichEmbed()
-            .setColor(bot.config.roles.color.Joueur)
-            .setDescription("Rôle **" + bot.config.roles.name.Joueur + "** ajouté pour " + msg.author)
+            .setColor(msg.guild.roles.get(bot.config.IDRoles.Joueur).hexColor)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.Joueur).name}** ajouté pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.Joueur).members).size} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
     }
