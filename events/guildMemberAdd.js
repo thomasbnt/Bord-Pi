@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const moment = require('moment')
+moment.locale('FR')
 
 module.exports = (bot, WebhookPublic, member) => {
 
@@ -8,7 +9,7 @@ module.exports = (bot, WebhookPublic, member) => {
         let now = new Date()
         let diff = now.getTime() - date.getTime()
         let days = Math.floor(diff / 86400000)
-        return days + (days == 1 ? " jour" : " jours")
+        return days + (days === 1 ? " jour" : " jours")
     }
     const guild = member.guild
     const ChannelGeneral = member.guild.channels.find(x => x.id === bot.config.IDWelcomeChannel)
@@ -23,7 +24,6 @@ module.exports = (bot, WebhookPublic, member) => {
                 msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) 
             }
         }, 60000)
-        return
     })
 
     if (member.user.avatarURL === member.user.defaultAvatarURL) {
@@ -44,15 +44,12 @@ module.exports = (bot, WebhookPublic, member) => {
     console.log(bot.ls.info, `📥  — ${member.user.tag} (${member.user.id}) a rejoint ${guild.name}`)
 
     WebhookPublic.send(new Discord.RichEmbed()
-        .setColor(bot.config.InfoColor)
-        .setAuthor("📥 — Nouveau membre", bot.user.displayAvatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setFooter("Bord Piesque")
-        .setTimestamp(new Date())
-        .addField("Nom", member.user.tag, true)
-        .addField("Identitifation (ID)", "<@" + member.user.id + "> ", true)
+        .setColor(bot.config.BlackColor)
+        .setAuthor(`📥 — ${member.user.tag} nous ayant rejoint`, member.user.avatarURL)
+        .addField("Compte créé le", moment(member.user.createdTimestamp).format('ll'), true)
         .addField("Nbt. de jours du compte", checkDays(member.user.createdAt), true)
-        .addField("Compte créé le", moment(member.user.createdTimestamp).format('DD.MM.YYYY'), true)
+        .setFooter(`Bord Piesque — ID : ${member.user.id}`)
+        .setTimestamp(new Date())
     ).catch(e => console.error(e))
 
 }

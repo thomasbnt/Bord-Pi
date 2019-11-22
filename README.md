@@ -65,9 +65,9 @@ Merci pour vos suggestions !
 
 ## IV Les codes couleurs
 
-| **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor | 
-|---------|------------|----------|----------|----------|
-| **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` |
+| **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor |  BlackColor | 
+|---------|------------|----------|----------|----------|----------|
+| **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` | `#36393F` |
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
