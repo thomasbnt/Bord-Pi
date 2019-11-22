@@ -20,9 +20,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     )
 
     console.log(bot.ls.info, bot.config.prefix + "support " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-    WebhookPrivate.send(new Discord.RichEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "support ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
 }

@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const humanizeDuration = require('humanize-duration')
 
-exports.run = async (bot, WebhookPrivate, WebhookPublic, msg) => {
+exports.run = async (bot, WebhookPublic, msg) => {
 
     if (msg.channel.recipient) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {

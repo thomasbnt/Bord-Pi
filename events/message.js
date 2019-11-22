@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
+module.exports = async (bot, WebhookPublic, msg) => {
 
   if (msg.author.bot) return
   if (msg.author.id === bot.user.id) return
@@ -49,12 +49,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
 
       console.log(bot.ls.info, "Nouveau message pour le Support en provenance de " + msg.author.tag + " (" + msg.author.id + ")")
 
-      WebhookPrivate.send(new Discord.RichEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-      ).catch(e => console.error(e))
-      
       WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
@@ -96,12 +90,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   }
 
   if (msg.content.includes("développeur certifié") || msg.content.includes("developpeur certifie")) {
-    
-    WebhookPrivate.send(new Discord.RichEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
-        .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)
-    )
 
     WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
@@ -118,6 +106,6 @@ module.exports = async (bot, WebhookPrivate, WebhookPublic, msg) => {
   const cmd = bot.commands.get(command)  
 
   if (!cmd) return
-  cmd.run(bot, WebhookPrivate, WebhookPublic, msg, args)
+  cmd.run(bot, WebhookPublic, msg, args)
   
 }

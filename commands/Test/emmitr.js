@@ -2,7 +2,7 @@
  * Émuler une sortie d'un membre
  */
 const Discord = require('discord.js')
-exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
+exports.run = (bot, WebhookPublic, msg) => {
 
     if (msg.channel.recipient) return
     if (!msg.member.hasPermission("ADMINISTRATOR")) return
@@ -13,16 +13,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
     bot.emit("guildMemberRemove", msg.member)
 
     console.log(bot.ls.info, bot.config.prefix + "emmitr " + " de " + msg.author.tag + " (" + msg.author.id + ")")
-   
-    WebhookPrivate.send(new Discord.RichEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "emmitr ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
-
-    WebhookPublic.send(new Discord.RichEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .setDescription("** " + bot.config.prefix + "emmitr ** - De " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
 }

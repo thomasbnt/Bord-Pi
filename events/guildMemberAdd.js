@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const moment = require('moment')
 
-module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
+module.exports = (bot, WebhookPublic, member) => {
 
     bot.updatePresence()
     function checkDays(date) {
@@ -42,18 +42,6 @@ module.exports = (bot, WebhookPrivate, WebhookPublic, member) => {
     }
 
     console.log(bot.ls.info, `📥  — ${member.user.tag} (${member.user.id}) a rejoint ${guild.name}`)
-
-    WebhookPrivate.send(new Discord.RichEmbed()
-        .setColor(bot.config.InfoColor)
-        .setAuthor("📥 — Nouveau membre", bot.user.displayAvatarURL)
-        .setThumbnail(member.user.avatarURL)
-        .setFooter("Bord Piesque")
-        .setTimestamp(new Date())
-        .addField("Nom", member.user.tag, true)
-        .addField("Identitifation (ID)", "<@" + member.user.id + "> ", true)
-        .addField("Nbt. de jours du compte", checkDays(member.user.createdAt), true)
-        .addField("Compte créé le", moment(member.user.createdTimestamp).format('DD.MM.YYYY'), true)
-    ).catch(e => console.error(e))
 
     WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.InfoColor)

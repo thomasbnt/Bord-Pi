@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-exports.run = async (bot, WebhookPrivate, WebhookPublic, msg, args) => {
+exports.run = async (bot, WebhookPublic, msg, args) => {
     if(msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
         msg.delete(msg.author).catch (e => console.error("ℹ Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
     }
@@ -36,12 +36,6 @@ exports.run = async (bot, WebhookPrivate, WebhookPublic, msg, args) => {
                 console.log(bot.ls.info, `${msg.author} a banni ${user.tag} (ID: ${user.id}). \nMotif : ${reason}`)
                 const BanConfirmedPublicEmbed = new Discord.RichEmbed()
                 WebhookPublic.send(BanConfirmedPublicEmbed
-                    .setColor(bot.config.SuccessColor)
-                    .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id})`)
-                    .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL)
-                )
-                const BanConfirmedPrivateEmbed = new Discord.RichEmbed()
-                WebhookPrivate.send(BanConfirmedPrivateEmbed
                     .setColor(bot.config.SuccessColor)
                     .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id})`)
                     .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL)

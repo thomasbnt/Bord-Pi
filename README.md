@@ -27,7 +27,7 @@ ____
 
 - Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 
-- Un **système de logs** interne et externe via Webhooks. Pourquoi en avoir deux? L'un est pour le serveur lui-même, et le second sur un serveur de 'backup', mais il vous est utile que d'un seul si vous le souhaitez. En plus, la console est devenue plus jolie que la v1.
+- Un **système de logs** interne via Webhooks.
 
 - Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
 

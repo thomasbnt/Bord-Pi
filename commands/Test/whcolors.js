@@ -4,7 +4,7 @@
 const Discord = require('discord.js')
 
 
-exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
+exports.run = (bot, WebhookPublic, msg) => {
     if (msg.channel.recipient) return
     if (!msg.member.hasPermission("ADMINISTRATOR")) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
@@ -30,6 +30,4 @@ exports.run = (bot, WebhookPrivate, WebhookPublic, msg) => {
         .setColor(bot.config.InfoColor)
         .setTitle("Info Color")
     )
-
-
 }
