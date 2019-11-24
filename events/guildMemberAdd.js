@@ -45,10 +45,10 @@ module.exports = (bot, WebhookPublic, member) => {
 
     WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.BlackColor)
-        .setAuthor(`📥 — ${member.user.tag} nous ayant rejoint`, member.user.avatarURL)
+        .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL)
         .addField("Compte créé le", moment(member.user.createdTimestamp).format('ll'), true)
-        .addField("Nbt. de jours du compte", checkDays(member.user.createdAt), true)
-        .setFooter(`Bord Piesque — ID : ${member.user.id}`)
+        .addField("Nbt. de jours", checkDays(member.user.createdAt), true)
+        .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
 

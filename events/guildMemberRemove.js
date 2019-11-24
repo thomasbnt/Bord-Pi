@@ -7,8 +7,8 @@ module.exports = async (bot, WebhookPublic, member) => {
 
     WebhookPublic.send(new Discord.RichEmbed()
         .setColor(bot.config.BlackColor)
-        .setAuthor(`📤 — ${member.user.tag} nous a quitté`, member.user.avatarURL)
-        .setFooter(`Bord Piesque — ID : ${member.user.id}`)
+        .setAuthor(`📤 — ${member.user.username} nous a quitté`, member.user.avatarURL)
+        .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
 }
