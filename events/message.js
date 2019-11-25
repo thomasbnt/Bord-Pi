@@ -76,12 +76,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
 
     
     console.log(bot.ls.info, `${msg.author.tag} (${msg.author.id}) a fait une publicité Discord dans le channel ${msg.channel.name} (${msg.channel.id}).\n> ${msg.content}`)
-    WebhookPrivate.send(new Discord.RichEmbed()
-      .setColor(bot.config.DangerColor)
-      .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}">.\n\n> ${msg.content}`)
-      .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
-    )
-    
+   
     WebhookPublic.send(new Discord.RichEmbed()
       .setColor(bot.config.DangerColor)
       .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
