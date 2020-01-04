@@ -27,7 +27,6 @@ module.exports = (bot, WebhookPublic, member) => {
     })
 
     if (member.user.avatarURL === member.user.defaultAvatarURL) {
-
         ChannelGeneral.send(new Discord.RichEmbed()
             .setColor(bot.config.InfoColor)
             .setAuthor(member.user.username + " pensez à mettre une image de profil !", bot.user.displayAvatarURL, "https://support.discordapp.com/hc/fr/articles/204156688-Comment-modifier-mon-avatar-")

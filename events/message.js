@@ -19,19 +19,10 @@ module.exports = async (bot, WebhookPublic, msg) => {
   if (msg.content.includes("fsociety") || msg.content.includes("elliot") || msg.content.includes("alderson")) {
     msg.react(':fsociety:419259140800774152').catch(e => console.error(bot.ls.error, e))
   }
-
-  if (msg.content.includes("cappu") || msg.content.includes("cappuccino") || msg.content.includes("café")) {
-    msg.react(':cappuccino:419260851426689034').catch(e => console.error(bot.ls.error, e))
-  }
-
-  if (msg.content.includes("patreon")) {
-    msg.react(':patreon:588740970028335114').catch(e => console.error(bot.ls.error, e))
-  }
   
   if (msg.content.includes("devto") ||  msg.content.includes("dev.to")) {
     msg.react(':devto:618474751093899324').catch(e => console.error(bot.ls.error, e))
   }
-
 
   // -------------------- Notification auprès du @Support --------------------
 
@@ -65,7 +56,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
     
     if (msg.member.hasPermission('MANAGE_MESSAGES')) return
     if (msg.member.roles.has(bot.config.IDRoleSupport)) return
-    if (msg.channel.id == bot.config.IDAdsChannel) return
+    if (msg.channel.id === bot.config.IDAdsChannel) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) }
     
 

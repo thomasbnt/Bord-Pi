@@ -15,20 +15,20 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
         WebhookPublic.send(new Discord.RichEmbed()
             .setColor(msg.guild.roles.get(bot.config.IDRoles.MrRobot).hexColor)
-            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.MrRobot).name}** supprimé pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size} membres qui possède ce rôle.`)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.MrRobot).name}** supprimé pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size-1} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
 
     } else {
         msg.member.addRole(bot.config.IDRoles.MrRobot).catch(console.error)
-        msg.channel.send(`Vous serrez désormais notifié pour les mises à jour mineures de **Mr. Robøt**.\nVous êtes ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size} membres qui possède ce rôle.`)
+        msg.channel.send(`Vous serrez désormais notifié pour les mises à jour mineures de **Mr. Robøt**.\nVous êtes ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size+1} membres qui possède ce rôle.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.get(bot.config.IDRoles.MrRobot).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
 
         WebhookPublic.send(new Discord.RichEmbed()
             .setColor(msg.guild.roles.get(bot.config.IDRoles.MrRobot).hexColor)
-            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.MrRobot).name}** ajouté pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size} membres qui possède ce rôle.`)
+            .setDescription(`Rôle **${msg.guild.roles.get(bot.config.IDRoles.MrRobot).name}** ajouté pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.get(bot.config.IDRoles.MrRobot).members).size+1} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
         )
     }

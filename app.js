@@ -29,7 +29,6 @@ const WebhookPublic = new Discord.WebhookClient(config.WebhookPublic.id, config.
 
 bot.config = config
 bot.commands = new Discord.Collection()
-
 bot.ls = require('log-symbols')
 
 bot.updatePresence = function updatePresence() {
