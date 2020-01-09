@@ -37,7 +37,7 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
                 const BanConfirmedPublicEmbed = new Discord.RichEmbed()
                 WebhookPublic.send(BanConfirmedPublicEmbed
                     .setColor(bot.config.SuccessColor)
-                    .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id})`)
+                    .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id}).\nMotif : ${reason}`)
                     .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL)
                 )
                 const ApprovedBanEmbed = new Discord.RichEmbed()
