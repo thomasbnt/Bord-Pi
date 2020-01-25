@@ -10,7 +10,7 @@ exports.run = (bot, WebhookPublic, msg) => {
 
     msg.channel.send(new Discord.RichEmbed()
         .setColor(bot.config.PrimaryColor)
-        .setDescription("Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou tout simplement devenir Partenaire ? Remplissez [ce formulaire](https://www.thomasbnt.fr/form) et on vous répondra dès que possible !")
+        .setDescription("Vous voulez nous rejoindre en tant que membre de l'équipe **La Hype_** ? Ou tout simplement devenir Partenaire ? Remplissez [ce formulaire](https://thomasbnt.fr/form) et on vous répondra dès que possible !")
     )
 
     console.log(bot.ls.info, bot.config.prefix + "form " + " de " + msg.author.tag + " (" + msg.author.id + ")")
