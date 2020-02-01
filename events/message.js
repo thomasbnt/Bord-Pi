@@ -8,17 +8,9 @@ module.exports = async (bot, WebhookPublic, msg) => {
 
   // -------------------- Customs Réactions --------------------
 
-  if (msg.content.includes("archi") || msg.content.includes("archimede") || msg.content.includes("archimède")) {
+  /*if (msg.content.includes("archi") || msg.content.includes("archimede") || msg.content.includes("archimède")) {
     msg.react(':archimede:572954869699313694').catch(e => console.error(bot.ls.error, e))
-  }
-
-  if (msg.content.includes("rasp") || msg.content.includes("raspberry") || msg.content.includes("bordpi")) {
-    msg.react(':raspberrypi:411531368938471425').catch(e => console.error(bot.ls.error, e))
-  }
-
-  if (msg.content.includes("fsociety") || msg.content.includes("elliot") || msg.content.includes("alderson")) {
-    msg.react(':fsociety:419259140800774152').catch(e => console.error(bot.ls.error, e))
-  }
+  }*/
   
   if (msg.content.includes("devto") ||  msg.content.includes("dev.to")) {
     msg.react(':devto:618474751093899324').catch(e => console.error(bot.ls.error, e))
