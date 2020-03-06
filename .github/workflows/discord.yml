@@ -1,0 +1,2 @@
+- name: Actions Status Discord
+  uses: sarisia/actions-status-discord@v1.2.0
