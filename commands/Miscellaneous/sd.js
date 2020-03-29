@@ -19,7 +19,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
         .split(/ *\/ */g)
 
     if (choice.length < 3) {
-        msg.channel.send(new Discord.RichEmbed()
+        msg.channel.send(new Discord.MessageEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Bord Pi — Créer un sondage")
             .setDescription("Créez vos propres sondages avec un maximum de 10 choix.")
@@ -33,7 +33,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
     } else if (choice.length > 11) {
 
-        msg.channel.send(new Discord.RichEmbed()
+        msg.channel.send(new Discord.MessageEmbed()
             .setColor(bot.config.DangerColor)
             .setFooter("Erreur — Vous ne pouvez pas mettre plus de 10 choix.")
         ).then(m => {

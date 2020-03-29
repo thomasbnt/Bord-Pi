@@ -10,7 +10,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
     if (!msg.member.hasPermission('MANAGE_MESSAGES')) return
 
-    msg.channel.send(new Discord.RichEmbed()
+    msg.channel.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription(humanizeDuration(bot.uptime, {language: 'fr', round: true}))
     )

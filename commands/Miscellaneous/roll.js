@@ -15,7 +15,7 @@ exports.run = (bot, WebhookPublic, msg) => {
     let max = Math.floor(100)
     let roll = Math.floor(Math.random() * (max - min + 1)) + min
 
-    msg.channel.send(new Discord.RichEmbed()
+    msg.channel.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription(`Vous avez tiré le numéro : ${roll}`)
     )

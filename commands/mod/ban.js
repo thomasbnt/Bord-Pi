@@ -34,13 +34,13 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
                 reason: reason,
             }).then(() => {
                 console.log(bot.ls.info, `${msg.author} a banni ${user.tag} (ID: ${user.id}). \nMotif : ${reason}`)
-                const BanConfirmedPublicEmbed = new Discord.RichEmbed()
+                const BanConfirmedPublicEmbed = new Discord.MessageEmbed()
                 WebhookPublic.send(BanConfirmedPublicEmbed
                     .setColor(bot.config.SuccessColor)
                     .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id}).\nMotif : ${reason}`)
                     .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL)
                 )
-                const ApprovedBanEmbed = new Discord.RichEmbed()
+                const ApprovedBanEmbed = new Discord.MessageEmbed()
                 msg.channel.send(
                     ApprovedBanEmbed
                         .setTitle(`Vous avez bien banni ${user.tag}`)
@@ -52,7 +52,7 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
                     }, 5000)
                 })
             }).catch(err => {
-                const UnableBanEmbed = new Discord.RichEmbed()
+                const UnableBanEmbed = new Discord.MessageEmbed()
                 msg.channel.send(
                     UnableBanEmbed
                         .setTitle("Impossible de bannir l'utilisateur voulu.")
@@ -65,7 +65,7 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
                 console.log(`❌ Impossible de bannir ${user.tag} (${user.id}) sur le serveur ${msg.guild.name} (${msg.guild.id}) `);
             })
         } else {
-            const UserNotOnServerForBanEmbed = new Discord.RichEmbed()
+            const UserNotOnServerForBanEmbed = new Discord.MessageEmbed()
             msg.channel.send(
                 UserNotOnServerForBanEmbed
                     .setTitle("L'utilisateur en question n'est pas sur le serveur.")
@@ -77,7 +77,7 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
             })
         }
     } else {
-        const NoMentionForBanEmbed = new Discord.RichEmbed()
+        const NoMentionForBanEmbed = new Discord.MessageEmbed()
         msg.channel.send(
             NoMentionForBanEmbed
                 .setTitle("Veuillez mentionner l'utilisateur.")

@@ -8,7 +8,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
   const m = await msg.channel.send("En attente..")
 
-  m.edit(new Discord.RichEmbed()
+  m.edit(new Discord.MessageEmbed()
     .setColor(bot.config.PrimaryColor)
     .addField("Latence du robot", `${m.createdTimestamp - msg.createdTimestamp} ms`, true)
     .addField("Latence de l'API Discord", `${Math.floor(bot.ping)} ms`, true)
