@@ -12,5 +12,4 @@ module.exports = async (bot, WebhookPublic, member) => {
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
 
-    msg.author.send("Coucou")
 }
