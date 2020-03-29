@@ -11,4 +11,6 @@ module.exports = async (bot, WebhookPublic, member) => {
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
+
+    msg.author.send("Coucou")
 }

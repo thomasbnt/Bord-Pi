@@ -14,7 +14,7 @@ module.exports = (bot, WebhookPublic, member) => {
     const guild = member.guild
     const ChannelGeneral = member.guild.channels.find(x => x.id === bot.config.IDWelcomeChannel)
 
-    ChannelGeneral.send(new Discord.RichEmbed()
+    ChannelGeneral.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .addField("🍃 Bienvenue à " + member.user.username + " — Fiche d'aide", "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de **Mr. Robøt**, veuillez [revoir la FAQ](https://mrrobot.app/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `" + bot.config.prefix + "mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `" + bot.config.prefix + "bord` est disponible.", true)
         .setFooter("Ce message va s'autodétruire dans une minute")
@@ -27,7 +27,7 @@ module.exports = (bot, WebhookPublic, member) => {
     })
 
     if (member.user.avatarURL === member.user.defaultAvatarURL) {
-        ChannelGeneral.send(new Discord.RichEmbed()
+        ChannelGeneral.send(new Discord.MessageEmbed()
             .setColor(bot.config.InfoColor)
             .setAuthor(member.user.username + " pensez à mettre une image de profil !", bot.user.displayAvatarURL, "https://support.discordapp.com/hc/fr/articles/204156688-Comment-modifier-mon-avatar-")
             .setFooter("Cliquez au dessus pour voir comment faire.")
@@ -42,11 +42,12 @@ module.exports = (bot, WebhookPublic, member) => {
 
     console.log(bot.ls.info, `📥  — ${member.user.tag} (${member.user.id}) a rejoint ${guild.name}`)
 
-    WebhookPublic.send(new Discord.RichEmbed()
+    WebhookPublic.send(new Discord.MessageEmbed()
         .setColor(bot.config.BlackColor)
         .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL)
         .addField("Compte créé le", moment(member.user.createdTimestamp).format('ll'), true)
         .addField("Nbt. de jours", checkDays(member.user.createdAt), true)
+        .setThumbnail(member.user.displayAvatarURL)
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
