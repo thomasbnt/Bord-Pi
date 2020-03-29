@@ -5,11 +5,10 @@ module.exports = async (bot, WebhookPublic, member) => {
 
     console.log(bot.ls.info, `📤  — ${member.user.tag} (${member.user.id}) a quitté ${guild.name}`)
 
-    WebhookPublic.send(new Discord.RichEmbed()
+    WebhookPublic.send(new Discord.MessageEmbed()
         .setColor(bot.config.BlackColor)
         .setAuthor(`📤 — ${member.user.username} nous a quitté`, member.user.avatarURL)
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
-
 }
