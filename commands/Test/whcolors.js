@@ -3,7 +3,6 @@
 */
 const Discord = require('discord.js')
 
-
 exports.run = (bot, WebhookPublic, msg) => {
     if (msg.channel.recipient) return
     if (!msg.member.hasPermission("ADMINISTRATOR")) return
