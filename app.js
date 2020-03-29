@@ -3,7 +3,7 @@
     @document   : app.js
     @author     : Thomas Bnt <thomasbnt@protonmail.com>
     @version    : 2.0.0
-    @copyright  : 2019, Thomas Bnt
+    @copyright  : 2020, Thomas Bnt
     @license    : GNU General Public License v3.0
     @repository : https://github.com/thomasbnt/Bord-Pi
     @description: Un robot Discord gérant et aidant les utilisateurs pour le serveur La Hype_
@@ -32,7 +32,7 @@ bot.commands = new Discord.Collection()
 bot.ls = require('log-symbols')
 
 bot.updatePresence = function updatePresence() {
-  bot.user.setActivity(bot.guilds.reduce((mem, g) => mem += g.memberCount, 0) + " utilisateurs — " + bot.config.prefix + "bord", {
+  bot.user.setActivity(bot.config.prefix + "bord", {
     type: "WATCHING"
   })
 }
@@ -72,6 +72,5 @@ function _loadCommand (commandPath, commandName) {
     return `Impossible de charger la commande ${commandName} — ${e}`
   }
 }
-
 
 bot.login(config.token)
