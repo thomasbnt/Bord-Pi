@@ -13,6 +13,7 @@ ____
 ## I Introduction
 
 **Version NodeJS > 12**
+
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord [**La Hype_**](https://thomasbnt.fr/discord) .
