@@ -47,7 +47,7 @@ module.exports = (bot, WebhookPublic, member) => {
         .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL)
         .addField("Compte créé le", moment(member.user.createdTimestamp).format('ll'), true)
         .addField("Nbt. de jours", checkDays(member.user.createdAt), true)
-        .setThumbnail(member.user.displayAvatarURL)
+        .setThumbnail(member.user.displayAvatarURL())
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
     ).catch(e => console.error(e))
