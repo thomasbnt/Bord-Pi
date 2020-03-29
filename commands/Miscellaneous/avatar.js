@@ -9,8 +9,8 @@ exports.run = (bot, WebhookPublic, msg) => {
 
     msg.channel.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor) 
-        .setDescription(`Voici ton image de profil.\nPour la voir, clique simplement dessus.\nTu as la possibilité de l'ouvrir dans une \nnouvelle page en cliquant sur [ce lien](${msg.author.displayAvatarURL}).`)
-        .setThumbnail(msg.author.displayAvatarURL)
+        .setDescription(`Voici ton image de profil.\nPour la voir, clique simplement dessus.\nTu as la possibilité de l'ouvrir dans une \nnouvelle page en cliquant sur [ce lien](${msg.author.displayAvatarURL()}).`)
+        .setThumbnail(msg.author.displayAvatarURL())
     )
 
     console.log(bot.ls.info, bot.config.prefix + "avatar " + " de " + msg.author.tag + " (" + msg.author.id + ")")
