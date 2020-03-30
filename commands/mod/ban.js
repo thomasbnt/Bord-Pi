@@ -33,12 +33,12 @@ exports.run = async (bot, WebhookPublic, msg, args) => {
                 days: 7,
                 reason: reason,
             }).then(() => {
-                console.log(bot.ls.info, `${msg.author} a banni ${user.tag} (ID: ${user.id}). \nMotif : ${reason}`)
+                console.log(bot.ls.info, `${msg.author.tag} a banni ${user.tag} (ID: ${user.id}). \nMotif : ${reason}`)
                 const BanConfirmedPublicEmbed = new Discord.MessageEmbed()
                 WebhookPublic.send(BanConfirmedPublicEmbed
                     .setColor(bot.config.SuccessColor)
                     .setDescription(`${msg.author} a banni ${user.tag} (ID: ${user.id}).\nMotif : ${reason}`)
-                    .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL)
+                    .setFooter(`ID : ${msg.author.id}`, msg.author.avatarURL())
                 )
                 const ApprovedBanEmbed = new Discord.MessageEmbed()
                 msg.channel.send(
