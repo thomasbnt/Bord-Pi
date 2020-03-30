@@ -29,7 +29,7 @@ module.exports = (bot, WebhookPublic, member) => {
     if (member.user.avatarURL === member.user.defaultAvatarURL) {
         ChannelGeneral.send(new Discord.MessageEmbed()
             .setColor(bot.config.InfoColor)
-            .setAuthor(member.user.username + " pensez à mettre une image de profil !", bot.user.displayAvatarURL, "https://support.discordapp.com/hc/fr/articles/204156688-Comment-modifier-mon-avatar-")
+            .setAuthor(member.user.username + " pensez à mettre une image de profil !", bot.user.displayAvatarURL(), "https://support.discordapp.com/hc/fr/articles/204156688-Comment-modifier-mon-avatar-")
             .setFooter("Cliquez au dessus pour voir comment faire.")
         ).then((msg) => {
             setTimeout(() => {
@@ -44,7 +44,7 @@ module.exports = (bot, WebhookPublic, member) => {
 
     WebhookPublic.send(new Discord.MessageEmbed()
         .setColor(bot.config.BlackColor)
-        .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL)
+        .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL())
         .addField("Compte créé le", moment(member.user.createdTimestamp).format('ll'), true)
         .addField("Nbt. de jours", checkDays(member.user.createdAt), true)
         .setThumbnail(member.user.displayAvatarURL())
