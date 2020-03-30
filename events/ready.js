@@ -10,7 +10,7 @@ module.exports = (bot, WebhookPublic, msg, args) => {
 
   WebhookPublic.send(new Discord.MessageEmbed()
     .setColor(bot.config.SuccessColor)
-    .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL)
+    .setAuthor("— Démarrage du robot !", bot.user.displayAvatarURL())
     .setFooter(ThisIsMotd)
     .setTimestamp(new Date())
   ).catch(e => console.error(e))
