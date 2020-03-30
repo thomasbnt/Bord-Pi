@@ -12,7 +12,7 @@ module.exports = (bot, WebhookPublic, member) => {
         return days + (days === 1 ? " jour" : " jours")
     }
     const guild = member.guild
-    const ChannelGeneral = member.guild.channels.find(x => x.id === bot.config.IDWelcomeChannel)
+    const ChannelGeneral = member.guild.channels.cache.find(x => x.id === bot.config.IDWelcomeChannel)
 
     ChannelGeneral.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
