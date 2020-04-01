@@ -21,7 +21,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
   if (msg.content.includes("<@&" + bot.config.IDRoleSupport + ">")) {
     
     if (msg.member.hasPermission('MANAGE_MESSAGES')) return
-    const ThisIsFessage = (msg.guild.channels.find(x => x.id === bot.config.IDChannelSupport))
+    const ThisIsFessage = (msg.guild.channels.cache.find(x => x.id === bot.config.IDChannelSupport))
     if (ThisIsFessage) {
 
       msg.channel.send(new Discord.MessageEmbed()
@@ -35,7 +35,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
       WebhookPublic.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Nouveau message pour le Support en provenance de " + msg.author)
-        .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+        .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
       ).catch(e => console.error(e))
     } else {
       console.log(bot.ls.error, "Pour que cette fonctionnalité de notification @Support soit 100% opérationnelle, veuillez modifier le .find(x => x.id === \"Ici l'ID du channel\") ")
@@ -47,7 +47,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
   if (msg.content.includes('discord.gg') || msg.content.includes('discordapp.com/invite') || msg.content.includes('discord.me')) {
     
     if (msg.member.hasPermission('MANAGE_MESSAGES')) return
-    if (msg.member.roles.has(bot.config.IDRoleSupport)) return
+    if (msg.member.roles.cache.has(bot.config.IDRoleSupport)) return
     if (msg.channel.id === bot.config.IDAdsChannel) return
     if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) { msg.delete(msg.author).catch(e => console.error(bot.ls.error, "Le robot n'a pas la permission de supprimer le message de l'utilisateur.")) }
     
@@ -63,7 +63,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
     WebhookPublic.send(new Discord.MessageEmbed()
       .setColor(bot.config.DangerColor)
       .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le channel <#${msg.channel.id}>.\n\n> ${msg.content}`)
-      .setFooter("ID : " + msg.author.id, msg.author.avatarURL)
+      .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
     )
   }
 
@@ -72,7 +72,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
     WebhookPublic.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription(`Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
-        .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL)
+        .setFooter("Nouvelle requête Dev' Certifié — ID : " + msg.author.id, msg.author.avatarURL())
     )
     console.log(bot.ls.info, `Nouvelle demande pour devenir **dev' certifié** de la part de **<@${msg.author.id}>**\n> ${msg.content}`)
   }
