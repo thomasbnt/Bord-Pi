@@ -11,7 +11,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
   m.edit(new Discord.MessageEmbed()
     .setColor(bot.config.PrimaryColor)
     .addField("Latence du robot", `${m.createdTimestamp - msg.createdTimestamp} ms`, true)
-    .addField("Latence de l'API Discord", `${Math.floor(bot.ping)} ms`, true)
+    .addField("Latence de l'API Discord", `${Math.floor(bot.ws.ping)} ms`, true)
   )
 
   console.log(bot.ls.info, bot.config.prefix + "ping " + " de " + msg.author.tag + " (" + msg.author.id + ")")
