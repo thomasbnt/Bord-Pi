@@ -1,7 +1,7 @@
 
 [![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.fr/discord)
 [![Support me on BMC](https://img.shields.io/badge/Supporte%20moi-☕-orange.svg?style=for-the-badge)](https://www.buymeacoffee.com/thomasbnt)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Hyprimort?color=%231DA1F2&label=Suis%20moi&logo=Twitter&style=for-the-badge)](https://twitter.com/Hyprimort)
+[![Twitter Follow](https://img.shields.io/twitter/follow/Thomasbnt_?color=%231DA1F2&label=Suis%20moi&logo=Twitter&style=for-the-badge)](https://twitter.com/Thomasbnt_)
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/maintainability)](https://codeclimate.com/github/thomasbnt/Bord-Pi/maintainability)
