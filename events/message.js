@@ -54,7 +54,7 @@ module.exports = async (bot, WebhookPublic, msg) => {
 
     msg.channel.send(`<@${msg.author.id}> hop hop hop !`, new Discord.MessageEmbed()
       .setColor(bot.config.DangerColor)
-      .setDescription(`Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que dans <#${bot.config.IDAdsChannel}>.`)
+      .setDescription(`Merci de revoir les <#399600870804684803>. Les invitations ne sont autorisé que par validation d'un des membres de l'équipe.`)
     ).then(m => { setTimeout(() => { m.delete() }, 20000) })
 
     
