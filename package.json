@@ -18,7 +18,7 @@
     "colors": "^1.4.0",
     "discord.js": "^12.1.1",
     "fs": "0.0.1-security",
-    "humanize-duration": "^3.22.0",
+    "humanize-duration": "^3.23.0",
     "klaw": "^3.0.0",
     "log-symbols": "^4.0.0",
     "moment": "^2.25.3"
