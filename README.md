@@ -1,7 +1,5 @@
 
 [![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.fr/discord)
-[![Support me on BMC](https://img.shields.io/badge/Supporte%20moi-☕-orange.svg?style=for-the-badge)](https://www.buymeacoffee.com/thomasbnt)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Thomasbnt_?color=%231DA1F2&label=Suis%20moi&logo=Twitter&style=for-the-badge)](https://twitter.com/Thomasbnt_)
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/maintainability)](https://codeclimate.com/github/thomasbnt/Bord-Pi/maintainability)
@@ -74,11 +72,7 @@ Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
 ## V Informations complémentaires
 
-L'image a été modifié par [mes soins](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
+L'image a été modifié par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
 Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
-- 💬  Chat : Rejoins-nous sur [Discord](https://thomasbnt.fr/discord/)
-- 📣  News : Suis-moi sur [Twitter](https://twitter.com/Hyprimort)
-- 📕  Sous licence [GNU GPL v3.0](LICENSE)
-- 🔗  Visite le [Site Web](https://thomasbnt.fr)
 
