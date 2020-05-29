@@ -12,11 +12,10 @@ exports.run = (bot, WebhookPublic, msg) => {
     msg.channel.send(new Discord.MessageEmbed()
             .setColor(bot.config.PrimaryColor)
             .setTitle("Message d'aide en provenance d'un membre du support.")
-            .setDescription("Bienvenue dans le channel support de **Mr. Robøt**. Veuillez tout d'abord, et avant de poser votre question de **[lire la Foire Aux Questions](https://mrrobot.app/#faq)**. \n\nSi vous n'avez pas la solution, envoyez directement ici en incluant :\n\n```markdown\n+ Type de soucis\n+ Précisez ce que ça produit\n```\nUne description détaillée est requise sinon votre demande pourrait ne pas être prise en compte. Les membres du <@&416618144027639808> vous donnerons une réponse dans les plus brefs délais.")
+            .setDescription("Bienvenue dans le channel support de la communauté **La Hype_**. Veuillez décrire votre type de soucis et ce que vous voudriez.")
             .setThumbnail(msg.author.displayAvatarURL())
             .addField(":black_small_square: " + bot.config.prefix + "bord", "Affichez les fonctionnalités que ce robot même offre sur ce serveur.", false)
-            .addField(":black_small_square:  _website", "Obtenez rapidement le lien du site web de **Mr. Robøt**", false)
-            .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://buymeacoffee.com/thomasbnt) • [Site web](https://thomasbnt.fr/?utm_source=link_embed_footer_bordpi?utm_medium=discordapp) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
+            .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://buymeacoffee.com/thomasbnt) • [Code Source de Bord Pi](https://github.com/lahype/Bord-Pi)", false)
     )
 
     console.log(bot.ls.info, bot.config.prefix + "support " + " de " + msg.author.tag + " (" + msg.author.id + ")")
