@@ -12,9 +12,9 @@ module.exports = async (bot, WebhookPublic, msg) => {
     msg.react(':archimede:572954869699313694').catch(e => console.error(bot.ls.error, e))
   }*/
   
-  if (msg.content.includes("devto") ||  msg.content.includes("dev.to")) {
+/*  if (msg.content.includes("devto") ||  msg.content.includes("dev.to")) {
     msg.react(':devto:618474751093899324').catch(e => console.error(bot.ls.error, e))
-  }
+  }*/
 
   // -------------------- Notification auprès du @Support --------------------
 
