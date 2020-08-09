@@ -15,7 +15,7 @@ exports.run = (bot, WebhookPublic, msg) => {
             .setDescription("Bienvenue dans le channel support de la communauté **La Hype_**. Veuillez décrire votre type de soucis et ce que vous voudriez.")
             .setThumbnail(msg.author.displayAvatarURL())
             .addField(":black_small_square: " + bot.config.prefix + "bord", "Affichez les fonctionnalités que ce robot même offre sur ce serveur.", false)
-            .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Me soutenir](https://buymeacoffee.com/thomasbnt) • [Code Source de Bord Pi](https://github.com/lahype/Bord-Pi)", false)
+            .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Code Source de Bord Pi](https://github.com/lahype/Bord-Pi)", false)
     )
 
     console.log(bot.ls.info, bot.config.prefix + "support " + " de " + msg.author.tag + " (" + msg.author.id + ")")

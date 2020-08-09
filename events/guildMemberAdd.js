@@ -16,7 +16,7 @@ module.exports = (bot, WebhookPublic, member) => {
 
     ChannelGeneral.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
-        .addField("🍃 Bienvenue à " + member.user.username + " — Fiche d'aide", "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.\n\nPour avoir de l'aide à propos de **Mr. Robøt**, veuillez [revoir la FAQ](https://mrrobot.app/?utm_source=Discord&utm_term=discord%2Cbordpi_bvn&utm_content=Bordpi_bvn#faq) si ce n'est pas encore fait, elle se trouve sur le site web. Si vous ne trouvez pas la solution, demandez de l'aide dans <#432552194630352916> en suivant le protocole dans les messages épinglés. Si vous voulez être notifié de chaque mise à jour, faites `" + bot.config.prefix + "mrrobot`.\n\nVous avez la possibilité d'avoir des rôles d'accès, pour plus d'information, la commande `" + bot.config.prefix + "bord` est disponible.", true)
+        .addField("🍃 Bienvenue à " + member.user.username + " — Fiche d'aide", "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.", true)
         .setFooter("Ce message va s'autodétruire dans une minute")
         ).then((msg) => {
         setTimeout(() => {

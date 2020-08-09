@@ -27,7 +27,6 @@ module.exports = async (bot, WebhookPublic, msg) => {
       msg.channel.send(new Discord.MessageEmbed()
         .setColor(bot.config.PrimaryColor)
         .setDescription("Bonjour, un membre du support va vous répondre d'ici peu dans <#432552194630352916>")
-        .setFooter("Merci de ne pas oublier de lire la FAQ sur le site web de Mr. Robøt.")
       )
 
       console.log(bot.ls.info, "Nouveau message pour le Support en provenance de " + msg.author.tag + " (" + msg.author.id + ")")
