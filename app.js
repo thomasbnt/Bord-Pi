@@ -31,12 +31,6 @@ bot.config = config
 bot.commands = new Discord.Collection()
 bot.ls = require('log-symbols')
 
-bot.updatePresence = function updatePresence() {
-  bot.user.setActivity(bot.config.prefix + "bord", {
-    type: "WATCHING"
-  })
-}
-
 // -------------------- My C0re --------------------
 
 fs.readdir('./events/', (err, files) => {
