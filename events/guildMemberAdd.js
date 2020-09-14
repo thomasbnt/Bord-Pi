@@ -4,7 +4,6 @@ moment.locale('FR')
 
 module.exports = (bot, WebhookPublic, member) => {
 
-    bot.updatePresence()
     function checkDays(date) {
         let now = new Date()
         let diff = now.getTime() - date.getTime()
