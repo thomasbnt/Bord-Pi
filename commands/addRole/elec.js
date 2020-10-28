@@ -15,7 +15,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
         WebhookPublic.send(new Discord.MessageEmbed()
             .setColor(msg.guild.roles.cache.get(bot.config.IDRoles.elec).hexColor)
-            .setDescription(`Rôle **${msg.guild.roles.cache.get(bot.config.IDRoles.elec).name}** supprimé pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.cache.get(bot.config.IDRoles.elec).members).size-1} membres qui possède ce rôle.`)
+            .setDescription(`Rôle **${msg.guild.roles.cache.get(bot.config.IDRoles.elec).name}** supprimé pour  ${msg.author}.\nIl y a désormais ${(msg.guild.roles.cache.get(bot.config.IDRoles.elec).members).size-1} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
         )
 
@@ -28,7 +28,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
         WebhookPublic.send(new Discord.MessageEmbed()
             .setColor(msg.guild.roles.cache.get(bot.config.IDRoles.elec).hexColor)
-            .setDescription(`Rôle **${msg.guild.roles.cache.get(bot.config.IDRoles.elec).name}** ajouté pour  ${msg.author}. Il y a désormais ${(msg.guild.roles.cache.get(bot.config.IDRoles.elec).members).size+1} membres qui possède ce rôle.`)
+            .setDescription(`Rôle **${msg.guild.roles.cache.get(bot.config.IDRoles.elec).name}** ajouté pour  ${msg.author}.\nIl y a désormais ${(msg.guild.roles.cache.get(bot.config.IDRoles.elec).members).size+1} membres qui possède ce rôle.`)
             .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
         )
     }
