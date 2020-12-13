@@ -14,7 +14,7 @@ ____
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord [**La Hype_**](https://thomasbnt.fr/discord) .
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord [**La Hype_**](https://thomasbnt.fr/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
