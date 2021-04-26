@@ -1,12 +1,12 @@
 /*
 
     @document   : app.js
-    @author     : Thomas Bnt <thomasbnt@protonmail.com>
+    @author     : Thomas Bnt <contact@thomasbnt.fr>
     @version    : 2.0.0
-    @copyright  : 2020, Thomas Bnt
+    @copyright  : 2021, Thomas Bnt
     @license    : GNU General Public License v3.0
     @repository : https://github.com/thomasbnt/Bord-Pi
-    @description: Un robot Discord gérant et aidant les utilisateurs pour le serveur La Hype_
+    @description: Un robot Discord gérant et aidant les utilisateurs pour le serveur de Thomas Bnt
 
 */
 const Discord = require('discord.js')

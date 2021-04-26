@@ -1,5 +1,5 @@
 
-[![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.fr/discord)
+[![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.dev/discord)
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b0bf1aab3e4bfb75b16e/maintainability)](https://codeclimate.com/github/thomasbnt/Bord-Pi/maintainability)
@@ -14,7 +14,7 @@ ____
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord [**La Hype_**](https://thomasbnt.fr/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
