@@ -13,7 +13,7 @@ exports.run = (bot, WebhookPublic, msg) => {
             .setDescription("Un robot gérant et aidant les utilisateurs pour ce serveur.\nIl est [Open Source](https://github.com/thomasbnt/Bord-Pi), toute personne peut participer au projet et l'améliorer. Suivez simplement le protocole afin de le modifier.")
             .setThumbnail(bot.user.displayAvatarURL())
             .addField("Les rôles que vous pouvez avoir", "**" + bot.config.prefix + "dev** — Rôle pour les développeurs en tout genre\n**" + bot.config.prefix + "elec** — Rôle pour les électroniciens en tout genre", false)
-            .addField("Autres commandes", bot.config.prefix + "sd, " + bot.config.prefix + "avatar, " + bot.config.prefix + "markdown, " + bot.config.prefix + "form, " + bot.config.prefix + "uptime, " + bot.config.prefix + "ping ")
+            .addField("Autres commandes", bot.config.prefix + "sd, " + bot.config.prefix + "avatar, " + bot.config.prefix + "markdown, " + bot.config.prefix + "uptime, " + bot.config.prefix + "ping ")
             .addField("Les liens utiles", "[Serveur Discord](https://discord.gg/9gcxwVY) • [Code Source de Bord Pi](https://github.com/thomasbnt/Bord-Pi)", false)
     )
 
