@@ -8,7 +8,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
     if (msg.member.roles.cache.has(bot.config.IDRoles.dev)) {
         msg.member.roles.remove(bot.config.IDRoles.dev).catch(bot.ls.error, console.error)
-        msg.channel.send(`Vous avez désormais le rôle développeur.`)
+        msg.channel.send(`Vous n'avez plus le rôle développeur.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.cache.get(bot.config.IDRoles.dev).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
