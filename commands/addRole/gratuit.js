@@ -21,7 +21,7 @@ exports.run = async (bot, WebhookPublic, msg) => {
 
     } else {
         msg.member.roles.add(bot.config.IDRoles.notif_jeux_gratuits).catch(console.error)
-        msg.channel.send(`Vous serrez désormais **notifié** dès qu'un jeu gratuit sortia !\nVous êtes ${(msg.guild.roles.cache.get(bot.config.IDRoles.notif_jeux_gratuits).members).size+1} membres qui possède ce rôle.`)
+        msg.channel.send(`Vous serrez désormais **notifié** dès qu'un jeu gratuit sortira !\nVous êtes ${(msg.guild.roles.cache.get(bot.config.IDRoles.notif_jeux_gratuits).members).size+1} membres qui possède ce rôle.`)
             .then(m => { setTimeout(() => { m.delete() }, 20000) })
 
         console.log(bot.ls.info, bot.config.prefix + msg.guild.roles.cache.get(bot.config.IDRoles.notif_jeux_gratuits).name + " de " + msg.author.tag + " (" + msg.author.id + ")")
