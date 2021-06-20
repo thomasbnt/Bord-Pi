@@ -1,13 +1,13 @@
-const Discord = require('discord.js')
+const {MessageEmbed} = require('discord.js')
 module.exports = async (bot, WebhookPublic, member) => {
-    const guild = member.guild
+    const guild = member.guild;
 
-    console.log(bot.ls.info, `📤  — ${member.user.tag} (${member.user.id}) a quitté ${guild.name}`)
+    console.log(bot.ls.info, `📤  — ${member.user.tag} (${member.user.id}) a quitté ${guild.name}`);
 
-    WebhookPublic.send(new Discord.MessageEmbed()
+    WebhookPublic.send(new MessageEmbed()
         .setColor(bot.config.BlackColor)
         .setAuthor(`📤 — ${member.user.username} nous a quitté`, member.user.avatarURL)
         .setFooter(`ID : ${member.user.id}`)
         .setTimestamp(new Date())
-    ).catch(e => console.error(e))
-}
+    ).catch(e => console.error(e));
+};
