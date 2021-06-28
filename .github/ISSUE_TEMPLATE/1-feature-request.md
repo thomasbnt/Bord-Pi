@@ -1,6 +1,7 @@
 ---
 name: "\U0001F680 Suggestion de nouvelle fonctionnalité"
 about: Déposer une suggestion de modification sur Bord Pi
+labels: "Nouvelle demande"
 
 ---
 
