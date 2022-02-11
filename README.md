@@ -10,17 +10,31 @@ ____
 
 ## I Introduction
 
-**Version NodeJS > 12**
+> ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant un Pull Request.
+
+Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
+
+> ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
-> ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
+> ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-## II Les intégrations
+## II Nouveautés (février 2022)
+
+La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
+Plus aucun préfixe n'est nécessaire pour les commandes.
+
+- [x] Slash Commands
+- [x] Commandes de base
+- [x] Commandes de moderation
+- [x] Logs
+
+## III Les intégrations
 
 - Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `dev.js` et sert à se procurer un rôle qui, par la suite vous débloque des accès a certains channels suivant votre configuration du serveur.
 
@@ -30,14 +44,14 @@ ____
 
 - Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
 
-- Besoin d'une aide particulière auprès d'un rôle? Dès que **le rôle est notifié**, le robot confirme que cela a bien été reçu et lui renvoie un message de rappel, par exemple de revoir la FAQ si jamais ça pourrait résoudre son soucis.
+- Besoin d'une aide particulière auprès d'un rôle ? Dès que **le rôle est notifié**, le robot confirme que cela a bien été reçu et lui renvoie un message de rappel, par exemple de revoir la FAQ si jamais ça pourrait résoudre son soucis.
 
-- Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger. 
+- Quelques commandes destinées pour l'équipe. Et certaines sont là pour débugger. 
 
-- Et d'autres commandes peu utiles comme `avatar.js`, `uptime.js` ou encore `ping.js`.
+- Et d'autres commandes peu utiles comme `avatar.js`, `ping.js` ou encore `ping.js`.
 
-Pas mal de changements sur le code, nottament le rangement des fichiers, des logs plus propre et un code plus net.
-Quand au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
+Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net.
+Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
 
 ```js
 if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
@@ -45,7 +59,30 @@ if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
 }
 ```
 
-## III Contributions
+## IV Les permissions
+
+Le robot doit avoir les **Intents privilégié** suivant :
+
+- [x] Server members
+- [x] Message content
+
+Sans ces intents, le robot ne fonctionnera pas.
+Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions suivantes :
+
+- [x] Manage Roles
+- [x] Kick members
+- [x] Ban members
+- [x] Read Messages/View Channels
+- [x] Moderate Members
+- [x] Send Messages
+- [x] Manage Messages
+- [x] Embed links
+- [x] Attach files
+- [x] Read message history
+- [x] Add reactions
+
+
+## V Contributions
 
 Les contributions sont toujours les bienvenues ! Lisez les règles pour les contributions avant de pouvoir y participer.
 
@@ -62,7 +99,7 @@ Veuillez vous assurer que votre demande de pull request respecte les lignes dire
 
 Merci pour vos suggestions !
 
-## IV Les codes couleurs
+## VI Les codes couleurs
 
 | **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor |  BlackColor | 
 |---------|------------|----------|----------|----------|----------|
@@ -70,9 +107,9 @@ Merci pour vos suggestions !
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
-## V Informations complémentaires
+## VII Informations complémentaires
 
-L'image a été modifié par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
+L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
 Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
 

@@ -1,11 +1,11 @@
 {
   "name": "bordpi",
-  "version": "2.0.0",
-  "description": "Un robot Discord gérant et aidant les utilisateurs pour le serveur La Hype_ ",
+  "version": "3.0.0",
+  "description": "Un robot Discord gérant et aidant les utilisateurs pour son propre serveur. ",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "node deploy_commands.js"
   },
   "keywords": [
     "discordapp",
@@ -15,12 +15,13 @@
   "author": "Thomas Bnt <thomasbnt@protonmail.com>",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "colors": "^1.4.0",
-    "discord.js": "^12.3.1",
-    "fs": "0.0.1-security",
-    "humanize-duration": "^3.25.0",
-    "klaw": "^3.0.0",
-    "log-symbols": "^4.0.0",
-    "moment": "^2.29.0"
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "dblapi.js": "^2.4.1",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.3.1",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.6",
+    "numeral": "^2.0.6"
   }
 }
