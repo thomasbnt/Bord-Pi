@@ -6,14 +6,9 @@ module.exports = {
         .setName('ping')
         .setDescription('Obtenir le ping du robot'),
     async execute(interaction, client) {
-        function IsoStringToTimeStamp(value) {
-            const d = new Date(value)
-            return Math.floor(d / 1000)
-        }
         const PingBeforeEmbed = new MessageEmbed()
-            //.setColor(client.config.PrimaryColor)
             .setAuthor({
-                name: `Chargement..`,
+                name: `L'oiseau va revenir avec le ping du robot...`,
                 iconURL: client.user.avatarURL(),
                 url: `${client.config.GitHubProjectURL}`
             })
@@ -22,14 +17,13 @@ module.exports = {
         const PingEmbed = new MessageEmbed()
             //.setColor(client.config.PrimaryColor)
             .setAuthor({
-                name: `Le ping de ${client.user.username} est de ${TotalPing}ms`,
+                name: `Le ping de ${client.user.username}`,
                 iconURL: client.user.avatarURL(),
                 url: `${client.config.GitHubProjectURL}`
             })
-            .setFooter({
-                text: `Données affichés entre la commande et la réponse du robot.`,
-            })
-        TotalPing >= 100 ? PingEmbed.setColor(`${client.config.DangerColor}`) : PingEmbed.setColor(`${client.config.SuccessColor}`)
+            .addField('Total du ping', `${TotalPing} ms`, true)
+            .addField('Websocket', `${client.ws.ping} ms`, true)
+        TotalPing >= 200 ? PingEmbed.setColor(`${client.config.DangerColor}`) : PingEmbed.setColor(`${client.config.SuccessColor}`)
         await interaction.editReply({
             embeds: [PingEmbed],
             ephemeral: true
