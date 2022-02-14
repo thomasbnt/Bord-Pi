@@ -10,11 +10,27 @@ module.exports = {
             const d = new Date(value)
             return Math.floor(d / 1000)
         }
+        const PingBeforeEmbed = new MessageEmbed()
+            //.setColor(client.config.PrimaryColor)
+            .setAuthor({
+                name: `Chargement..`,
+                iconURL: client.user.avatarURL(),
+                url: `${client.config.GitHubProjectURL}`
+            })
+        const sent = await interaction.reply({embeds: [PingBeforeEmbed], fetchReply: true, ephemeral: true})
+        const TotalPing = sent.createdTimestamp - interaction.createdTimestamp
         const PingEmbed = new MessageEmbed()
             //.setColor(client.config.PrimaryColor)
-            .setAuthor({name: `Le ping de ${client.user.username} est de ${client.ws.ping}ms`, iconURL: client.user.avatarURL(), url: `${client.config.GitHubProjectURL}`})
-        client.ws.ping >= 100 ? PingEmbed.setColor(`${client.config.DangerColor}`) : PingEmbed.setColor(`${client.config.SuccessColor}`)
-        interaction.reply({
+            .setAuthor({
+                name: `Le ping de ${client.user.username} est de ${TotalPing}ms`,
+                iconURL: client.user.avatarURL(),
+                url: `${client.config.GitHubProjectURL}`
+            })
+            .setFooter({
+                text: `Données affichés entre la commande et la réponse du robot.`,
+            })
+        TotalPing >= 100 ? PingEmbed.setColor(`${client.config.DangerColor}`) : PingEmbed.setColor(`${client.config.SuccessColor}`)
+        await interaction.editReply({
             embeds: [PingEmbed],
             ephemeral: true
         })
