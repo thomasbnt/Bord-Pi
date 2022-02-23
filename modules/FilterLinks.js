@@ -17,8 +17,7 @@ module.exports = function FilterLinks(msg) {
             return msg.channel.send(`Le robot n'a pas la permission de gérer les messages.`) && console.error(`Err: Le robot n'a pas la permission de gérer les messages.`)
 
         // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
-        //if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return
-
+        if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return
         if (config.IDRoleSupport != null) {
             // Vérifie s'il a le rôle Support.
             if (msg.member.roles.cache.has(config.IDRoleSupport)) return
