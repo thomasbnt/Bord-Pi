@@ -1,4 +1,3 @@
-
 [![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.dev/discord)
 
 [![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
@@ -6,17 +5,17 @@
 [![Voir les Releases](https://flat.badgen.net/github/release/thomasbnt/Bord-Pi)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![Date du dernier commit](https://flat.badgen.net/github/last-commit/thomasbnt/Bord-Pi)
 
-____
+---
 
 ## I Introduction
 
 **Version NodeJS > 12**
 
-*Propre, rapide, beau, simple d'utilisation et de modification.*
+_Propre, rapide, beau, simple d'utilisation et de modification._
 
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
-> ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
+> ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot (La Hype\_). Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des channels.
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
@@ -28,20 +27,27 @@ ____
 
 - Un **système de logs** interne via Webhooks.
 
-- Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord. 
+- Un **message de bienvenue personnalisé**, avec un système qui vérifie si le compte du nouvel arrivant est bien enregistré ou non en comparant si son avatar est par défaut, et si il se trouve que cette avatar est par defaut, il démontre comment s'en procurer un en renvoyant sur le support de Discord.
 
 - Besoin d'une aide particulière auprès d'un rôle? Dès que **le rôle est notifié**, le robot confirme que cela a bien été reçu et lui renvoie un message de rappel, par exemple de revoir la FAQ si jamais ça pourrait résoudre son soucis.
 
-- Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger. 
+- Quelques commandes destiné pour l'équipe. Et certaines sont là pour débugger.
 
 - Et d'autres commandes peu utiles comme `avatar.js`, `uptime.js` ou encore `ping.js`.
 
 Pas mal de changements sur le code, nottament le rangement des fichiers, des logs plus propre et un code plus net.
-Quand au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
+Quand au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler.
 
 ```js
 if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
-    msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
+  msg
+    .delete(msg.author)
+    .catch((e) =>
+      console.log(
+        bot.ls.warning,
+        "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."
+      )
+    );
 }
 ```
 
@@ -64,15 +70,13 @@ Merci pour vos suggestions !
 
 ## IV Les codes couleurs
 
-| **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor |  BlackColor | 
-|---------|------------|----------|----------|----------|----------|
-| **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` | `#36393F` |
+| **Principaux**       | PrimaryColor | DangerColor | InfoColor | SuccessColor | BlackColor |
+| -------------------- | ------------ | ----------- | --------- | ------------ | ---------- |
+| **Code Hexadécimal** | `#E74C3C`    | `#B20000`   | `#6897BB` | `#47b60f`    | `#36393F`  |
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
 ## V Informations complémentaires
 
-L'image a été modifié par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
-Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
-
-
+L'image a été modifié par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement.
+Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
