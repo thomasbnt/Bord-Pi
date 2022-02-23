@@ -12,8 +12,7 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const klaw = require('klaw')
-const path = require("path")
-
+const path = require('path')
 
 const config = require('./config.json')
 
@@ -37,30 +36,29 @@ fs.readdir('./events/', (err, files) => {
   if (err) return console.error(err)
   files.forEach(file => {
     const event = require(`./events/${file}`)
-    let eventName = file.split('.')[0]
+    const eventName = file.split('.')[0]
     bot.on(eventName, event.bind(null, bot, WebhookPublic))
   })
 })
 
-klaw("./commands/").on("data", (item) => {
+klaw('./commands/').on('data', (item) => {
   const cmdFile = path.parse(item.path)
-  if (!cmdFile.ext || cmdFile.ext !== ".js") return
-  let commandName = cmdFile.name.split(".")[0]
+  if (!cmdFile.ext || cmdFile.ext !== '.js') return
+  const commandName = cmdFile.name.split('.')[0]
   const response = _loadCommand(cmdFile.dir, `${commandName}`)
   if (response) console.log(response)
 })
 
-
 function _loadCommand (commandPath, commandName) {
   try {
-    console.log(bot.ls.success,`Chargement de la commande — ${commandName}`)
+    console.log(bot.ls.success, `Chargement de la commande — ${commandName}`)
     const props = require(`${commandPath}${path.sep}${commandName}`)
     if (props.init) {
       props.init(bot)
     }
 
     bot.commands.set(commandName, props)
-    
+
     return false
   } catch (e) {
     return `Impossible de charger la commande ${commandName} — ${e}`
