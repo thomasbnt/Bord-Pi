@@ -1,6 +1,9 @@
 {
   "token": "",
-  "ID_of_this_bot": "",
+  "clientSecret": "",
+  "clientId": "",
+  "serverId": "",
+  "GitHubProjectURL": "https://github.com/thomasbnt/Bord-Pi",
   "PrimaryColor": "#E74C3C",
   "DangerColor": "#B20000",
   "InfoColor": "#6897BB",
@@ -10,7 +13,7 @@
   "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
-  "WebhookPublic": {
+  "WebhookLogs": {
     "id": "",
     "token": ""
   },
