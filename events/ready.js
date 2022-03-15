@@ -3,11 +3,11 @@ module.exports = {
     description: 'Bot is ready',
     execute(client) {
         console.log(`Connecté en tant que ${client.user.username}`)
-        client.user.setActivity(`/bord`, { type: "WATCHING" })
+        client.user.setActivity(`/roles`, { type: "WATCHING" })
 
-        // Discord réclame l'activité sans raison. Le setInterval est seulement pour mettre à jour l'activité.
+        // Discord nettoie l'activité sans raison. Le setInterval est seulement pour le mettre à jour.
         function Activity() {
-            client.user.setActivity(`/bord`, {
+            client.user.setActivity(`/roles`, {
                 type: "WATCHING"
             })
         }
