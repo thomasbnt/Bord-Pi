@@ -6,7 +6,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi?style=for-the-badge)
 ____
 
-## I Introduction
+## Introduction
 
 > ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant un Pull Request.
 
@@ -22,7 +22,7 @@ Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-## II Nouveautés (février 2022)
+## Nouveautés (février 2022)
 
 La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
 Plus aucun préfixe n'est nécessaire pour les commandes.
@@ -32,7 +32,7 @@ Plus aucun préfixe n'est nécessaire pour les commandes.
 - [x] Commandes de moderation
 - [x] Logs
 
-## III Les intégrations
+## Les intégrations
 
 - Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `dev.js` et sert à se procurer un rôle qui, par la suite vous débloque des accès a certains channels suivant votre configuration du serveur.
 - Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
@@ -49,7 +49,7 @@ if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
 }
 ```
 
-## IV Les permissions
+## Les permissions
 
 Le robot doit avoir les **Intents privilégié** suivant :
 
@@ -71,7 +71,7 @@ Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en p
 - [x] Read message history
 - [x] Add reactions
 
-## V Comment le faire fonctionner
+## Comment le faire fonctionner
 
 1. Assurez-vous d'avoir la version de **NodeJS** supérieure à **16.6.0**.
 2. Installez les dépendences avec un coup de `npm install` ou `yarn add`.
@@ -80,7 +80,7 @@ Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en p
 5. Enregistrez vos Apps Commandes _aka_ Slash commands sur votre serveur avec `npm run deploy`.
 6. Vous pouvez désormais allumer votre robot avec `npm run start`.
 
-## VI Contributions
+## Contributions
 
 Les contributions sont toujours les bienvenues ! Lisez les règles pour les contributions avant de pouvoir y participer.
 
@@ -97,7 +97,7 @@ Veuillez vous assurer que votre demande de pull request respecte les lignes dire
 
 Merci pour vos suggestions !
 
-## VII Les codes couleurs
+## Les codes couleurs
 
 | **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor |  BlackColor | 
 |---------|------------|----------|----------|----------|----------|
@@ -105,9 +105,18 @@ Merci pour vos suggestions !
 
 Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
 
-## VII Informations complémentaires
+## Besoin de se faire héberger son propre robot ?
 
-L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. 
-Initialement, elle appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
+Si vous le souhaitez, vous pouvez avoir **votre propre robot hébergé** pour votre serveur Discord.
+Il serait basé sur ce code, et aura un nom et une image différente que **vous choisirez** ! ✨
 
+[![GitHub Sponsors](https://img.shields.io/badge/Se%20faire%20héberger%20son%20propre%20robot-%23EA54AE.svg?&style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/thomasbnt)
+
+## Informations complémentaires
+
+L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement.
+Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
+
+- 📣  Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
+- 🔗  Passe un tour sur [mon site web](https://thomasbnt.dev) !
 
