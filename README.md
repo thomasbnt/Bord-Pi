@@ -20,7 +20,7 @@ Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-## Nouveautés (février 2022)
+## Nouveautés (Mars 2022)
 
 La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
 Plus aucun préfixe n'est nécessaire pour les commandes.
@@ -41,11 +41,6 @@ Plus aucun préfixe n'est nécessaire pour les commandes.
 Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net.
 Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
 
-```js
-if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
-    msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
-}
-```
 
 ## Les permissions
 
@@ -54,7 +49,7 @@ Le robot doit avoir les **Intents privilégié** suivant :
 - [x] Server members
 - [x] Message content
 
-Sans ces intents, le robot ne fonctionnera pas.
+> ⚠ Sans ces intents, le robot ne fonctionnera pas.
 Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions suivantes :
 
 - [x] Manage Roles
@@ -101,7 +96,7 @@ Merci pour vos suggestions !
 |---------|------------|----------|----------|----------|----------|
 | **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` | `#36393F` |
 
-Pour les utiliser : `bot.config.PrimaryColor`, récupère la couleur primaire.
+Pour les utiliser : `config.colors.PrimaryColor`, récupère la couleur primaire.
 
 ## Besoin de se faire héberger son propre robot ?
 
