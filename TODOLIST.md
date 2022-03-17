@@ -20,5 +20,5 @@
 
 
 ## Aucune catégorie 
-- [] Vérifier si une valeur config est *null*, alors passer SAUF si c'est nécessaire au bon fonctionnement.
+- [ ] Vérifier si une valeur config est *null*, alors passer SAUF si c'est nécessaire au bon fonctionnement.
 - [ ] Message d'aide dès que le robot est ajouté sur le serveur.
