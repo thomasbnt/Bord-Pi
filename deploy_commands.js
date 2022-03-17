@@ -17,10 +17,8 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`)
     commands.push(command.data.toJSON())
 }
-
+console.log(`Les Apps Commandes enregistrés : ${commandFiles}`)
 const rest = new REST({version: '9'}).setToken(token)
 
-rest.put(
-    Routes.applicationGuildCommands(clientId, serverId),
-    {body: commands}
-).then(() => console.log('Successfully registered application commands.')).catch(console.error)
+rest.put( Routes.applicationGuildCommands(clientId, serverId), {body: commands})
+    .then(() => console.log(`App Commandes enregistrées avec succès.`)).catch(console.error)
