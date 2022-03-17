@@ -1,7 +1,5 @@
 
 [![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white&style=for-the-badge)](https://thomasbnt.dev/discord)
-
-[![GNU GPL v3.0](https://flat.badgen.net/github/license/thomasbnt/Bord-Pi)](LICENSE)
 [![Voir les Releases](https://img.shields.io/github/v/release/thomasbnt/Bord-Pi?color=6897BB&include_prereleases&style=for-the-badge)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi?style=for-the-badge)
 ____
@@ -12,7 +10,7 @@ ____
 
 Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
 
-> ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16**.
+> ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
