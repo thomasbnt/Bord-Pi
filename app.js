@@ -27,6 +27,7 @@ const client = new Client({
 
 client.config = config
 client.d = new Date()
+client.bph = require('./modules/BordPiHelper')
 
 client.commands = new Collection()
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
@@ -49,13 +50,12 @@ for (const file of eventFiles) {
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return
-
     const command = client.commands.get(interaction.commandName)
     if (!command) return
 
     try {
         await console.log(`${client.d} — /${interaction.commandName} — By ${interaction.user.username} (ID : ${interaction.user.id}) ${interaction.guild?.id ? `on ${interaction.guild.name}` : ''} ${interaction.guild?.memberCount ? `(${interaction.guild.memberCount} members)` : ''}`)
-        await command.execute(interaction, client, config)
+        await command.execute(interaction, client)
     } catch (error) {
         console.error(error)
         return interaction.reply({
