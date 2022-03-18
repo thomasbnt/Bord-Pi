@@ -6,14 +6,13 @@ const w = new Discord.WebhookClient({
 })
 
 class BordPiHelper {
-    // -------------------- Webhook des Logs --------------------
-    logs(member, action) {
+    // Simplement pour les logs.
+    Logs(member, action) {
         const LogEmbed = new Discord.MessageEmbed()
             .setColor(config.colors.InfoColor)
             .setAuthor({
                 name: member.user.tag,
                 iconURL: member.user.avatarURL({
-                    format: 'gif',
                     dynamic: true,
                     size: 1024
                 }),
@@ -22,13 +21,14 @@ class BordPiHelper {
         w.send({embeds: [LogEmbed]}).catch(console.error)
     }
 
-    logsinoutserver(member, status, color_embed) {
+    // Même chose ici, pour les logs, mais spécialement pour les arrivants et départs de membres.
+    LogsMemberInOutServer(member, status, color_embed) {
         const LogsJoinEmbed = new Discord.MessageEmbed()
             .setColor(color_embed)
             .setAuthor({
                 name: `${member.username} nous a ${status}`,
                 iconURL: member.avatarURL({
-                    format: 'gif',
+                    format: 'webp',
                     dynamic: true,
                     size: 1024
                 }),
@@ -41,11 +41,30 @@ class BordPiHelper {
             )
         w.send({embeds: [LogsJoinEmbed]}).catch(console.error)
     }
+
+    // Cela récupère value et la convertit en timestamp.
     IsoStringToTimeStamp(value) {
         const d = new Date(value)
         return Math.floor(d / 1000)
     }
+
+    // Une couleur aléatoire pour vos embeds ? C'est ici.
+    getRandomColor() {
+        return '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
+
+    }
+
+    // Ce sont les phrases qui seront affichées au hasard dans guildMemberAdd pour le message de bienvenue.
+    getRandomMotd() {
+        const quotes = [
+            "Bienvenue sur le serveur !",
+            "Oh un arrivant !",
+            "Bonjour à toi, jeune aventurier !",
+            "Installe-toi !",
+            "La cavalerie est arrivée !"
+        ]
+        return quotes[Math.floor(Math.random() * quotes.length)]
+    }
 }
 
-module
-    .exports = new BordPiHelper
+module.exports = new BordPiHelper

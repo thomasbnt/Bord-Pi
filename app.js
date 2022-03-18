@@ -54,12 +54,12 @@ client.on('interactionCreate', async interaction => {
     if (!command) return
 
     try {
-        await console.log(`${client.d} — /${interaction.commandName} — By ${interaction.user.username} (ID : ${interaction.user.id}) ${interaction.guild?.id ? `on ${interaction.guild.name}` : ''} ${interaction.guild?.memberCount ? `(${interaction.guild.memberCount} members)` : ''}`)
+        await console.log(`${client.d} — /${interaction.commandName} — Par ${interaction.user.username} (ID : ${interaction.user.id})`)
         await command.execute(interaction, client)
     } catch (error) {
         console.error(error)
         return interaction.reply({
-            content: 'There was an error while executing this command!',
+            content: 'Une erreur s\'est produite lors de l\'exécution de cette commande !',
             ephemeral: true,
             fetchReply: true
         })
