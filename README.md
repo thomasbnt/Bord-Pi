@@ -103,7 +103,7 @@ Pour les utiliser : `config.colors.PrimaryColor`, récupère la couleur primaire
 Si vous le souhaitez, vous pouvez avoir **votre propre robot hébergé** pour votre serveur Discord.
 Il serait basé sur ce code, et aura un nom et une image différente que **vous choisirez** ! ✨
 
-[![GitHub Sponsors](https://img.shields.io/badge/Se%20faire%20héberger%20son%20propre%20robot-%23EA54AE.svg?&style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/thomasbnt)
+[![Ayez votre robot à votre effigie](.github/ExtraBMC.png)](https://www.buymeacoffee.com/thomasbnt/e/12177/?via=thomasbnt)
 
 ## Informations complémentaires
 
