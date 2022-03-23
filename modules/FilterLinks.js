@@ -1,7 +1,7 @@
 // -------------------- Filtre contre les liens Discord --------------------
-const { Permissions } = require("discord.js");
-const config = require("../config.json");
-const Discord = require("discord.js");
+const { Permissions } = require('discord.js')
+const config = require('../config.json')
+const Discord = require('discord.js')
 module.exports = function FilterLinks(msg) {
   if (
     /*
@@ -9,9 +9,9 @@ module.exports = function FilterLinks(msg) {
      * msg.content.includes("https://monlien.local") ||
      */
 
-    msg.content.includes("discord.gg/") ||
-    msg.content.includes("discordapp.com/invite") ||
-    msg.content.includes("discord.me/")
+    msg.content.includes('discord.gg/') ||
+    msg.content.includes('discordapp.com/invite') ||
+    msg.content.includes('discord.me/')
   ) {
     // Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
     if (!msg.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
@@ -22,37 +22,37 @@ module.exports = function FilterLinks(msg) {
         console.error(
           `Err: Le robot n'a pas la permission de gérer les messages.`
         )
-      );
+      )
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
-    if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return;
+    if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return
     if (config.IDRoleSupport != null) {
       // Vérifie s'il a le rôle Support.
-      if (msg.member.roles.cache.has(config.IDRoleSupport)) return;
+      if (msg.member.roles.cache.has(config.IDRoleSupport)) return
     }
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
-      if (msg.channel.id === config.IDAdsChannel) return;
+      if (msg.channel.id === config.IDAdsChannel) return
     }
     // Et dans un dernier temps avant de supprimer le message si les vérifications au-dessus sont false. Si c'est bien le cas, avertit l'auteur du message.
     const WarnLinkEmbed = new Discord.MessageEmbed()
       .setColor(config.colors.PrimaryColor)
       .setDescription(
         `<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`
-      );
-    msg.delete(msg.author);
+      )
+    msg.delete(msg.author)
     msg.channel.send({ embeds: [WarnLinkEmbed] }).then((m) => {
       setTimeout(() => {
-        m.delete();
-      }, 10000);
-    });
+        m.delete()
+      }, 10000)
+    })
     console.log(
       `${msg.author.tag} (${msg.author.id}) a fait une publicité Discord dans le salon ${msg.channel.name} (${msg.channel.id}).\n> ${msg.content}`
-    );
+    )
     /* WebhookPublic.send(new Discord.MessageEmbed()
            .setColor(config.colors.DangerColor)
            .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le salon <#${msg.channel.id}>.\n\n> ${msg.content}`)
            .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
          )*/
   }
-};
+}

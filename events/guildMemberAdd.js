@@ -1,41 +1,41 @@
-const config = require("../config.json");
-const BordPiHelper = require("../modules/BordPiHelper");
-const Discord = require("discord.js");
+const config = require('../config.json')
+const BordPiHelper = require('../modules/BordPiHelper')
+const Discord = require('discord.js')
 module.exports = {
-  name: "guildMemberAdd",
-  description: "Guild Member Add",
+  name: 'guildMemberAdd',
+  description: 'Guild Member Add',
   execute(member, client) {
     if (config.serverId) {
-      const g = client.guilds.cache.get(config.serverId);
+      const g = client.guilds.cache.get(config.serverId)
       if (g && g.available) {
         console.log(
           `📥  — ${member.user.username} (${member.id}) a rejoint ${g.name}`
-        );
+        )
         const ChannelGeneral = g.channels.cache.find(
           (x) => x.id === config.IDWelcomeChannel
-        );
+        )
 
         // C'est ici que vous modifiez votre message de bienvenue.
         const WelcomeEmbed = new Discord.MessageEmbed()
           .setAuthor({
             name: `${BordPiHelper.getRandomMotd()}`,
             iconURL: member.user.avatarURL({
-              format: "webp",
+              format: 'webp',
               dynamic: true,
-              size: 1024,
-            }),
+              size: 1024
+            })
           })
           .setColor(BordPiHelper.getRandomColor())
           .setDescription(`Bienvenue parmi-nous <@${member.id}>, n'hésite pas à posséder des rôles sur le serveur avec les _Slash Commands_ depuis <@${client.user.id}>. Toutes les infos avec \`/bord\`.
-                \n> Ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)`);
+                \n> Ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)`)
         ChannelGeneral.send({
-          embeds: [WelcomeEmbed],
+          embeds: [WelcomeEmbed]
         })
           .then((msg) => {
-            msg.react("👋").then((r) => r);
+            msg.react('👋').then((r) => r)
           })
           .catch((err) => {
-            console.log(err);
+            console.log(err)
           })
           // TODO : Supp le message après un temps imparti.
           /*.then(
@@ -48,21 +48,21 @@ module.exports = {
             console.error(
               `Vous avez sûrement mal configuré l'ID du serveur : ${err}`
             )
-          );
+          )
       } else {
         console.info(
           `Le serveur configuré est introuvable ! Le message personnalisé n'a donc pas été envoyer.`
-        );
+        )
       }
     } else {
       console.info(
         `Le message personnalisé pour les nouveaux membres n'a pas été envoyé car le serveur ID n'a pas été configuré.`
-      );
+      )
     }
     BordPiHelper.LogsMemberInOutServer(
       member,
       `rejoint`,
       config.colors.SuccessColor
-    );
-  },
-};
+    )
+  }
+}
