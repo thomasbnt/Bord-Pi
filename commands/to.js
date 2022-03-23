@@ -1,8 +1,7 @@
 const {
   Constants: { ApplicationCommandOptionTypes }
 } = require('discord.js'),
-  ms = require('ms'),
-  config = require('../config.json')
+  ms = require('ms')
 module.exports = {
   data: {
     name: 'to',

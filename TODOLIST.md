@@ -8,13 +8,13 @@
 - [x] Give rôles
 
 ## Les commandes
-- [ ] to (tempban)
-- [ ] unto (untempban)
+- [x] to (tempban)
+- [x] unto (untempban)
 - [x] ping 
 - [ ] bord (aide)
 - [ ] sondage
 
 
 ## Aucune catégorie 
-- [x] Vérifier si une valeur config est *null*, alors passer SAUF si c'est nécessaire au bon fonctionnement.
-- [ ] Message d'aide dès que le robot est ajouté sur le serveur.
+- [x] Vérifier si une valeur config est *null*, 
+alors passer SAUF si c'est nécessaire au bon fonctionnement.

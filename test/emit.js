@@ -1,9 +1,15 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const config = require('../config.json')
+const {
+  Constants: { ApplicationCommandOptionTypes }
+} = require('discord.js'),
+config = require('../config.json')
+
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName('emit')
-    .setDescription('test event guildmemberadd'),
+  data: {
+    name: 'emit',
+    description: 'test event guildmemberadd',
+    options: []
+  },
+
   async execute(interaction, client) {
     client.emit('guildMemberAdd', interaction.user)
     interaction.reply({ content: ':white_check_mark: Emitted event guildMemberAdd' })

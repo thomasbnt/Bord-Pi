@@ -6,7 +6,7 @@ ____
 
 ## Introduction
 
-> ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant un Pull Request.
+> ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant une Pull Request.
 
 Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
 
@@ -70,8 +70,7 @@ Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en p
 2. Installez les dépendences avec un coup de `npm install` ou `yarn add`.
 3. Copiez le fichier `config.exemple.json` en `config.json`.
 4. Remplissez les configurations dans `config.json`.
-5. Enregistrez vos Apps Commandes _aka_ Slash commands sur votre serveur avec `npm run deploy`.
-6. Vous pouvez désormais allumer votre robot avec `npm run start`.
+5. Vous pouvez désormais allumer votre robot avec `npm run start`.
 
 ## Contributions
 
@@ -110,6 +109,6 @@ Il serait basé sur ce code, et aura un nom et une image différente que **vous 
 L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement.
 Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
 
-- 📣  Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
-- 🔗  Passe un tour sur [mon site web](https://thomasbnt.dev) !
+- 📣 Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
+- 🔗 Passe un tour sur [mon site web](https://thomasbnt.dev) !
 

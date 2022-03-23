@@ -3,13 +3,13 @@ name: "\U0001F41E Reporter un bug"
 about: Une erreur dans le code ? Un crash ?
 ---
 
-# 🐞  Reporter un bug
+#🐞  Reporter un bug
 
-### Description
+### Description
 
 Expliquez le problème très clairement et ce que ça produit.
 
-### 🔥  Exception ou Erreur
+###🔥 Exception ou Erreur
 
 <pre><code>
 
@@ -18,7 +18,7 @@ Expliquez le problème très clairement et ce que ça produit.
 
 </code></pre>
 
-### 🌍  Votre environnement
+###🌍 Votre environnement
 
 **Version NodeJS** :
 **Version NPM** :

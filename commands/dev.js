@@ -2,6 +2,7 @@ const {
   Constants: { ApplicationCommandOptionTypes }
 } = require('discord.js'),
 config = require('../config.json')
+
 module.exports = {
   data: {
     name: 'dev',

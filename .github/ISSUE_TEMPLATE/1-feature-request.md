@@ -6,7 +6,7 @@ labels: "Nouvelle demande"
 ---
 
 
-# 🚀  Proposition d'une nouvelle fonctionnalité
+#🚀 Proposition d'une nouvelle fonctionnalité
 
 ### Description
 <!-- ✍️ --> Décrivez le plus possible votre requête. Les changements faits et ce que ça engendre.
