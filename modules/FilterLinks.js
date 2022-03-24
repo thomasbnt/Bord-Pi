@@ -16,12 +16,8 @@ module.exports = function FilterLinks(msg) {
     // Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
     if (!msg.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
       return (
-        msg.channel.send(
-          `Le robot n'a pas la permission de gérer les messages.`
-        ) &&
-        console.error(
-          `Err: Le robot n'a pas la permission de gérer les messages.`
-        )
+        msg.channel.send( `Le robot n'a pas la permission de gérer les messages.`) &&
+        console.error(`Err: Le robot n'a pas la permission de gérer les messages.`)
       )
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
@@ -37,9 +33,7 @@ module.exports = function FilterLinks(msg) {
     // Et dans un dernier temps avant de supprimer le message si les vérifications au-dessus sont false. Si c'est bien le cas, avertit l'auteur du message.
     const WarnLinkEmbed = new Discord.MessageEmbed()
       .setColor(config.colors.PrimaryColor)
-      .setDescription(
-        `<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`
-      )
+      .setDescription(`<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`)
     msg.delete(msg.author)
     msg.channel.send({ embeds: [WarnLinkEmbed] }).then((m) => {
       setTimeout(() => {
