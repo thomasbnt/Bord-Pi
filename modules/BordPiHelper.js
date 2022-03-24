@@ -11,13 +11,14 @@ class BordPiHelper {
     const LogEmbed = new Discord.MessageEmbed()
       .setColor(config.colors.InfoColor)
       .setAuthor({
-        name: member.user.tag,
-        iconURL: member.user.avatarURL({
+        name: member.username,
+        iconURL: member.avatarURL({
           dynamic: true,
           size: 1024
         }),
         url: `https://whois.mrrobot.app/${member.id}`
       })
+      .setDescription(`${action}`)
     w.send({ embeds: [LogEmbed] }).catch(console.error)
   }
 
