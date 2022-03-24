@@ -1,7 +1,9 @@
 const {
-  Constants: { ApplicationCommandOptionTypes }
-} = require('discord.js'),
-  ms = require('ms')
+  Constants: { ApplicationCommandOptionTypes }, MessageEmbed
+  } = require('discord.js'),
+  ms = require('ms'),
+  config = require('../config.json')
+const BordPiHelper = require('../modules/BordPiHelper')
 module.exports = {
   data: {
     name: 'to',
@@ -30,11 +32,13 @@ module.exports = {
   async execute(interaction, client) {
     if (!interaction.member.permissions.has('MODERATE_MEMBERS'))
       return interaction.reply({
-        content: 'Vous n\'avez pas les permissions requises pour faire cette commande !'
+        content: 'Vous n\'avez pas les permissions requises pour faire cette commande !',
+        ephemeral: true
       })
     if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS'))
       return interaction.reply({
-        content: 'Je n\'ai pas les permissions requises pour faire cette commande !'
+        content: 'Je n\'ai pas les permissions requises pour faire cette commande !',
+        ephemeral: true
       })
 
     const user = interaction.options.getUser('utilisateur')
@@ -42,13 +46,15 @@ module.exports = {
 
     if (!member) {
       return interaction.reply({
-        content: 'L\'utilisateur est introuvable !'
+        content: 'L\'utilisateur est introuvable !',
+        ephemeral: true
       })
     }
 
     if (user.bot) {
       return interaction.reply({
-        content: 'L\'utilisateur est un robot, vous ne pouvez pas bannir les robots !'
+        content: 'L\'utilisateur est un robot, vous ne pouvez pas bannir les robots !',
+        ephemeral: true
       })
     }
 
@@ -73,6 +79,16 @@ module.exports = {
       })
     } else {
       let reason = interaction.options.getString('raison')
+      if (reason > 512) {
+        const ErrCaractersEmbed = new MessageEmbed()
+          .setColor(config.colors.DangerColor)
+          .setTitle('Erreur')
+          .setDescription('La raison ne peut pas dépasser 512 caractères !')
+        return interaction.reply({
+          embeds: [ErrCaractersEmbed],
+          ephemeral: true
+        })
+      }
       let time = interaction.options.getString('temps')
       if (isNaN(ms(time)))
         return interaction.reply({
@@ -89,13 +105,12 @@ module.exports = {
 
       member.timeout(
         ms(time),
-        reason ? reason : `pas de raison donnée | Par ${interaction.user.tag}`
+        reason ? reason : `Aucune raison donnée | Par ${interaction.user.tag}`
       )
-
+      BordPiHelper.Logs(user,`${interaction.user.tag} a banni ${user.tag} temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : ' '}`)
       return interaction.reply({
-        content: `${user.tag} a été banni temporairement pendant ${convertMs(
-          ms(time)
-        )} ${reason ? 'pour : `' + reason + '` !' : '!'}`
+        content: `${user.tag} (${user}) a été banni temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : 'Aucune raison donnée'}`,
+        ephemeral: true
       })
     }
   }
