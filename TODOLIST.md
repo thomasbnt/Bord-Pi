@@ -11,7 +11,7 @@
 - [x] to (tempban)
 - [x] unto (untempban)
 - [x] ping 
-- [ ] bord (aide)
+- [x] bord (aide)
 - [ ] sondage
 
 
