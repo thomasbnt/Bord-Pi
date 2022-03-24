@@ -20,7 +20,7 @@ module.exports = {
       return interaction.reply({
         content: 'Vous n\'avez pas les permissions requises pour faire cette commande !'
       })
-    if (!interaction.guild.me.permissions.has('MANAGE_MESSAGES'))
+    if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS'))
       return interaction.reply({
         content: 'Je n\'ai pas les permissions requises pour faire cette commande !'
       })
