@@ -105,7 +105,7 @@
   "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.26.1.tgz"
   "version" "0.26.1"
 
-"discord.js@^13.3.1":
+"discord.js@^13.5.1":
   "integrity" "sha512-tXNR8zgsEPxPBvGk3AQjJ9ljIIC6/LOPjzKwpwz8Y1Q2X66Vi3ZqFgRHYwnHKC0jC0F+l4LzxlhmOJsBZDNg9g=="
   "resolved" "https://registry.npmjs.org/discord.js/-/discord.js-13.6.0.tgz"
   "version" "13.6.0"
