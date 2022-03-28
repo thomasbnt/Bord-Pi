@@ -13,7 +13,7 @@ module.exports = async (
   const log = (message) => options.debug && console.log(message)
 
   const ready = client.readyAt
-    ? Promise.resolve()
+    ? await Promise.resolve()
     : new Promise((resolve) => client.once('ready', resolve))
   await ready
   const currentCommands = await client.application.commands.fetch(
