@@ -7,9 +7,9 @@ const w = new Discord.WebhookClient({
 
 class BordPiHelper {
   // Simplement pour les logs.
-  Logs(member, action) {
+  Logs(member, action, color) {
     const LogEmbed = new Discord.MessageEmbed()
-      .setColor(config.colors.InfoColor)
+      .setColor(color || config.colors.InfoColor)
       .setAuthor({
         name: member.username,
         iconURL: member.avatarURL({
