@@ -8,8 +8,6 @@ ____
 
 > ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant une Pull Request.
 
-Vous y trouverez la **[TODOLIST](/TODOLIST.md)**
-
 > ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
