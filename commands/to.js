@@ -80,12 +80,12 @@ module.exports = {
     } else {
       let reason = interaction.options.getString('raison')
       if (reason > 512) {
-        const ErrCaractersEmbed = new MessageEmbed()
+        const ErrCharactersEmbed = new MessageEmbed()
           .setColor(config.colors.DangerColor)
           .setTitle('Erreur')
           .setDescription('La raison ne peut pas dépasser 512 caractères !')
         return interaction.reply({
-          embeds: [ErrCaractersEmbed],
+          embeds: [ErrCharactersEmbed],
           ephemeral: true
         })
       }
