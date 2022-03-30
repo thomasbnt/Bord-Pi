@@ -100,50 +100,46 @@ module.exports = {
       })
     }
 
-    const roleMember = interaction.member.guild.roles.cache.get(
-      member.roles.highest.id
-    )
-    const roleAuthor = interaction.member.guild.roles.cache.get(
-      interaction.member.roles.highest.id
-    )
+    const roleMember = interaction.member.guild.roles.cache.get(member.roles.highest.id)
+    const roleAuthor = interaction.member.guild.roles.cache.get(interaction.member.roles.highest.id)
 
     if (roleMember.rawPosition >= roleAuthor.rawPosition) {
       return interaction.reply({
         content: 'L\'utilisateur que vous souhaitez bannir est au dessus de vous !',
         ephemeral: true
       })
-    } else {
-      const reason = interaction.options.getString('raison')
-      if (reason > 512) {
-        const ErrCharactersEmbed = new MessageEmbed()
-          .setColor(config.colors.DangerColor)
-          .setTitle('Erreur')
-          .setDescription('La raison ne peut pas dépasser 512 caractères !')
-        return interaction.reply({
-          embeds: [ErrCharactersEmbed],
-          ephemeral: true
-        })
-      }
-      const time = interaction.options.getString('temps')
-      if (isNaN(ms(time)))
-        return interaction.reply({
-          content: 'Veuillez fournir un temps valide! (Unités valides: `s`, `m`, `h`, `d`)',
-          ephemeral: true
-        })
-
-      if (member.communicationDisabledUntilTimestamp) {
-        return interaction.reply({
-          content: 'L\'utilisateur que vous souhaitez bannir est banni temporairement !',
-          ephemeral: true
-        })
-      }
-
-      member.timeout(ms(time), reason ? reason : `Aucune raison donnée | Par ${interaction.user.tag}`)
-      BordPiHelper.Logs(user, `${interaction.user.tag} a banni ${user.tag} temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : ' '}`)
+    }
+    const reason = interaction.options.getString('raison')
+    if (reason > 512) {
+      const ErrCharactersEmbed = new MessageEmbed()
+        .setColor(config.colors.DangerColor)
+        .setTitle('Erreur')
+        .setDescription('La raison ne peut pas dépasser 512 caractères !')
       return interaction.reply({
-        content: `${user.tag} (${user}) a été banni temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : 'Aucune raison donnée'}`,
+        embeds: [ErrCharactersEmbed],
         ephemeral: true
       })
     }
+    const time = interaction.options.getString('temps')
+    if (isNaN(ms(time)))
+      return interaction.reply({
+        content: 'Veuillez fournir un temps valide! (Unités valides: `s`, `m`, `h`, `d`)',
+        ephemeral: true
+      })
+
+    if (member.communicationDisabledUntilTimestamp) {
+      return interaction.reply({
+        content: 'L\'utilisateur que vous souhaitez bannir est banni temporairement !',
+        ephemeral: true
+      })
+    }
+
+    member.timeout(ms(time), reason ? reason : `Aucune raison donnée | Par ${interaction.user.tag}`)
+    BordPiHelper.Logs(user, `${interaction.user.tag} a banni ${user.tag} temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : ' '}`)
+    return interaction.reply({
+      content: `${user.tag} (${user}) a été banni temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : 'Aucune raison donnée'}`,
+      ephemeral: true
+    })
+    
   }
 }
