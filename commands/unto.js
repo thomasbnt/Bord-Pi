@@ -1,6 +1,4 @@
-const {
-    Constants: { ApplicationCommandOptionTypes }
-  } = require('discord.js'),
+const { Constants: { ApplicationCommandOptionTypes } } = require('discord.js'),
   BordPiHelper = require('../modules/BordPiHelper')
 module.exports = {
   data: {
@@ -15,7 +13,7 @@ module.exports = {
       }
     ]
   },
-  async execute(interaction, client) {
+  async execute(interaction) {
     if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
       return interaction.reply({
         content: 'Vous n\'avez pas les permissions requises pour faire cette commande !',

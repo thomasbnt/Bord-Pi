@@ -1,8 +1,5 @@
-const {
-    Constants: { ApplicationCommandOptionTypes }, MessageEmbed, MessageActionRow, MessageButton
-  } = require('discord.js'),
+const { Constants: {}, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js'),
   config = require('../config.json')
-
 module.exports = {
   data: {
     name: 'bord',

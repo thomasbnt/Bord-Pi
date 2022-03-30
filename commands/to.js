@@ -1,9 +1,8 @@
-const {
-  Constants: { ApplicationCommandOptionTypes }, MessageEmbed
-  } = require('discord.js'),
+const { Constants: { ApplicationCommandOptionTypes }, MessageEmbed } = require('discord.js'),
   ms = require('ms'),
-  config = require('../config.json')
-const BordPiHelper = require('../modules/BordPiHelper')
+  config = require('../config.json'),
+  BordPiHelper = require('../modules/BordPiHelper')
+
 function convertMs(time) {
   const absoluteSeconds = Math.floor((time / 1000) % 60)
   const absoluteMinutes = Math.floor((time / (1000 * 60)) % 60)
@@ -39,6 +38,7 @@ function convertMs(time) {
 
   return absoluteTime.join(', ')
 }
+
 module.exports = {
   data: {
     name: 'to',
@@ -64,7 +64,7 @@ module.exports = {
       }
     ]
   },
-  async execute(interaction, client) {
+  async execute(interaction) {
     if (!interaction.member.permissions.has('MODERATE_MEMBERS'))
       return interaction.reply({
         content: 'Vous n\'avez pas les permissions requises pour faire cette commande !',
@@ -138,11 +138,8 @@ module.exports = {
         })
       }
 
-      member.timeout(
-        ms(time),
-        reason ? reason : `Aucune raison donnée | Par ${interaction.user.tag}`
-      )
-      BordPiHelper.Logs(user,`${interaction.user.tag} a banni ${user.tag} temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : ' '}`)
+      member.timeout(ms(time), reason ? reason : `Aucune raison donnée | Par ${interaction.user.tag}`)
+      BordPiHelper.Logs(user, `${interaction.user.tag} a banni ${user.tag} temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : ' '}`)
       return interaction.reply({
         content: `${user.tag} (${user}) a été banni temporairement pendant **${convertMs(ms(time))}**.\n${reason ? `Raison : ${reason}` : 'Aucune raison donnée'}`,
         ephemeral: true
