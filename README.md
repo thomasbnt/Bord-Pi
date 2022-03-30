@@ -18,6 +18,9 @@ ____
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
+Merci aux Sponsors pour votre soutien ! 
+
+[![GitHub Sponsors](https://cdn.jsdelivr.net/gh/thomasbnt/sponsors/sponsors.svg)](https://github.com/sponsor/thomasbnt)
 ## Nouveautés (Mars 2022)
 
 La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
