@@ -22,11 +22,11 @@ module.exports = function FilterLinks(msg) {
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
     if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return
-    if (config.IDRoleSupport != null) {
+    if (config.IDRoleSupport !== null) {
       // Vérifie s'il a le rôle Support.
       if (msg.member.roles.cache.has(config.IDRoleSupport)) return
     }
-    if (config.IDAdsChannel != null) {
+    if (config.IDAdsChannel !== null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
       if (msg.channel.id === config.IDAdsChannel) return
     }
