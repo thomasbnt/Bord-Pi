@@ -2,8 +2,8 @@ const FilterLinks = require('../modules/FilterLinks.js')
 module.exports = {
   name: 'messageUpdate',
   execute(msg) {
-    let OldMessage = msg
-    let ActualMessage = msg.reactions.message
+    const OldMessage = msg
+    const ActualMessage = msg.reactions.message
 
     if (OldMessage.content === ActualMessage.content) return
     if (OldMessage.author.bot) return

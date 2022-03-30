@@ -1,15 +1,6 @@
 // https://github.com/Androz2091/discord-sync-commands/
-
 const Discord = require('discord.js')
-
-module.exports = async (
-  client,
-  commands,
-  options = {
-    debug: false,
-    guildId: null
-  }
-) => {
+module.exports = async (client, commands, options = { debug: false, guildId: null }) => {
   const log = (message) => options.debug && console.log(message)
 
   const ready = client.readyAt
@@ -26,7 +17,7 @@ module.exports = async (
   const newCommands = commands.filter(
     (command) => !currentCommands.some((c) => c.name === command.name)
   )
-  for (let newCommand of newCommands) {
+  for (const newCommand of newCommands) {
     await client.application.commands.create(newCommand, options.guildId)
   }
 
@@ -35,7 +26,7 @@ module.exports = async (
   const deletedCommands = currentCommands
     .filter((command) => !commands.some((c) => c.name === command.name))
     .toJSON()
-  for (let deletedCommand of deletedCommands) {
+  for (const deletedCommand of deletedCommands) {
     await deletedCommand.delete()
   }
 
@@ -45,7 +36,7 @@ module.exports = async (
     currentCommands.some((c) => c.name === command.name)
   )
   let updatedCommandCount = 0
-  for (let updatedCommand of updatedCommands) {
+  for (const updatedCommand of updatedCommands) {
     const newCommand = updatedCommand
     const previousCommand = currentCommands.find(
       (c) => c.name === updatedCommand.name
