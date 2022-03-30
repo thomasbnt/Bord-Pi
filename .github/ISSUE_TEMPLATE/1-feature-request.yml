@@ -1,0 +1,25 @@
+name: 🚀 Suggestion de nouvelle fonctionnalité
+description: Déposer une suggestion de fonctionnalité sur Bord Pi
+labels: [Nouvelle suggestion]
+title: "[Feature] "
+assignees:
+  - thomasbnt
+body:
+  - type: markdown
+    attributes:
+      value: |
+        "Merci de vérifier si votre proposition est déjà présente dans la codebase ou si elle a déjà été demandée."
+  - type: textarea
+    id: descfeature
+    attributes:
+      label: "Votre suggestion"
+      description: "Décrivez le plus possible votre requête. Les changements faits et ce que ça engendre."
+    validations:
+      required: true
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Avant de soumettre votre suggestion, merci de lire le Code de conduite.
+      options:
+        - label: J'ai lu et j'accepte les lignes directrices de code de conduite
+          required: true
