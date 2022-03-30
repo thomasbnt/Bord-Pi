@@ -77,7 +77,7 @@ module.exports = {
       })
 
     const user = interaction.options.getUser('utilisateur')
-    let member = interaction.member.guild.members.cache.get(user.id)
+    const member = interaction.member.guild.members.cache.get(user.id)
 
     if (!member) {
       return interaction.reply({
@@ -100,10 +100,10 @@ module.exports = {
       })
     }
 
-    let roleMember = interaction.member.guild.roles.cache.get(
+    const roleMember = interaction.member.guild.roles.cache.get(
       member.roles.highest.id
     )
-    let roleAuthor = interaction.member.guild.roles.cache.get(
+    const roleAuthor = interaction.member.guild.roles.cache.get(
       interaction.member.roles.highest.id
     )
 
@@ -113,7 +113,7 @@ module.exports = {
         ephemeral: true
       })
     } else {
-      let reason = interaction.options.getString('raison')
+      const reason = interaction.options.getString('raison')
       if (reason > 512) {
         const ErrCharactersEmbed = new MessageEmbed()
           .setColor(config.colors.DangerColor)
@@ -124,7 +124,7 @@ module.exports = {
           ephemeral: true
         })
       }
-      let time = interaction.options.getString('temps')
+      const time = interaction.options.getString('temps')
       if (isNaN(ms(time)))
         return interaction.reply({
           content: 'Veuillez fournir un temps valide! (Unités valides: `s`, `m`, `h`, `d`)',

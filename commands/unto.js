@@ -28,7 +28,7 @@ module.exports = {
       })
 
     const user = interaction.options.getUser('utilisateur')
-    let member = interaction.member.guild.members.cache.get(user.id)
+    const member = interaction.member.guild.members.cache.get(user.id)
 
     if (!member) {
       return interaction.reply({

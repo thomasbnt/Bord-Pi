@@ -12,7 +12,7 @@ module.exports = {
   },
   async execute(interaction, client) {
     // On vérifie si le rôle est bien dans la liste des rôles sur le serveur
-    let r = client.guilds.cache
+    const r = client.guilds.cache
       .get(config.serverId)
       .roles.cache.find((r) => r.id === config.IDRoles.notif_jeux_gratuits)
     if (!r)
