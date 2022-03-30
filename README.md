@@ -8,6 +8,8 @@ ____
 
 > ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant une Pull Request.
 
+<img src="bordpi.png" alt="Logo Bord Pi" align="right" />
+
 > ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
@@ -15,8 +17,6 @@ ____
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
-
-<img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
 Merci aux Sponsors pour votre soutien ! 
 
