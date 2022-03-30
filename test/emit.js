@@ -6,7 +6,7 @@ module.exports = {
   },
 
   async execute(interaction, client) {
-    client.emit('guildMemberAdd', interaction.user)
-    interaction.reply({ content: ':white_check_mark: Emitted event guildMemberAdd' })
+    await client.emit('guildMemberAdd', interaction.user)
+    await interaction.reply({ content: ':white_check_mark: Emitted event guildMemberAdd' })
   }
 }

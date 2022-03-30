@@ -13,7 +13,7 @@ module.exports = {
       }
     ]
   },
-  async execute(interaction) {
+  execute(interaction) {
     if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
       return interaction.reply({
         content: 'Vous n\'avez pas les permissions requises pour faire cette commande !',

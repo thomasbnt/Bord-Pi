@@ -64,7 +64,7 @@ module.exports = {
       }
     ]
   },
-  async execute(interaction) {
+  execute(interaction) {
     if (!interaction.member.permissions.has('MODERATE_MEMBERS'))
       return interaction.reply({
         content: 'Vous n\'avez pas les permissions requises pour faire cette commande !',

@@ -6,7 +6,7 @@ module.exports = {
     description: 'Panel d\'aide qui vous donne toutes les commandes du robot.',
     options: []
   },
-  async execute(interaction, client) {
+  execute(interaction, client) {
     const ButtonsBord = new MessageActionRow()
       .addComponents(
         new MessageButton()

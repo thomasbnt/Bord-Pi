@@ -5,7 +5,7 @@ module.exports = {
     description: 'Obtenir le rôle développeur',
     options: []
   },
-  async execute(interaction, client) {
+  execute(interaction, client) {
     // On vérifie si le rôle est bien dans la liste des rôles sur le serveur
     const r = client.guilds.cache
       .get(config.serverId)
