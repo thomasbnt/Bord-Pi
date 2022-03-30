@@ -1,8 +1,4 @@
-const {
-  MessageEmbed,
-  Constants: { ApplicationCommandOptionTypes }
-} = require('discord.js')
-
+const { MessageEmbed } = require('discord.js')
 module.exports = {
   data: {
     name: 'ping',

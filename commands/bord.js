@@ -1,4 +1,4 @@
-const { Constants: {}, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js'),
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js'),
   config = require('../config.json')
 module.exports = {
   data: {
