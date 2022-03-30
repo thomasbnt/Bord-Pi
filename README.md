@@ -6,8 +6,6 @@ ____
 
 ## Introduction
 
-> ⚠ Cette branche est en cours de développement. Vous pouvez y contribuer en forkant le projet et en faisant une Pull Request.
-
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
 > ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
