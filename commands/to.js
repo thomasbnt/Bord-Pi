@@ -4,6 +4,41 @@ const {
   ms = require('ms'),
   config = require('../config.json')
 const BordPiHelper = require('../modules/BordPiHelper')
+function convertMs(time) {
+  const absoluteSeconds = Math.floor((time / 1000) % 60)
+  const absoluteMinutes = Math.floor((time / (1000 * 60)) % 60)
+  const absoluteHours = Math.floor((time / (1000 * 60 * 60)) % 24)
+  const absoluteDays = Math.floor(time / (1000 * 60 * 60 * 24))
+
+  const d = absoluteDays
+    ? absoluteDays === 1
+      ? '1 jour'
+      : `${absoluteDays} jours `
+    : null
+  const h = absoluteHours
+    ? absoluteHours === 1
+      ? '1 heure'
+      : `${absoluteHours} heures `
+    : null
+  const m = absoluteMinutes
+    ? absoluteMinutes === 1
+      ? '1 minute'
+      : `${absoluteMinutes} minutes `
+    : null
+  const s = absoluteSeconds
+    ? absoluteSeconds === 1
+      ? '1 seconde'
+      : `${absoluteSeconds} secondes `
+    : null
+
+  const absoluteTime = []
+  if (d) absoluteTime.push(d)
+  if (h) absoluteTime.push(h)
+  if (m) absoluteTime.push(m)
+  if (s) absoluteTime.push(s)
+
+  return absoluteTime.join(', ')
+}
 module.exports = {
   data: {
     name: 'to',
@@ -114,40 +149,4 @@ module.exports = {
       })
     }
   }
-}
-
-function convertMs(time) {
-  const absoluteSeconds = Math.floor((time / 1000) % 60)
-  const absoluteMinutes = Math.floor((time / (1000 * 60)) % 60)
-  const absoluteHours = Math.floor((time / (1000 * 60 * 60)) % 24)
-  const absoluteDays = Math.floor(time / (1000 * 60 * 60 * 24))
-
-  const d = absoluteDays
-    ? absoluteDays === 1
-      ? '1 jour'
-      : `${absoluteDays} jours `
-    : null
-  const h = absoluteHours
-    ? absoluteHours === 1
-      ? '1 heure'
-      : `${absoluteHours} heures `
-    : null
-  const m = absoluteMinutes
-    ? absoluteMinutes === 1
-      ? '1 minute'
-      : `${absoluteMinutes} minutes `
-    : null
-  const s = absoluteSeconds
-    ? absoluteSeconds === 1
-      ? '1 seconde'
-      : `${absoluteSeconds} secondes `
-    : null
-
-  const absoluteTime = []
-  if (d) absoluteTime.push(d)
-  if (h) absoluteTime.push(h)
-  if (m) absoluteTime.push(m)
-  if (s) absoluteTime.push(s)
-
-  return absoluteTime.join(', ')
 }
