@@ -1,4 +1,4 @@
-const CronJob = require('cron').CronJob
+const cron = require('node-cron')
 const synchronizeSlashCommands = require('../modules/SyncCommands')
 
 module.exports = {
@@ -9,12 +9,11 @@ module.exports = {
     client.user.setActivity(`/bord`, { type: 'WATCHING' })
 
     // Discord nettoie l'activité sans raison. Le setInterval est seulement pour le mettre à jour.
-    new CronJob('0 * */2 * * *', async () => {
-        client.user.setActivity(`/bord`, {
-          type: 'WATCHING'
-        })
-      }, null, true, 'Europe/Paris'
-    )
+    cron.schedule('0 * */2 * * *', async () => {
+      client.user.setActivity(`/bord`, {
+        type: 'WATCHING'
+      })
+    })
 
     // Créer / Supprimer / Modifier les commandes sur Discord si un changement est détecté
     await synchronizeSlashCommands(client,
