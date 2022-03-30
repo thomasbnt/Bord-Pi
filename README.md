@@ -18,7 +18,7 @@ ____
 
 > ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
 
-Merci aux Sponsors pour votre soutien ! 
+Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme celui-ci, n'hésitez pas [à faire une donation](#Faire-une-donation).
 
 [![GitHub Sponsors](https://cdn.jsdelivr.net/gh/thomasbnt/sponsors/sponsors.svg)](https://github.com/sponsor/thomasbnt)
 ## Nouveautés (Mars 2022)
@@ -113,3 +113,6 @@ Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/t
 - 📣 Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
 - 🔗 Passe un tour sur [mon site web](https://thomasbnt.dev) !
 
+## Faire une donation
+
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsor-%23EA54AE.svg?&style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/thomasbnt) [![Support me on Buy Me a Coffee](https://img.shields.io/badge/Supporte%20moi-sur%20Buy%20Me%20a%20Coffee-%23FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white)](https://www.buymeacoffee.com/thomasbnt?via=thomasbnt)
