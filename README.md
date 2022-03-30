@@ -67,7 +67,7 @@ Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en p
 
 ## Comment le faire fonctionner
 
-1. Assurez-vous d'avoir la version de **NodeJS** supérieure à **16.6.0**.
+1. Assurez-vous d'avoir la version de **NodeJS** supérieure à **16.9.0**.
 2. Installez les dépendences avec un coup de `npm install` ou `yarn add`.
 3. Copiez le fichier `config.exemple.json` en `config.json`.
 4. Remplissez les configurations dans `config.json`.
