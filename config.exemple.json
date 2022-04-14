@@ -1,16 +1,20 @@
 {
   "token": "",
-  "prefix": "/",
-  "PrimaryColor": "#E74C3C",
-  "DangerColor": "#B20000",
-  "InfoColor": "#6897BB",
-  "SuccessColor": "#47b60f",
-  "BlackColor": "#36393F",
+  "clientId": "",
+  "serverId": "",
+  "GitHubProjectURL": "https://github.com/thomasbnt/Bord-Pi",
+  "colors": {
+    "PrimaryColor": "#E74C3C",
+    "DangerColor": "#B20000",
+    "InfoColor": "#6897BB",
+    "SuccessColor": "#47b60f",
+    "BlackColor": "#36393F"
+  },
   "IDRoleSupport": "",
   "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
-  "WebhookPublic": {
+  "WebhookLogs": {
     "id": "",
     "token": ""
   },

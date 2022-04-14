@@ -1,55 +1,68 @@
+const config = require('../config.json')
+const BordPiHelper = require('../modules/BordPiHelper')
 const Discord = require('discord.js')
-const moment = require('moment')
-moment.locale('FR')
+module.exports = {
+  name: 'guildMemberAdd',
+  description: 'Guild Member Add',
+  execute(member, client) {
+    if (config.serverId) {
+      const g = client.guilds.cache.get(config.serverId)
+      if (g && g.available) {
+        console.log(
+          `📥  — ${member.user.username} (${member.id}) a rejoint ${g.name}`
+        )
+        const ChannelGeneral = g.channels.cache.find(
+          (x) => x.id === config.IDWelcomeChannel
+        )
 
-module.exports = (bot, WebhookPublic, member) => {
-
-    function checkDays(date) {
-        let now = new Date()
-        let diff = now.getTime() - date.getTime()
-        let days = Math.floor(diff / 86400000)
-        return days + (days === 1 ? " jour" : " jours")
-    }
-    const guild = member.guild
-    const ChannelGeneral = member.guild.channels.cache.find(x => x.id === bot.config.IDWelcomeChannel)
-
-    ChannelGeneral.send(new Discord.MessageEmbed()
-        .setColor(bot.config.PrimaryColor)
-        .addField("🍃 Bienvenue à " + member.user.username + " — Fiche d'aide", "On vous souhaite la bienvenue sur **" + guild.name + "** ! Lisez les <#399600870804684803> avant tout.", true)
-        .setFooter("Ce message va s'autodétruire dans une minute")
-        ).then((msg) => {
-        setTimeout(() => {
-            if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
-                msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur.")) 
-            }
-        }, 60000)
-    })
-
-    if (member.user.avatarURL === member.user.defaultAvatarURL) {
-        ChannelGeneral.send(new Discord.MessageEmbed()
-            .setColor(bot.config.InfoColor)
-            .setAuthor(member.user.username + " pensez à mettre une image de profil !", bot.user.displayAvatarURL(), "https://support.discordapp.com/hc/fr/articles/204156688-Comment-modifier-mon-avatar-")
-            .setFooter("Cliquez au dessus pour voir comment faire.")
-        ).then((msg) => {
-            setTimeout(() => {
-                if (msg.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) {
-                    msg.delete(msg.author).catch(e => console.log(bot.ls.warning, "Optionnel : Le robot n'a pas la permission de supprimer la commande faite par l'utilisateur."))
-                }
-            }, 60000)
+        // C'est ici que vous modifiez votre message de bienvenue.
+        const WelcomeEmbed = new Discord.MessageEmbed()
+          .setAuthor({
+            name: `${BordPiHelper.getRandomMotd()}`,
+            iconURL: member.user.avatarURL({
+              format: 'webp',
+              dynamic: true,
+              size: 1024
+            })
+          })
+          .setColor(BordPiHelper.getRandomColor())
+          .setDescription(`Bienvenue parmi-nous <@${member.id}>, n'hésite pas à posséder des rôles sur le serveur avec les _Slash Commands_ depuis <@${client.user.id}>. Toutes les infos avec \`/bord\`.
+                \n> Ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)`)
+        ChannelGeneral.send({
+          embeds: [WelcomeEmbed]
         })
+          .then((msg) => {
+            msg.react('👋').then((r) => r)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+          // TODO : Supp le message après un temps imparti.
+          /*.then(
+                    setTimeout(() => {
+                        if (client.permissions.has(Discord.Permissions.FLAGS.MANAGE_MESSAGES)) {
+                            //.catch(e => console.log("Optionnel : Le robot n'a pas la permission de supprimer son message de bienvenue"))
+                        }
+                    }, 6))*/
+          .catch((err) =>
+            console.error(
+              `Vous avez sûrement mal configuré l'ID du serveur : ${err}`
+            )
+          )
+      } else {
+        console.info(
+          `Le serveur configuré est introuvable ! Le message personnalisé n'a donc pas été envoyer.`
+        )
+      }
+    } else {
+      console.info(
+        `Le message personnalisé pour les nouveaux membres n'a pas été envoyé car le serveur ID n'a pas été configuré.`
+      )
     }
-
-    console.log(bot.ls.info, `📥  — ${member.user.tag} (${member.user.id}) a rejoint ${guild.name}`)
-
-    WebhookPublic.send(new Discord.MessageEmbed()
-        .setColor(bot.config.BlackColor)
-        .setAuthor(`📥 — ${member.user.username} nous a rejoint`, member.user.avatarURL())
-        .addField("Création", moment(member.user.createdTimestamp).format('ll') ,true)
-        .addField("Jour(s)", checkDays(member.user.createdAt) ,true)
-        .setDescription(`Concernant ${member.user}`)
-        .setThumbnail(member.user.displayAvatarURL())
-        .setFooter(`ID : ${member.user.id}`)
-        .setTimestamp(new Date())
-    ).catch(e => console.error(e))
-
+    BordPiHelper.LogsMemberInOutServer(
+      member,
+      `rejoint`,
+      config.colors.SuccessColor
+    )
+  }
 }
