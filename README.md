@@ -51,6 +51,11 @@ Le robot doit avoir les **Intents privilégié** suivant :
 > ⚠ Sans ces intents, le robot ne fonctionnera pas.
 Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions suivantes :
 
+Scopes : 
+- [x] bot
+- [x] applications.commands
+
+Permissions bot : 
 - [x] Manage Roles
 - [x] Kick members
 - [x] Ban members
