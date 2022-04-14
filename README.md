@@ -35,7 +35,6 @@ Plus aucun préfixe n'est nécessaire pour les commandes.
 - Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 - Un **système de logs** interne via Webhooks.
 - Un **message de bienvenue personnalisé**.
-- Besoin d'une aide particulière auprès d'un rôle ? Dès que **le rôle est notifié**, le robot confirme que cela a bien été reçu et lui renvoie un message de rappel, par exemple de revoir la FAQ si jamais ça pourrait résoudre son soucis.
 
 Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net.
 Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
