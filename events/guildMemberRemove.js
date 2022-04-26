@@ -7,10 +7,10 @@ module.exports = {
   execute(member, client) {
     const g = client.guilds.cache.get(config.serverId)
     BordPiHelper.LogsMemberInOutServer(
-      client,
+      member,
       `quitté`,
       config.colors.DangerColor
     )
-    console.log(`📥  — ${client.username} (${client.id}) a rejoint ${g.name}`)
+    console.log(`📥  — ${member.username} (${member.id}) a rejoint ${g.name}`)
   }
 }
