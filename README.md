@@ -8,13 +8,17 @@ ____
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-> ⚠ Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
+> **Warning** 
+>
+> Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
-> ⚠ Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
+> **Warning** 
+> 
+> Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
 
 Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
 
@@ -47,7 +51,9 @@ Le robot doit avoir les **Intents privilégié** suivant :
 - [x] Server members
 - [x] Message content
 
-> ⚠ Sans ces intents, le robot ne fonctionnera pas.
+> **Warning** 
+>
+> Sans ces intents, le robot ne fonctionnera pas.
 Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions suivantes :
 
 Scopes : 
