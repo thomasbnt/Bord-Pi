@@ -23,14 +23,13 @@ ____
 Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
 
 ![GitHub Sponsors](https://cdn.jsdelivr.net/gh/thomasbnt/sponsors/sponsors.svg)
-## Nouveautés (Mars 2022)
+## Nouveautés
 
 La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
 Plus aucun préfixe n'est nécessaire pour les commandes.
 
 - [x] Slash Commands
-- [x] Commandes de base
-- [x] Commandes de moderation
+- [x] Commandes de giverôles
 - [x] Logs
 
 ## Les intégrations
