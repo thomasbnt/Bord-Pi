@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js'),
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js'),
   config = require('../config.json')
 module.exports = {
   data: {
@@ -7,20 +7,20 @@ module.exports = {
     options: []
   },
   execute(interaction, client) {
-    const ButtonsBord = new MessageActionRow()
+    const ButtonsBord = new ActionRowBuilder()
       .addComponents(
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel(`Serveur Discord`)
-          .setStyle('LINK')
+          .setStyle(ButtonStyle.Link)
           .setURL('https://discord.gg/9gcxwVY')
       )
       .addComponents(
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel(`Code source`)
-          .setStyle('LINK')
+          .setStyle(ButtonStyle.Link)
           .setURL(`${config.GitHubProjectURL}`)
       )
-    const BordEmbed = new MessageEmbed()
+    const BordEmbed = new EmbedBuilder()
       .setColor(config.colors.PrimaryColor)
       .setTitle(`${client.user.username} — Panel d'aide`)
       .setThumbnail(client.user.avatarURL({ format: 'png', size: 1024 }))
