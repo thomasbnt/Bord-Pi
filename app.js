@@ -8,16 +8,16 @@
  @description: Un robot Discord gérant et aidant les utilisateurs pour un serveur.
  */
 const fs = require('fs')
-const { Client, Collection, Intents, Options } = require('discord.js')
+const { Client, Collection, GatewayIntentBits, Options } = require('discord.js')
 const config = require('./config.json')
 
 const client = new Client({
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_BANS,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessageReactions
   ],
   makeCache: Options.cacheWithLimits({
     MessageManager: 200,
