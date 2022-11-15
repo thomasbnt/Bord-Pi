@@ -100,9 +100,9 @@ Merci pour vos suggestions !
 
 ## Les codes couleurs
 
-| **Principaux**  | PrimaryColor | DangerColor | InfoColor | SuccessColor |  BlackColor | 
-|---------|------------|----------|----------|----------|----------|
-| **Code Hexadécimal** | `#E74C3C`   | `#B20000`  | `#6897BB`  | `#47b60f` | `#36393F` |
+| **Principaux**       | PrimaryColor | DangerColor | InfoColor | SuccessColor | BlackColor | 
+|----------------------|--------------|-------------|-----------|--------------|------------|
+| **Code Hexadécimal** | `#E74C3C`    | `#B20000`   | `#6897BB` | `#47b60f`    | `#36393F`  |
 
 Pour les utiliser : `config.colors.PrimaryColor`, récupère la couleur primaire.
 
