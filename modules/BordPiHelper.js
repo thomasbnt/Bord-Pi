@@ -1,6 +1,6 @@
-const Discord = require('discord.js')
+const { EmbedBuilder, WebhookClient } = require('discord.js')
 const config = require('../config.json')
-const w = new Discord.WebhookClient({
+const w = new WebhookClient({
   id: config.WebhookLogs.id,
   token: config.WebhookLogs.token
 })
@@ -8,7 +8,7 @@ const w = new Discord.WebhookClient({
 class BordPiHelper {
   // Simplement pour les logs.
   Logs(member, action, color) {
-    const LogEmbed = new Discord.MessageEmbed()
+    const LogEmbed = new EmbedBuilder()
       .setColor(color || config.colors.InfoColor)
       .setAuthor({
         name: member.username,
@@ -24,7 +24,7 @@ class BordPiHelper {
 
   // Même chose ici, pour les logs, mais spécialement pour les arrivants et départs de membres.
   LogsMemberInOutServer(member, status, color_embed) {
-    const LogsJoinEmbed = new Discord.MessageEmbed()
+    const LogsJoinEmbed = new EmbedBuilder()
       .setColor(color_embed)
       .setAuthor({
         name: `${member.user.username} nous a ${status}`,
@@ -35,12 +35,18 @@ class BordPiHelper {
         }),
         url: `https://whois.mrrobot.app/${member.id}`
       })
-      .addField(
-        'Création',
-        `<t:${this.IsoStringToTimeStamp(member.user.createdTimestamp)}>`,
-        true
-      )
-      .addField(`Identifiant`, `\`${member.id}\``, true)
+      .addFields([
+        {
+          name: 'Création',
+          value: `<t:${this.IsoStringToTimeStamp(member.user.createdTimestamp)}>`,
+          inline: true
+        },
+        {
+          name: 'Identifiant',
+          value: `\`${member.id}\``,
+          inline: true
+        }
+      ])
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp(new Date())
     w.send({ embeds: [LogsJoinEmbed] }).catch(console.error)

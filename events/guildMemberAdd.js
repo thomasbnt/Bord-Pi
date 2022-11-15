@@ -1,6 +1,6 @@
 const config = require('../config.json')
 const BordPiHelper = require('../modules/BordPiHelper')
-const Discord = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   name: 'guildMemberAdd',
   description: 'Guild Member Add',
@@ -16,7 +16,7 @@ module.exports = {
         )
 
         // C'est ici que vous modifiez votre message de bienvenue.
-        const WelcomeEmbed = new Discord.MessageEmbed()
+        const WelcomeEmbed = new EmbedBuilder()
           .setAuthor({
             name: `${BordPiHelper.getRandomMotd()}`,
             iconURL: member.user.avatarURL({

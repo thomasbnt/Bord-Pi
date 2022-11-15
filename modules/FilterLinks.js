@@ -1,7 +1,6 @@
 // -------------------- Filtre contre les liens Discord --------------------
-const { Permissions } = require('discord.js')
+const { PermissionsBitField, EmbedBuilder } = require('discord.js')
 const config = require('../config.json')
-const Discord = require('discord.js')
 module.exports = function FilterLinks(msg) {
   if (
     /*
@@ -14,14 +13,14 @@ module.exports = function FilterLinks(msg) {
     msg.content.includes('discord.me/')
   ) {
     // Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
-    if (!msg.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
+    if (!msg.guild.me.permissions.has(PermissionsBitField.Flags.ManageMessages))
       return (
         msg.channel.send( `Le robot n'a pas la permission de gérer les messages.`) &&
         console.error(`Err: Le robot n'a pas la permission de gérer les messages.`)
       )
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
-    if (msg.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) return
+    if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
     if (config.IDRoleSupport != null) {
       // Vérifie s'il a le rôle Support.
       if (msg.member.roles.cache.has(config.IDRoleSupport)) return
@@ -31,8 +30,8 @@ module.exports = function FilterLinks(msg) {
       if (msg.channel.id === config.IDAdsChannel) return
     }
     // Et dans un dernier temps avant de supprimer le message si les vérifications au-dessus sont false. Si c'est bien le cas, avertit l'auteur du message.
-    const WarnLinkEmbed = new Discord.MessageEmbed()
-      .setColor(config.colors.PrimaryColor)
+    const WarnLinkEmbed = new EmbedBuilder()
+      .setColor(config.colors.PrimaryColor || '#500303')
       .setDescription(`<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`)
     msg.delete(msg.author)
     msg.channel.send({ embeds: [WarnLinkEmbed] }).then((m) => {
