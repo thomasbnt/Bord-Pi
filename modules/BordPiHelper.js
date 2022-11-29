@@ -70,7 +70,10 @@ class BordPiHelper {
       'Oh un arrivant !',
       'Bonjour à toi, jeune aventurier !',
       'Installe-toi !',
-      'La cavalerie est arrivée !'
+      'La cavalerie est arrivée !',
+      'Bienvenue à toi !',
+      'Me voilà !',
+      '*pouf* MAGIE !'
     ]
     return quotes[Math.floor(Math.random() * quotes.length)]
   }

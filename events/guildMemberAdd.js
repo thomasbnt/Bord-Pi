@@ -26,8 +26,7 @@ module.exports = {
             })
           })
           .setColor(BordPiHelper.getRandomColor())
-          .setDescription(`Bienvenue parmi-nous <@${member.id}>, n'hésite pas à posséder des rôles sur le serveur avec les _Slash Commands_ depuis <@${client.user.id}>. Toutes les infos avec \`/bord\`.
-                \n> Ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)`)
+          .setDescription(`> Bienvenue parmi-nous <@${member.id}> (${member.id}), ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)`)
         ChannelGeneral.send({
           embeds: [WelcomeEmbed]
         })

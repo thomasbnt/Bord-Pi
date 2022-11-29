@@ -30,12 +30,10 @@ La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les
 Plus aucun préfixe n'est nécessaire pour les commandes.
 
 - [x] Slash Commands
-- [x] Commandes de giverôles
 - [x] Logs
 
 ## Les intégrations
 
-- Le robot comporte un système de **rôles d'accès**, un exemple est donné sur `dev.js` et sert à se procurer un rôle qui, par la suite vous débloque des accès a certains channels suivant votre configuration du serveur.
 - Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 - Un **système de logs** interne via Webhooks.
 - Un **message de bienvenue personnalisé**.
