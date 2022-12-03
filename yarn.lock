@@ -85,10 +85,15 @@ data-uri-to-buffer@^4.0.0:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-4.0.0.tgz#b5db46aea50f6176428ac05b73be39a57701a64b"
   integrity sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==
 
-discord-api-types@^0.37.12, discord-api-types@^0.37.18:
+discord-api-types@^0.37.12:
   version "0.37.18"
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.18.tgz#1f0ca95cea4b2380ba77623a62b1d285f1237d7a"
   integrity sha512-mJ+9C8gmG5csssVZPH06Y8IGiJykljFyZc6n6F+T3vKo6yNBI5TtLIbwt6t9hJzsR5f1ITzRZ6cuPrTvRCUxqA==
+
+discord-api-types@^0.37.20:
+  version "0.37.20"
+  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.20.tgz#f23894e3e6b894abb5431ff6c4aa52471360377c"
+  integrity sha512-uAO+55E11rMkYR36/paE1vKN8c2bZa1mgrIaiQIBgIZRKZTDIGOZB+8I5eMRPFJcGxrg16riUu+0aTu2JQEPew==
 
 discord.js@^14.6.0:
   version "14.6.0"
