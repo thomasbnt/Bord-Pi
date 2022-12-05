@@ -26,7 +26,7 @@ module.exports = {
             })
           })
           .setColor(BordPiHelper.getRandomColor())
-          .setDescription(`> Bienvenue parmi-nous <@${member.id}> (${member.id}), ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord ! (enfin... je pense ?)\n> N'hésites pas à t'attribuer des rôles dans <id:customize> !`)
+          .setDescription(`> Bienvenue parmi-nous <@${member.id}> (${member.id}), ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\n> N'hésites pas à t'attribuer des rôles dans <id:customize> !`)
         ChannelGeneral.send({
           embeds: [WelcomeEmbed]
         })
