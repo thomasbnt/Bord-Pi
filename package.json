@@ -1,6 +1,6 @@
 {
   "name": "bordpi",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Un robot Discord gérant et aidant les utilisateurs pour son propre serveur. ",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,11 @@
     "bot",
     "discordjs"
   ],
-  "author": "Thomas Bnt <contact@thomasbnt.fr>",
+  "author": {
+    "name": "Thomas Bnt",
+    "email": "contact+github@thomasbnt.fr",
+    "url": "https://thomasbnt.dev"
+  },
   "license": "GPL-3.0-only",
   "dependencies": {
     "@discordjs/rest": "^1.5.0",
