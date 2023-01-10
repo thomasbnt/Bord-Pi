@@ -1,8 +1,8 @@
 
-[![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white)](https://thomasbnt.dev/discord)
-[![Voir les Releases](https://img.shields.io/github/v/release/thomasbnt/Bord-Pi?color=6897BB&include_prereleases)](https://github.com/thomasbnt/Bord-Pi/releases)
-![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi)
-[![Depfu](https://badges.depfu.com/badges/4f3ee9b9ab1cf47c382471fa830483d9/count.svg)](https://depfu.com/github/thomasbnt/Bord-Pi?project_id=37111)
+[![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white?&style=for-the-badge)](https://thomasbnt.dev/discord)
+[![Voir les Releases](https://img.shields.io/github/v/release/thomasbnt/Bord-Pi?color=6897BB&include_prereleases?&style=for-the-badge)](https://github.com/thomasbnt/Bord-Pi/releases)
+![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi?&style=for-the-badge)
+[![Depfu](https://img.shields.io/depfu/dependencies/github/thomasbnt/Bord-Pi?style=for-the-badge)](https://depfu.com/github/thomasbnt/Bord-Pi?project_id=37111)
 ____
 
 ## Introduction
