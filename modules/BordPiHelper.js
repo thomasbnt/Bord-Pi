@@ -1,6 +1,6 @@
 const { EmbedBuilder, WebhookClient } = require('discord.js')
 const config = require('../config.json')
-const w = new WebhookClient({
+const webhook = new WebhookClient({
   id: config.WebhookLogs.id,
   token: config.WebhookLogs.token
 })
@@ -19,7 +19,7 @@ class BordPiHelper {
         url: `https://whois.mrrobot.app/${member.id}`
       })
       .setDescription(`${action}`)
-    w.send({ embeds: [LogEmbed] }).catch(console.error)
+    webhook.send({ embeds: [LogEmbed] }).catch(console.error)
   }
 
   // Même chose ici, pour les logs, mais spécialement pour les arrivants et départs de membres.
@@ -49,13 +49,13 @@ class BordPiHelper {
       ])
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp(new Date())
-    w.send({ embeds: [LogsJoinEmbed] }).catch(console.error)
+    webhook.send({ embeds: [LogsJoinEmbed] }).catch(console.error)
   }
 
   // Cela récupère value et la convertit en timestamp.
   IsoStringToTimeStamp(value) {
-    const d = new Date(value)
-    return Math.floor(d / 1000)
+    const date = new Date(value)
+    return Math.floor(date / 1000)
   }
 
   // Une couleur aléatoire pour vos embeds ? C'est ici.

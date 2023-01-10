@@ -6,12 +6,12 @@ module.exports = {
   description: 'Guild Member Add',
   execute(member, client) {
     if (config.serverId) {
-      const g = client.guilds.cache.get(config.serverId)
-      if (g && g.available) {
+      const guild = client.guilds.cache.get(config.serverId)
+      if (guild && guild.available) {
         console.log(
-          `📥  — ${member.user.username} (${member.id}) a rejoint ${g.name}`
+          `📥  — ${member.user.username} (${member.id}) a rejoint ${guild.name}`
         )
-        const ChannelGeneral = g.channels.cache.find(
+        const ChannelGeneral = guild.channels.cache.find(
           (x) => x.id === config.IDWelcomeChannel
         )
 
