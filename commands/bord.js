@@ -24,10 +24,7 @@ module.exports = {
       .setColor(config.colors.PrimaryColor)
       .setTitle(`${client.user.username} — Panel d'aide`)
       .setThumbnail(client.user.avatarURL({ format: 'png', size: 1024 }))
-      .setFooter({
-        text: `Un robot Discord gérant et aidant les utilisateurs pour votre propre serveur.`,
-        iconURL: client.user.avatarURL({ format: 'png', size: 1024 })
-      })
+      .setDescription(`**${client.user.username}** est un robot Discord qui a été créé pour aider les serveurs Discord à gérer leurs membres, à avoir des logs, filtrer certains liens et avoir **son propre message de bienvenue**. Vous pouvez trouver le code source du robot sur [GitHub](${config.GitHubProjectURL}).`)
 
     interaction.reply({
       embeds: [BordEmbed],
