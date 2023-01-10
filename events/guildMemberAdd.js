@@ -1,6 +1,6 @@
 const config = require('../config.json')
 const BordPiHelper = require('../modules/BordPiHelper')
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, escapeMarkdown } = require('discord.js')
 module.exports = {
   name: 'guildMemberAdd',
   description: 'Guild Member Add',
@@ -25,9 +25,13 @@ module.exports = {
               size: 1024
             })
           })
+          .setFooter({
+            text: `${member.id}`
+          })
           .setColor(BordPiHelper.getRandomColor())
-          .setDescription(`> Bienvenue parmi-nous <@${member.id}> (${member.id}), ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\n> N'hésites pas à t'attribuer des rôles dans <id:customize> !`)
+          .setDescription(`> Bienvenue parmi-nous ${escapeMarkdown(member.user.username)}, ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\nN'hésites pas à t'attribuer des rôles dans <id:customize> !`)
         ChannelGeneral.send({
+          content: `<@${member.id}> par ici ! `,
           embeds: [WelcomeEmbed]
         })
           .then((msg) => {
