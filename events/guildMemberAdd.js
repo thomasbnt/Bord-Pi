@@ -29,7 +29,7 @@ module.exports = {
             text: `${member.id}`
           })
           .setColor(BordPiHelper.getRandomColor())
-          .setDescription(`> Bienvenue parmi-nous ${escapeMarkdown(member.user.username)}, ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\nN'hésites pas à t'attribuer des rôles dans <id:customize> !`)
+          .setDescription(`> Bienvenue parmi-nous ${escapeMarkdown(member.user.username)}, ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\n\nN'hésites pas à t'attribuer des rôles dans <id:customize> !`)
         ChannelGeneral.send({
           content: `<@${member.id}> par ici ! `,
           embeds: [WelcomeEmbed]
