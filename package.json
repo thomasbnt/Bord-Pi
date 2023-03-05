@@ -19,7 +19,7 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@discordjs/rest": "^1.5.0",
-    "discord-api-types": "^0.37.31",
+    "discord-api-types": "^0.37.35",
     "discord.js": "^14.7.1",
     "ms": "^2.1.3",
     "node-cron": "^3.0.2",
