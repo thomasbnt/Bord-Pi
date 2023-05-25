@@ -1,12 +1,14 @@
 {
   "name": "bordpi",
   "version": "3.3.0",
-  "description": "Un robot Discord gérant et aidant les utilisateurs pour son propre serveur. ",
+  "description": "Un robot Discord gérant et aidant les utilisateurs pour son propre serveur.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "keywords": [
+    "discord",
+    "french",
     "discordapp",
     "bot",
     "discordjs"
