@@ -7,7 +7,7 @@ module.exports = {
   },
   async execute(interaction, client) {
     const PingBeforeEmbed = new EmbedBuilder().setAuthor({
-      name: `L'oiseau va revenir avec le ping du robot...`,
+      name: `En attente du retour de Ping...`,
       iconURL: client.user.avatarURL(),
       url: client.config.GitHubProjectURL
     })
