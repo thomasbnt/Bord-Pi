@@ -15,7 +15,7 @@ ____
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord de [**Thomas Bnt**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
 > **Warning** 
 > 
@@ -110,6 +110,11 @@ Si vous le souhaitez, vous pouvez avoir **votre propre robot hébergé** pour vo
 Il serait basé sur ce code, et aura un nom et une image différente que **vous choisirez** ! ✨
 
 [![Ayez votre robot à votre effigie](.github/ExtraBMC.png)](https://www.buymeacoffee.com/thomasbnt/e/12177/?via=thomasbnt)
+
+## Licence
+
+**Bord Pi** est sous licence [GNU GPL 3](/LICENSE). Veuillez la respecter. 
+Si vous reprenez le code, merci de me créditer dans la bio du robot avec le lien de ce dépôt public.
 
 ## Informations complémentaires
 
