@@ -9,6 +9,7 @@
 */
 
 const config = require('../config.json')
+const fetch = require('node-fetch')
 
 // Partie API Unsplash
 const UnsplashAccessKey = config.optionalModules.unsplash.UnsplashAccessKey
