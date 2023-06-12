@@ -14,5 +14,14 @@
   "WebhookLogs": {
     "id": "",
     "token": ""
+  },
+  "optionalModules": {
+    "unsplash": {
+      "activate": true,
+      "UnsplashAccessKey": "",
+      "optionalQuery": "",
+      "optionalUsername": "",
+      "optionalCollectionsID": []
+    }
   }
 }
