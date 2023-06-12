@@ -8,7 +8,7 @@ module.exports = {
     if (config.serverId) {
       const guild = client.guilds.cache.get(config.serverId)
       if (guild && guild.available) {
-        console.log(
+        client.logger.info(
           `📥  — ${member.user.username} (${member.id}) a rejoint ${guild.name}`
         )
 
@@ -40,21 +40,21 @@ module.exports = {
               msg.react('👋').then((r) => r)
             })
             .catch((err) => {
-              console.log(err)
+              client.logger.error(err)
             })
             .catch((err) =>
-              console.error(
+              client.logger.error(
                 `Vous avez sûrement mal configuré l'ID du serveur : ${err}`
               )
             )
         }
       } else {
-        console.info(
+        client.logger.info(
           'Le serveur configuré est introuvable ! Le message personnalisé n\'a donc pas été envoyé.'
         )
       }
     } else {
-      console.info(
+      client.logger.info(
         'Le message personnalisé pour les nouveaux membres n\'a pas été envoyé car le serveur ID n\'a pas été configuré.'
       )
     }

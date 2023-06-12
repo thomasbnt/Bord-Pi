@@ -7,7 +7,14 @@ module.exports = {
   name: 'ready',
   description: 'Bot is ready',
   async execute(client) {
-    console.log(`Connecté en tant que ${client.user.username}`)
+    client.logger.info(`Connecté en tant que ${client.user.username}`)
+    client.logger.info(`Identifiant : ${client.user.id}`)
+    client.logger.info(`Serveur : ${client.config.serverId ? client.config.serverId : 'Aucun'}`)
+    client.logger.info(`Version de Bord-Pi : ${process.env.npm_package_version}`)
+    client.logger.info(`Version de Node.js : ${process.version}`)
+    client.logger.sponsor("Merci à ceux qui ont sponsorisé le projet Bord-Pi ")
+    client.logger.sponsor("Ainsi qu'à ceux qui ont contribué au projet.")
+
     client.user.setActivity('/bord', { type: ActivityType.Watching })
 
     // Discord nettoie l'activité sans raison. Le setInterval est seulement pour le mettre à jour.

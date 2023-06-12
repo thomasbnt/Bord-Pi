@@ -19,7 +19,7 @@ const unsplash = createApi({
 })
 
 // function permettant de récupérer aléatoirement une image unsplash
-async function getRandomImage(query, username, collectionsId) {
+async function getRandomImage(client, query, username, collectionsId) {
   // Si la/les collection(s) est/sont définie(s), on ignore la query et le username
   if (collectionsId && collectionsId.length > 0) {
     query = null
@@ -40,7 +40,7 @@ async function getRandomImage(query, username, collectionsId) {
       collectionIds: collectionsId ? collectionsId : null
     })
     if (resultRequestUnsplash.errors) {
-      console.log('error occurred: ', resultRequestUnsplash.errors[0])
+      client.logger.error('error occurred: ', resultRequestUnsplash.errors[0])
     } else {
       // return only image url regular and author name
       return {
@@ -51,7 +51,7 @@ async function getRandomImage(query, username, collectionsId) {
       }
     }
   } catch (error) {
-    console.log('error occurred: ', error)
+    client.logger.error('error occurred: ', error)
   }
 }
 
@@ -69,18 +69,19 @@ module.exports = function EditBannerCRON(client) {
     // On vérifie si le serveur peut avoir une bannière personnalisée
     if (guild.features.includes('BANNER')) {
       getRandomImage(
+        client,
         client.config.optionalModules.unsplash.optionalQuery,
         client.config.optionalModules.unsplash.optionalUsername,
         client.config.optionalModules.unsplash.optionalCollectionsID
       ).then((img) => {
         const imageUrl = img.url
-        console.log(`Changement de la bannière du serveur ${guild.name} ...`)
+        client.logger.info(`Changement de la bannière du serveur ${guild.name} ...`)
         guild.setBanner(imageUrl).then(() => {
-          console.log(`Bannière du serveur ${guild.name} modifiée avec succès.`)
-          console.log(`Image par ${img.author} (${img.authorUrl}) - ${img.unsplashUrl}`)
+          client.logger.info(`Bannière du serveur ${guild.name} modifiée avec succès.`)
+          client.logger.info(`Image par ${img.author} (${img.authorUrl}) - ${img.unsplashUrl}`)
         }).catch(e => {
-          console.error('Le robot n\'a pas la permission de modifier la bannière du serveur. Veuillez lui donner la permission de modifier la bannière du serveur.')
-          console.error(e.rawError)
+          client.logger.error('Le robot n\'a pas la permission de modifier la bannière du serveur. Veuillez lui donner la permission de modifier la bannière du serveur.')
+          client.logger.error(e.rawError)
         })
       })
     }

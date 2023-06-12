@@ -11,6 +11,6 @@ module.exports = {
       'quitté',
       config.colors.DangerColor
     )
-    console.log(`📥  — ${member.username} (${member.id}) a quitté ${guild.name}`)
+    client.logger.info(`📥  — ${member.username} (${member.id}) a quitté ${guild.name}`)
   }
 }

@@ -56,6 +56,26 @@ class BordPiHelper {
     }
   }
 
+  WarnAds(msg, status, color_embed) {
+    const WarnAdsEmbed = new EmbedBuilder()
+      .setColor(color_embed)
+      .setAuthor({
+        name: `${msg.member.user.username} a fait une publicité`,
+        iconURL: msg.member.avatarURL({
+          format: 'webp',
+          dynamic: true,
+          size: 1024
+        }),
+        url: `https://whois.mrrobot.app/${msg.member.id}`
+      })
+      .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le salon <#${msg.channel.id}>.\n\n> ${msg.content}`)
+      .setThumbnail(msg.member.user.displayAvatarURL())
+      .setTimestamp(new Date())
+    if (config.WebhookLogs.id && config.WebhookLogs.token) {
+      webhook.send({ embeds: [WarnAdsEmbed] }).catch(console.error)
+    }
+  }
+
   // Cela récupère value et la convertit en timestamp.
   IsoStringToTimeStamp(value) {
     const date = new Date(value)

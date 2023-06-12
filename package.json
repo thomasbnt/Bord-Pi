@@ -21,6 +21,7 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@discordjs/rest": "^1.7.1",
+    "@ptkdev/logger": "^1.8.0",
     "discord-api-types": "^0.37.43",
     "discord.js": "^14.11.0",
     "ms": "^2.1.3",
