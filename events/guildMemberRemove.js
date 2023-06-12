@@ -8,9 +8,9 @@ module.exports = {
     const guild = client.guilds.cache.get(config.serverId)
     BordPiHelper.LogsMemberInOutServer(
       member,
-      `quitté`,
+      'quitté',
       config.colors.DangerColor
     )
-    console.log(`📥  — ${member.username} (${member.id}) a quitté ${guild.name}`)
+    client.logger.info(`📥  — ${member.username} (${member.id}) a quitté ${guild.name}`)
   }
 }

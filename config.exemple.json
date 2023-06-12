@@ -1,6 +1,5 @@
 {
   "token": "",
-  "clientId": "",
   "serverId": "",
   "GitHubProjectURL": "https://github.com/thomasbnt/Bord-Pi",
   "colors": {
@@ -10,11 +9,19 @@
     "SuccessColor": "#47b60f",
     "BlackColor": "#36393F"
   },
-  "IDChannelSupport": "",
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
   "WebhookLogs": {
     "id": "",
     "token": ""
+  },
+  "optionalModules": {
+    "unsplash": {
+      "activate": true,
+      "UnsplashAccessKey": "",
+      "optionalQuery": "",
+      "optionalUsername": "",
+      "optionalCollectionsID": []
+    }
   }
 }

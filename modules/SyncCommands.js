@@ -1,8 +1,6 @@
 // https://github.com/Androz2091/discord-sync-commands/
 const Discord = require('discord.js')
 module.exports = async (client, commands, options = { debug: false, guildId: null }) => {
-  const log = (message) => options.debug && console.log(message)
-
   const ready = client.readyAt
     ? await Promise.resolve()
     : new Promise((resolve) => client.once('ready', resolve))
@@ -11,8 +9,8 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
     options.guildId && { guildId: options.guildId }
   )
 
-  log(`Synchronizing commands...`)
-  log(`Currently ${currentCommands.size} commands.`)
+  client.logger.debug('Synchronizing commands...')
+  client.logger.debug(`Currently ${currentCommands.size} commands.`)
 
   const newCommands = commands.filter(
     (command) => !currentCommands.some((c) => c.name === command.name)
@@ -21,7 +19,7 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
     await client.application.commands.create(newCommand, options.guildId)
   }
 
-  log(`Created ${newCommands.length} commands!`)
+  client.logger.debug(`Created ${newCommands.length} commands!`)
 
   const deletedCommands = currentCommands
     .filter((command) => !commands.some((c) => c.name === command.name))
@@ -30,7 +28,7 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
     await deletedCommand.delete()
   }
 
-  log(`Deleted ${deletedCommands.length} commands!`)
+  client.logger.debug(`Deleted ${deletedCommands.length} commands!`)
 
   const updatedCommands = commands.filter((command) =>
     currentCommands.some((c) => c.name === command.name)
@@ -56,9 +54,9 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
     }
   }
 
-  log(`Updated ${updatedCommandCount} commands!`)
+  client.logger.debug(`Updated ${updatedCommandCount} commands!`)
 
-  log(`Commands synchronized!`)
+  client.logger.debug('Commands synchronized!')
 
   return {
     currentCommandCount: currentCommands.size,

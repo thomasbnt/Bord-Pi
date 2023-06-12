@@ -10,14 +10,20 @@
 const fs = require('fs')
 const { Client, Collection, GatewayIntentBits, Options } = require('discord.js')
 const config = require('./config.json')
+const Logger = require("@ptkdev/logger")
+const LoggerOptions = {
+  language: "fr",
+}
+const logger = new Logger(LoggerOptions)
 
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildModeration,
     GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildMessageReactions
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.MessageContent,
   ],
   makeCache: Options.cacheWithLimits({
     MessageManager: 200,
@@ -25,9 +31,19 @@ const client = new Client({
   })
 })
 
+if (!config.serverId) {
+  return console.error('Vous devez configurer le serverId dans votre fichier config.json pour que le robot fonctionne.')
+}
+
+if (!config.GitHubProjectURL) {
+  return console.error('S\'il vous plait, laissez les crédits à leur place.\n' +
+    'Veuillez lire la licence pour plus d\'informations.')
+}
+
 client.config = config
 client.d = new Date()
 client.bph = require('./modules/BordPiHelper')
+client.logger = logger
 
 client.commands = new Collection()
 const commandFiles = fs

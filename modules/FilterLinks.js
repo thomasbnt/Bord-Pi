@@ -1,6 +1,8 @@
 // -------------------- Filtre contre les liens Discord --------------------
-const { PermissionsBitField, EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const config = require('../config.json')
+const BordPiHelper = require('./BordPiHelper.js')
+
 module.exports = function FilterLinks(msg) {
   if (
     /*
@@ -12,19 +14,10 @@ module.exports = function FilterLinks(msg) {
     msg.content.includes('discordapp.com/invite') ||
     msg.content.includes('discord.me/')
   ) {
-    // Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
-    if (!msg.guild.me.permissions.has(PermissionsBitField.Flags.ManageMessages))
-      return (
-        msg.channel.send( `Le robot n'a pas la permission de gérer les messages.`) &&
-        console.error(`Err: Le robot n'a pas la permission de gérer les messages.`)
-      )
+    // TODO : Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
-    if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
-    if (config.IDRoleSupport != null) {
-      // Vérifie s'il a le rôle Support.
-      if (msg.member.roles.cache.has(config.IDRoleSupport)) return
-    }
+    //if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
       if (msg.channel.id === config.IDAdsChannel) return
@@ -42,10 +35,6 @@ module.exports = function FilterLinks(msg) {
     console.log(
       `${msg.author.tag} (${msg.author.id}) a fait une publicité Discord dans le salon ${msg.channel.name} (${msg.channel.id}).\n> ${msg.content}`
     )
-    /* WebhookPublic.send(new Discord.MessageEmbed()
-           .setColor(config.colors.DangerColor)
-           .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le salon <#${msg.channel.id}>.\n\n> ${msg.content}`)
-           .setFooter("ID : " + msg.author.id, msg.author.avatarURL())
-         )*/
+    BordPiHelper.WarnAds(msg, 'publicité', config.colors.DangerColor)
   }
 }

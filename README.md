@@ -1,4 +1,3 @@
-
 [![Discord](https://img.shields.io/discord/367753345575944221?color=%237289DA&label=Nous%20rejoindre&logo=Discord&logoColor=white?&style=for-the-badge)](https://thomasbnt.dev/discord)
 [![Voir les Releases](https://img.shields.io/github/v/release/thomasbnt/Bord-Pi?color=6897BB&include_prereleases?&style=for-the-badge)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi?&style=for-the-badge)
@@ -9,21 +8,26 @@ ____
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-> **Warning** 
+> **Warning**
 >
 > Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du
+serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement
+possible à le paramétrer à votre façon pour votre propre serveur.
 
-> **Warning** 
-> 
-> Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
+> **Warning**
+>
+> Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez
+> sûrement des erreurs si vous n'avez pas modifié les ID des salons.
 
-Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
+Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme
+celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
 
 ![GitHub Sponsors](https://cdn.jsdelivr.net/gh/thomasbnt/sponsors/sponsors.svg)
+
 ## Nouveautés
 
 La **version 3** de Bord Pi ajoute la dernière fonctionnalité de Discord : les **Slash Commands**.
@@ -34,13 +38,17 @@ Plus aucun préfixe n'est nécessaire pour les commandes.
 
 ## Les intégrations
 
-- Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
+- Un module permettant de changer **la bannière du serveur tous les jours avec une image Unsplash**.¹
+- Un **filtre contre les liens Discord**, vous pouvez bien évidemment lui ajouter l'ID du channel de publicité
+  dans `IDAdsChannel`. Le robot ne fera rien dans ce channel en question.
 - Un **système de logs** interne via Webhooks.
 - Un **message de bienvenue personnalisé**.
 
 Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net.
-Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler. 
+Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire,
+s'il ne peut pas, il passe sans râler.
 
+¹. Si le serveur a la fonctionnalité de bannière, et que le module est activé et correctement configurée, le robot changera la bannière tous les jours à 2h du matin.
 
 ## Les permissions
 
@@ -49,16 +57,20 @@ Le robot doit avoir les **Intents privilégié** suivant :
 - [x] Server members
 - [x] Message content
 
-> **Warning** 
+> **Warning**
 >
 > Sans ces intents, le robot ne fonctionnera pas.
-Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions suivantes :
+> Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions
+> suivantes :
 
-Scopes : 
+Scopes :
+
 - [x] bot
 - [x] applications.commands
 
-Permissions bot : 
+Permissions bot :
+
+- [x] Manage server
 - [x] Manage Roles
 - [x] Kick members
 - [x] Ban members
@@ -78,6 +90,37 @@ Permissions bot :
 3. Copiez le fichier `config.exemple.json` en `config.json`.
 4. Remplissez les configurations dans `config.json`.
 5. Vous pouvez désormais allumer votre robot avec `npm run start`.
+
+## Les modules complémentaires
+
+### Module Unsplash
+
+Vous avez la possibilité d'activer le module Unsplash pour avoir une bannière de serveur qui change tous les jours
+suivant le thème que vous avez choisi. 
+
+Pour cela, il vous suffit de mettre `true` dans `optionalModules.unsplash.activate` dans le fichier [config.json](./config.exemple.json).
+
+#### Obtenir ma Access Key de Unsplash (UnsplashAccessKey)
+
+Afin de communiquer avec l'API Unsplash, vous devez créer un compte sur [Unsplash](https://unsplash.com).
+
+1. Rendez-vous sur [votre dashboard](https://unsplash.com/oauth/applications) et créez une nouvelle application.
+2. Remplissez les informations demandées.
+3. Une fois l'application créée, vous aurez accès à votre **Access Key**.
+4. Copiez-la et collez-la dans `config.json` dans `optionalModules.unsplash.unsplashAccessKey`.
+5. Vous pouvez désormais allumer votre robot, il changera la bannière tous les jours à 2h du matin comme indiqué dans [`ready.js`](./events/ready.js).
+
+#### Les paramètres
+
+Tous les paramètres sont respectivement dans `config.json` dans `optionalModules.unsplash`.
+
+| value                 | default           | type    | Exemple                  | description                                                                                                                                                  |
+|-----------------------|-------------------|---------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| activate              | true              | boolean |                          | Activer ou désactiver le module de changement de bannière Unsplash                                                                                           |
+| unsplashAccessKey     | null              | string  |                          | La clé d'accès à l'API Unsplash                                                                                                                              |
+| optionalQuery         | `"nature clouds"` | string  | `"rustic gaming"`        | Le thème de recherche pour les images Unsplash                                                                                                               |
+| optionalUsername      | null              | string  | `"thomasbnt"`            | Permet de récupérer les images seulement à partir d'un profil Unsplash                                                                                       |
+| optionalCollectionsID | null              | Array   | `["520359", "10437765"]` | Permet de récupérer les images seulement à partir d'une ou plusieurs collection(s) Unsplash (cela désactive le filtre `optionalQuery` et `optionalUsername`) |
 
 ## Contributions
 
@@ -113,13 +156,15 @@ Il serait basé sur ce code, et aura un nom et une image différente que **vous 
 
 ## Licence
 
-**Bord Pi** est sous licence [GNU GPL 3](/LICENSE). Veuillez la respecter. 
+**Bord Pi** est sous licence [GNU GPL 3](/LICENSE). Veuillez la respecter.
 Si vous reprenez le code, merci de me créditer dans la bio du robot avec le lien de ce dépôt public.
+Merci à ceux qui le feront. ❤️
 
 ## Informations complémentaires
 
-L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement.
-Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/). 
+L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement
+et/ou commercialement.
+Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
 
 - 📣 Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
 - 🔗 Passe un tour sur [mon site web](https://thomasbnt.dev) !
