@@ -76,7 +76,7 @@ module.exports = function EditBannerCRON(client) {
       ).then((img) => {
         const imageUrl = img.url
         console.log(`Changement de la bannière du serveur ${guild.name} ...`)
-        guild.setBanner(imageUrl).then(r => {
+        guild.setBanner(imageUrl).then(() => {
           console.log(`Bannière du serveur ${guild.name} modifiée avec succès.`)
           console.log(`Image par ${img.author} (${img.authorUrl}) - ${img.unsplashUrl}`)
         }).catch(e => {
