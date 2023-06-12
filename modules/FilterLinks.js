@@ -1,9 +1,9 @@
 // -------------------- Filtre contre les liens Discord --------------------
-const { PermissionsBitField, EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const config = require('../config.json')
 const BordPiHelper = require('./BordPiHelper.js')
 
-module.exports = function FilterLinks(msg, client) {
+module.exports = function FilterLinks(msg) {
   if (
     /*
      * Si vous souhaitez interdire d'autres liens, ajoutez leur lien dessous comme exemple :
