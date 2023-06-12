@@ -8,7 +8,6 @@
 *
 */
 
-const { PermissionsBitField } = require('discord.js')
 const config = require('../config.json')
 
 // Partie API Unsplash
