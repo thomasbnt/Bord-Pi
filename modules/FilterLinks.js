@@ -17,7 +17,7 @@ module.exports = function FilterLinks(msg) {
     // TODO : Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
-    //if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
+    if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
       if (msg.channel.id === config.IDAdsChannel) return
