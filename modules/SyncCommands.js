@@ -11,7 +11,7 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
     options.guildId && { guildId: options.guildId }
   )
 
-  log(`Synchronizing commands...`)
+  log('Synchronizing commands...')
   log(`Currently ${currentCommands.size} commands.`)
 
   const newCommands = commands.filter(
@@ -58,7 +58,7 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
 
   log(`Updated ${updatedCommandCount} commands!`)
 
-  log(`Commands synchronized!`)
+  log('Commands synchronized!')
 
   return {
     currentCommandCount: currentCommands.size,

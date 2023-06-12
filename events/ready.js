@@ -8,11 +8,11 @@ module.exports = {
   description: 'Bot is ready',
   async execute(client) {
     console.log(`Connecté en tant que ${client.user.username}`)
-    client.user.setActivity(`/bord`, { type: ActivityType.Watching })
+    client.user.setActivity('/bord', { type: ActivityType.Watching })
 
     // Discord nettoie l'activité sans raison. Le setInterval est seulement pour le mettre à jour.
     cron.schedule('0 */6 * * *', () => {
-      client.user.setActivity(`/bord`, {
+      client.user.setActivity('/bord', {
         type: ActivityType.Watching
       })
     })

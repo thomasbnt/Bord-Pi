@@ -10,13 +10,13 @@ module.exports = {
     const ButtonsBord = new ActionRowBuilder()
       .addComponents(
         new ButtonBuilder()
-          .setLabel(`Serveur Discord`)
+          .setLabel('Serveur Discord')
           .setStyle(ButtonStyle.Link)
           .setURL('https://discord.gg/9gcxwVY')
       )
       .addComponents(
         new ButtonBuilder()
-          .setLabel(`Code source`)
+          .setLabel('Code source')
           .setStyle(ButtonStyle.Link)
           .setURL(`${config.GitHubProjectURL}`)
       )

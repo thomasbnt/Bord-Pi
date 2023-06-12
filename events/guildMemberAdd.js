@@ -50,17 +50,17 @@ module.exports = {
         }
       } else {
         console.info(
-          `Le serveur configuré est introuvable ! Le message personnalisé n'a donc pas été envoyé.`
+          'Le serveur configuré est introuvable ! Le message personnalisé n\'a donc pas été envoyé.'
         )
       }
     } else {
       console.info(
-        `Le message personnalisé pour les nouveaux membres n'a pas été envoyé car le serveur ID n'a pas été configuré.`
+        'Le message personnalisé pour les nouveaux membres n\'a pas été envoyé car le serveur ID n\'a pas été configuré.'
       )
     }
     BordPiHelper.LogsMemberInOutServer(
       member,
-      `rejoint`,
+      'rejoint',
       config.colors.SuccessColor
     )
   }
