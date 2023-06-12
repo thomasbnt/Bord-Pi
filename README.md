@@ -115,6 +115,7 @@ Il serait basé sur ce code, et aura un nom et une image différente que **vous 
 
 **Bord Pi** est sous licence [GNU GPL 3](/LICENSE). Veuillez la respecter. 
 Si vous reprenez le code, merci de me créditer dans la bio du robot avec le lien de ce dépôt public.
+Merci à ceux qui le feront. ❤️
 
 ## Informations complémentaires
 
