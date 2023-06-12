@@ -25,7 +25,7 @@ module.exports = {
       .setTitle(`${client.user.username} — Panel d'aide`)
       .setThumbnail(client.user.avatarURL({ format: 'png', size: 1024 }))
       .setDescription(`**${client.user.username}** est un robot Discord qui a été créé pour aider les serveurs Discord à gérer leurs membres, à avoir des logs, filtrer certains liens et avoir **son propre message de bienvenue**. Vous pouvez trouver le code source du robot sur [GitHub](${config.GitHubProjectURL}).`)
-
+      .setImage(interaction.guild.features.includes('BANNER') ? interaction.guild.bannerURL({ format: 'png', size: 1024 }) : null)
     interaction.reply({
       embeds: [BordEmbed],
       components: [ButtonsBord],
