@@ -25,6 +25,15 @@ const client = new Client({
   })
 })
 
+if (!config.serverId) {
+  return console.error('Vous devez configurer le serverId dans votre fichier config.json pour que le bot fonctionne.')
+}
+
+if (!config.GitHubProjectURL) {
+  return console.error('S\'il vous plait, laissez les crédits à leur place.\n' +
+    'Veuillez lire la licence pour plus d\'informations.')
+}
+
 client.config = config
 client.d = new Date()
 client.bph = require('./modules/BordPiHelper')
