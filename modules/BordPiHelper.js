@@ -19,7 +19,9 @@ class BordPiHelper {
         url: `https://whois.mrrobot.app/${member.id}`
       })
       .setDescription(`${action}`)
-    webhook.send({ embeds: [LogEmbed] }).catch(console.error)
+    if (config.WebhookLogs.id && config.WebhookLogs.token) {
+      webhook.send({ embeds: [LogEmbed] }).catch(console.error)
+    }
   }
 
   // Même chose ici, pour les logs, mais spécialement pour les arrivants et départs de membres.
@@ -49,7 +51,9 @@ class BordPiHelper {
       ])
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp(new Date())
-    webhook.send({ embeds: [LogsJoinEmbed] }).catch(console.error)
+    if (config.WebhookLogs.id && config.WebhookLogs.token) {
+      webhook.send({ embeds: [LogsJoinEmbed] }).catch(console.error)
+    }
   }
 
   // Cela récupère value et la convertit en timestamp.
