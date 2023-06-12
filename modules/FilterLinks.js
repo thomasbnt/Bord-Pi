@@ -15,16 +15,12 @@ module.exports = function FilterLinks(msg) {
     // Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
     if (!msg.guild.me.permissions.has(PermissionsBitField.Flags.ManageMessages))
       return (
-        msg.channel.send( `Le robot n'a pas la permission de gérer les messages.`) &&
+        msg.channel.send(`Le robot n'a pas la permission de gérer les messages.`) &&
         console.error(`Err: Le robot n'a pas la permission de gérer les messages.`)
       )
 
     // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
     if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
-    if (config.IDRoleSupport != null) {
-      // Vérifie s'il a le rôle Support.
-      if (msg.member.roles.cache.has(config.IDRoleSupport)) return
-    }
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
       if (msg.channel.id === config.IDAdsChannel) return
