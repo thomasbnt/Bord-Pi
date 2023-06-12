@@ -16,7 +16,7 @@ const UnsplashAccessKey = config.optionalModules.unsplash.UnsplashAccessKey
 const { createApi } = require('unsplash-js')
 const unsplash = createApi({
   accessKey: UnsplashAccessKey,
-  fetch: fetch
+  fetch
 })
 
 // function permettant de récupérer aléatoirement une image unsplash
