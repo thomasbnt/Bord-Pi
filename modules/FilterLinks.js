@@ -1,5 +1,5 @@
 // -------------------- Filtre contre les liens Discord --------------------
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, PermissionsBitField } = require('discord.js')
 const config = require('../config.json')
 const BordPiHelper = require('./BordPiHelper.js')
 
@@ -10,13 +10,13 @@ module.exports = function FilterLinks(msg) {
      * msg.content.includes("https://monlien.local") ||
      */
 
-    msg.content.includes('discord.gg/') ||
+    msg.content.includes('discord.gg') ||
     msg.content.includes('discordapp.com/invite') ||
     msg.content.includes('discord.me/')
   ) {
     // TODO : Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
 
-    // Vérifie si l'auteur du message a la permission de supprimer le message ou s'il a le rôle IDRoleSupport.
+    // Vérifie si l'auteur du message a la permission de supprimer le message
     if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
