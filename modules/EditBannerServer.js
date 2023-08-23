@@ -35,13 +35,12 @@ async function getRandomImage(client, query, username, collectionsId) {
     const resultRequestUnsplash = await unsplash.photos.getRandom({
       query: query ? query : 'nature clouds',
       count: 1,
-      orientation: 'landscape',
       contentFilter: 'high',
       username: username ? username : null,
       collectionIds: collectionsId ? collectionsId : null
     })
     if (resultRequestUnsplash.errors) {
-      client.logger.error('error occurred: ', resultRequestUnsplash.errors[0])
+      return client.logger.error(`[Module Unsplash] ${resultRequestUnsplash.errors[0]}`)
     } else {
       // return only image url regular and author name
       return {
@@ -52,7 +51,7 @@ async function getRandomImage(client, query, username, collectionsId) {
       }
     }
   } catch (error) {
-    client.logger.error('error occurred: ', error)
+    client.logger.error('[Module Unsplash] Erreur rencontrée : ', error)
   }
 }
 
@@ -75,6 +74,7 @@ module.exports = function EditBannerCRON(client) {
         client.config.optionalModules.unsplash.optionalUsername,
         client.config.optionalModules.unsplash.optionalCollectionsID
       ).then((img) => {
+        if (img === undefined) return client.logger.error('[Module Unsplash] Aucune image n\'a été récupérée.')
         const imageUrl = img.url
         client.logger.info(`Changement de la bannière du serveur ${guild.name} ...`)
         guild.setBanner(imageUrl).then(() => {
