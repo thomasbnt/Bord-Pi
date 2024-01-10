@@ -8,23 +8,17 @@ ____
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-> **Warning**
->
+> [!INFO]
 > Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
 
-**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du
-serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement
-possible à le paramétrer à votre façon pour votre propre serveur.
+**Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
-> **Warning**
->
-> Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez
-> sûrement des erreurs si vous n'avez pas modifié les ID des salons.
+> [!IMPORTANT]
+> Toutes les configurations sont spécialement pour le serveur où se trouve ce robot. Si vous le testez, vous aurez sûrement des erreurs si vous n'avez pas modifié les ID des salons.
 
-Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme
-celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
+Merci aux Sponsors pour votre soutien ! Si vous aussi, vous voulez aider au développement de plusieurs projets comme celui-ci, n'hésitez pas [à faire une donation](#faire-une-donation).
 
 ![GitHub Sponsors](https://cdn.jsdelivr.net/gh/thomasbnt/sponsors/sponsors.svg)
 
@@ -44,9 +38,7 @@ Plus aucun préfixe n'est nécessaire pour les commandes.
 - Un **système de logs** interne via Webhooks.
 - Un **message de bienvenue personnalisé**.
 
-Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net.
-Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire,
-s'il ne peut pas, il passe sans râler.
+Pas mal de changements sur le code, notamment le rangement des fichiers, des logs plus propre et un code plus net. Quant au niveau de la sécurité du robot, il vérifie la plupart du temps s'il peut faire les actions qui voudrait faire, s'il ne peut pas, il passe sans râler.
 
 ¹. Si le serveur a la fonctionnalité de bannière, et que le module est activé et correctement configurée, le robot changera la bannière tous les jours à 2h du matin.
 
@@ -57,8 +49,7 @@ Le robot doit avoir les **Intents privilégié** suivant :
 - [x] Server members
 - [x] Message content
 
-> **Warning**
->
+> [!IMPORTANT]
 > Sans ces intents, le robot ne fonctionnera pas.
 > Quand vous l'ajouterez sur votre propre serveur, n'oubliez pas de le mettre en privé et de lui donner les permissions
 > suivantes :
@@ -95,8 +86,7 @@ Permissions bot :
 
 ### Module Unsplash
 
-Vous avez la possibilité d'activer le module Unsplash pour avoir une bannière de serveur qui change tous les jours
-suivant le thème que vous avez choisi. 
+Vous avez la possibilité d'activer le module Unsplash pour avoir une bannière de serveur qui change tous les jours suivant le thème que vous avez choisi.
 
 Pour cela, il vous suffit de mettre `true` dans `optionalModules.unsplash.activate` dans le fichier [config.json](./config.exemple.json).
 
@@ -162,9 +152,7 @@ Merci à ceux qui le feront. ❤️
 
 ## Informations complémentaires
 
-L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement
-et/ou commercialement.
-Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
+L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
 
 - 📣 Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
 - 🔗 Passe un tour sur [mon site web](https://thomasbnt.dev) !
