@@ -1,9 +1,9 @@
-const BordPiHelper = require('../modules/BordPiHelper'),
-  config = require('../config.json')
+const BordPiHelper = require('../modules/BordPiHelper')
+const config = require('../config.json')
 module.exports = {
   name: 'guildBanRemove',
   description: 'Guild Ban Remove',
-  execute(member) {
+  execute (member) {
     BordPiHelper.Logs(
       member.user,
       `${member.user.username} a été dé-banni du serveur.`,

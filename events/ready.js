@@ -6,13 +6,17 @@ const UnsplashModule = require('../modules/EditBannerServer.js')
 module.exports = {
   name: 'ready',
   description: 'Bot is ready',
-  async execute(client) {
+  async execute (client) {
     client.logger.info(`Connecté en tant que ${client.user.username}`)
     client.logger.info(`Identifiant : ${client.user.id}`)
-    client.logger.info(`Serveur : ${client.config.serverId ? client.config.serverId : 'Aucun'}`)
-    client.logger.info(`Version de Bord-Pi : ${process.env.npm_package_version}`)
+    client.logger.info(
+      `Serveur : ${client.config.serverId ? client.config.serverId : 'Aucun'}`
+    )
+    client.logger.info(
+      `Version de Bord-Pi : ${process.env.npm_package_version}`
+    )
     client.logger.info(`Version de Node.js : ${process.version}`)
-    client.logger.sponsor("Merci à ceux qui ont sponsorisé le projet Bord-Pi ")
+    client.logger.sponsor('Merci à ceux qui ont sponsorisé le projet Bord-Pi ')
     client.logger.sponsor("Ainsi qu'à ceux qui ont contribué au projet.")
 
     client.user.setActivity('/bord', { type: ActivityType.Watching })
@@ -32,7 +36,8 @@ module.exports = {
     })
 
     // Créer / Supprimer / Modifier les commandes sur Discord si un changement est détecté
-    await synchronizeSlashCommands(client,
+    await synchronizeSlashCommands(
+      client,
       client.commands.map((c) => c.data),
       {
         debug: true,

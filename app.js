@@ -10,9 +10,9 @@
 const fs = require('fs')
 const { Client, Collection, GatewayIntentBits, Options } = require('discord.js')
 const config = require('./config.json')
-const Logger = require("@ptkdev/logger")
+const Logger = require('@ptkdev/logger')
 const LoggerOptions = {
-  language: "fr",
+  language: 'fr',
 }
 const logger = new Logger(LoggerOptions)
 
@@ -27,17 +27,21 @@ const client = new Client({
   ],
   makeCache: Options.cacheWithLimits({
     MessageManager: 200,
-    PresenceManager: 100
-  })
+    PresenceManager: 100,
+  }),
 })
 
 if (!config.serverId) {
-  return console.error('Vous devez configurer le serverId dans votre fichier config.json pour que le robot fonctionne.')
+  return console.error(
+    'Vous devez configurer le serverId dans votre fichier config.json pour que le robot fonctionne.',
+  )
 }
 
 if (!config.GitHubProjectURL) {
-  return console.error('S\'il vous plait, laissez les crédits à leur place.\n' +
-    'Veuillez lire la licence pour plus d\'informations.')
+  return console.error(
+    "S'il vous plait, laissez les crédits à leur place.\n" +
+      "Veuillez lire la licence pour plus d'informations.",
+  )
 }
 
 client.config = config
@@ -75,16 +79,16 @@ client.on('interactionCreate', async (interaction) => {
 
   try {
     await console.log(
-      `${client.d} — /${interaction.commandName} — Par ${interaction.user.username} (ID : ${interaction.user.id})`
+      `${client.d} — /${interaction.commandName} — Par ${interaction.user.username} (ID : ${interaction.user.id})`,
     )
     await command.execute(interaction, client)
   } catch (error) {
     console.error(error)
     return interaction.reply({
       content:
-        'Une erreur s\'est produite lors de l\'exécution de cette commande !',
+        "Une erreur s'est produite lors de l'exécution de cette commande !",
       ephemeral: true,
-      fetchReply: true
+      fetchReply: true,
     })
   }
 })

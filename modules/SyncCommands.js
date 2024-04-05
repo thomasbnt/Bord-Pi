@@ -1,6 +1,10 @@
 // https://github.com/Androz2091/discord-sync-commands/
 const Discord = require('discord.js')
-module.exports = async (client, commands, options = { debug: false, guildId: null }) => {
+module.exports = async (
+  client,
+  commands,
+  options = { debug: false, guildId: null }
+) => {
   const ready = client.readyAt
     ? await Promise.resolve()
     : new Promise((resolve) => client.once('ready', resolve))
@@ -46,8 +50,9 @@ module.exports = async (client, commands, options = { debug: false, guildId: nul
         previousCommand.options ?? [],
         newCommand.options ?? []
       )
-    )
+    ) {
       modified = true
+    }
     if (modified) {
       await previousCommand.edit(newCommand)
       updatedCommandCount++
