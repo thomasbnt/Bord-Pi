@@ -4,7 +4,7 @@ const { EmbedBuilder, escapeMarkdown } = require('discord.js')
 module.exports = {
   name: 'guildMemberAdd',
   description: 'Guild Member Add',
-  execute(member, client) {
+  execute (member, client) {
     if (config.serverId) {
       const guild = client.guilds.cache.get(config.serverId)
       if (guild && guild.available) {
@@ -31,7 +31,9 @@ module.exports = {
               text: `${member.id}`
             })
             .setColor(BordPiHelper.getRandomColor())
-            .setDescription(`> Bienvenue parmi-nous ${escapeMarkdown(member.user.username)}, ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\n\nN'hésites pas à t'attribuer des rôles dans <id:customize> !`)
+            .setDescription(
+              `> Bienvenue parmi-nous ${escapeMarkdown(member.user.username)}, ne sois pas timide, discute librement, présente-toi au peuple, personne ne mord !\n\nN'hésites pas à t'attribuer des rôles dans <id:customize> !`
+            )
           ChannelGeneral.send({
             content: `<@${member.id}> par ici ! `,
             embeds: [WelcomeEmbed]
@@ -50,12 +52,12 @@ module.exports = {
         }
       } else {
         client.logger.info(
-          'Le serveur configuré est introuvable ! Le message personnalisé n\'a donc pas été envoyé.'
+          "Le serveur configuré est introuvable ! Le message personnalisé n'a donc pas été envoyé."
         )
       }
     } else {
       client.logger.info(
-        'Le message personnalisé pour les nouveaux membres n\'a pas été envoyé car le serveur ID n\'a pas été configuré.'
+        "Le message personnalisé pour les nouveaux membres n'a pas été envoyé car le serveur ID n'a pas été configuré."
       )
     }
     BordPiHelper.LogsMemberInOutServer(

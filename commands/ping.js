@@ -5,7 +5,7 @@ module.exports = {
     description: 'Obtenir le ping du robot',
     options: []
   },
-  async execute(interaction, client) {
+  async execute (interaction, client) {
     const PingBeforeEmbed = new EmbedBuilder().setAuthor({
       name: 'En attente du retour de Ping...',
       iconURL: client.user.avatarURL(),
@@ -18,7 +18,7 @@ module.exports = {
     })
     const TotalPing = sent.createdTimestamp - interaction.createdTimestamp
     const PingEmbed = new EmbedBuilder()
-      //.setColor(client.config.PrimaryColor)
+      // .setColor(client.config.PrimaryColor)
       .setAuthor({
         name: `Le ping de ${client.user.username}`,
         iconURL: client.user.avatarURL(),

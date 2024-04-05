@@ -3,9 +3,9 @@ const { EmbedBuilder, PermissionsBitField } = require('discord.js')
 const config = require('../config.json')
 const BordPiHelper = require('./BordPiHelper.js')
 
-module.exports = function FilterLinks(msg) {
+module.exports = function FilterLinks (msg) {
   if (
-    /*
+  /*
      * Si vous souhaitez interdire d'autres liens, ajoutez leur lien dessous comme exemple :
      * msg.content.includes("https://monlien.local") ||
      */
@@ -17,7 +17,9 @@ module.exports = function FilterLinks(msg) {
     // TODO : Vérifie si le robot lui-même a la permission de supprimer le message si nécessaire.
 
     // Vérifie si l'auteur du message a la permission de supprimer le message
-    if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return
+    if (msg.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+      return
+    }
     if (config.IDAdsChannel != null) {
       // Vérifie si son message est dans le salon qui accepte ces types de liens.
       if (msg.channel.id === config.IDAdsChannel) return
@@ -25,7 +27,9 @@ module.exports = function FilterLinks(msg) {
     // Et dans un dernier temps avant de supprimer le message si les vérifications au-dessus sont false. Si c'est bien le cas, avertit l'auteur du message.
     const WarnLinkEmbed = new EmbedBuilder()
       .setColor(config.colors.PrimaryColor || '#500303')
-      .setDescription(`<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`)
+      .setDescription(
+        `<@${msg.author.id}>, ce type de lien est interdit. Veuillez lire les **règles**.`
+      )
     msg.delete(msg.author)
     msg.channel.send({ embeds: [WarnLinkEmbed] }).then((m) => {
       setTimeout(() => {

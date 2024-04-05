@@ -1,7 +1,7 @@
 const FilterLinks = require('../modules/FilterLinks.js')
 module.exports = {
   name: 'messageUpdate',
-  execute(msg) {
+  execute (msg) {
     const OldMessage = msg
     const ActualMessage = msg.reactions.message
 

@@ -7,7 +7,7 @@ const webhook = new WebhookClient({
 
 class BordPiHelper {
   // Simplement pour les logs.
-  Logs(member, action, color) {
+  Logs (member, action, color) {
     const LogEmbed = new EmbedBuilder()
       .setColor(color || config.colors.InfoColor)
       .setAuthor({
@@ -25,7 +25,7 @@ class BordPiHelper {
   }
 
   // Même chose ici, pour les logs, mais spécialement pour les arrivants et départs de membres.
-  LogsMemberInOutServer(member, status, color_embed) {
+  LogsMemberInOutServer (member, status, color_embed) {
     const LogsJoinEmbed = new EmbedBuilder()
       .setColor(color_embed)
       .setAuthor({
@@ -56,7 +56,7 @@ class BordPiHelper {
     }
   }
 
-  WarnAds(msg, status, color_embed) {
+  WarnAds (msg, status, color_embed) {
     const WarnAdsEmbed = new EmbedBuilder()
       .setColor(color_embed)
       .setAuthor({
@@ -68,7 +68,9 @@ class BordPiHelper {
         }),
         url: `https://whois.mrrobot.app/${msg.member.id}`
       })
-      .setDescription(`<@${msg.author.id}> a fait une publicité Discord dans le salon <#${msg.channel.id}>.\n\n> ${msg.content}`)
+      .setDescription(
+        `<@${msg.author.id}> a fait une publicité Discord dans le salon <#${msg.channel.id}>.\n\n> ${msg.content}`
+      )
       .setThumbnail(msg.member.user.displayAvatarURL())
       .setTimestamp(new Date())
     if (config.WebhookLogs.id && config.WebhookLogs.token) {
@@ -77,18 +79,18 @@ class BordPiHelper {
   }
 
   // Cela récupère value et la convertit en timestamp.
-  IsoStringToTimeStamp(value) {
+  IsoStringToTimeStamp (value) {
     const date = new Date(value)
     return Math.floor(date / 1000)
   }
 
   // Une couleur aléatoire pour vos embeds ? C'est ici.
-  getRandomColor() {
+  getRandomColor () {
     return `#${((Math.random() * 0xffffff) << 0).toString(16)}`
   }
 
   // Ce sont les phrases qui seront affichées au hasard dans guildMemberAdd pour le message de bienvenue.
-  getRandomMotd() {
+  getRandomMotd () {
     const quotes = [
       'Bienvenue sur le serveur !',
       'Oh un arrivant !',

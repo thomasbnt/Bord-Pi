@@ -2,7 +2,8 @@
 [![Voir les Releases](https://img.shields.io/github/v/release/thomasbnt/Bord-Pi?color=6897BB&include_prereleases?&style=for-the-badge)](https://github.com/thomasbnt/Bord-Pi/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/thomasbnt/bord-Pi?&style=for-the-badge)
 [![Depfu](https://img.shields.io/depfu/dependencies/github/thomasbnt/Bord-Pi?style=for-the-badge)](https://depfu.com/github/thomasbnt/Bord-Pi?project_id=37111)
-____
+
+---
 
 ## Introduction
 
@@ -11,7 +12,7 @@ ____
 > [!NOTE]
 > Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
-*Propre, rapide, beau, simple d'utilisation et de modification.*
+_Propre, rapide, beau, simple d'utilisation et de modification._
 
 **Bord Pi** est un robot Discord qui fonctionne avec l'API Discord et le package Discord.js, paramétré en fonction du serveur Discord du [**Coin du Cappu'**](https://thomasbnt.dev/discord). Il est néanmoins accessible et facilement possible à le paramétrer à votre façon pour votre propre serveur.
 
@@ -105,7 +106,7 @@ Afin de communiquer avec l'API Unsplash, vous devez créer un compte sur [Unspla
 Tous les paramètres sont respectivement dans `config.json` dans `optionalModules.unsplash`.
 
 | value                 | default           | type    | Exemple                  | description                                                                                                                                                  |
-|-----------------------|-------------------|---------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ----------------- | ------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | activate              | true              | boolean |                          | Activer ou désactiver le module de changement de bannière Unsplash                                                                                           |
 | unsplashAccessKey     | null              | string  |                          | La clé d'accès à l'API Unsplash                                                                                                                              |
 | optionalQuery         | `"nature clouds"` | string  | `"rustic gaming"`        | Le thème de recherche pour les images Unsplash                                                                                                               |
@@ -131,8 +132,8 @@ Merci pour vos suggestions !
 
 ## Les codes couleurs
 
-| **Principaux**       | PrimaryColor | DangerColor | InfoColor | SuccessColor | BlackColor | 
-|----------------------|--------------|-------------|-----------|--------------|------------|
+| **Principaux**       | PrimaryColor | DangerColor | InfoColor | SuccessColor | BlackColor |
+| -------------------- | ------------ | ----------- | --------- | ------------ | ---------- |
 | **Code Hexadécimal** | `#E74C3C`    | `#B20000`   | `#6897BB` | `#47b60f`    | `#36393F`  |
 
 Pour les utiliser : `config.colors.PrimaryColor`, récupère la couleur primaire.
