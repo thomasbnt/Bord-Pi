@@ -8,7 +8,7 @@ ____
 
 <img src="bordpi.png" alt="Logo Bord Pi" align="right" />
 
-> [!INFO]
+> [!NOTE]
 > Vérifiez que votre **Version NodeJS** est supérieure à **16.6.0**.
 
 *Propre, rapide, beau, simple d'utilisation et de modification.*
