@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, MessageFlags } = require('discord.js')
 module.exports = {
   data: {
     name: 'ping',
@@ -14,7 +14,7 @@ module.exports = {
     const sent = await interaction.reply({
       embeds: [PingBeforeEmbed],
       fetchReply: true,
-      ephemeral: true
+      flags: MessageFlags.Ephemeral,
     })
     const TotalPing = sent.createdTimestamp - interaction.createdTimestamp
     const PingEmbed = new EmbedBuilder()
@@ -41,7 +41,7 @@ module.exports = {
       : PingEmbed.setColor(client.config.colors.SuccessColor)
     await interaction.editReply({
       embeds: [PingEmbed],
-      ephemeral: true
+      flags: MessageFlags.Ephemeral,
     })
   }
 }

@@ -2,7 +2,8 @@ const {
   EmbedBuilder,
   ActionRowBuilder,
   ButtonBuilder,
-  ButtonStyle
+  ButtonStyle,
+  MessageFlags
 } = require('discord.js')
 const config = require('../config.json')
 module.exports = {
@@ -40,7 +41,7 @@ module.exports = {
     interaction.reply({
       embeds: [BordEmbed],
       components: [ButtonsBord],
-      ephemeral: true
+      flags: MessageFlags.Ephemeral,
     })
   }
 }
