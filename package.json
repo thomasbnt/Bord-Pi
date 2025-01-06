@@ -1,6 +1,6 @@
 {
   "name": "bordpi",
-  "version": "3.5.1",
+  "version": "3.5.2",
   "description": "Un robot Discord gérant et aidant les utilisateurs pour son propre serveur.",
   "main": "app.js",
   "scripts": {
