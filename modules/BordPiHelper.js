@@ -51,7 +51,7 @@ class BordPiHelper {
       ])
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp(new Date())
-    if (config.WebhookLogs.id && config.WebhookLogs.token) {
+    if (config.WebhookLogs.activated && config.WebhookLogs.id && config.WebhookLogs.token) {
       webhook.send({ embeds: [LogsJoinEmbed] }).catch(console.error)
     }
   }
@@ -73,7 +73,7 @@ class BordPiHelper {
       )
       .setThumbnail(msg.member.user.displayAvatarURL())
       .setTimestamp(new Date())
-    if (config.WebhookLogs.id && config.WebhookLogs.token) {
+    if (config.WebhookLogs.activated && config.WebhookLogs.id && config.WebhookLogs.token) {
       webhook.send({ embeds: [WarnAdsEmbed] }).catch(console.error)
     }
   }

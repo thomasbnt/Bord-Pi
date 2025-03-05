@@ -12,6 +12,7 @@
   "IDWelcomeChannel": "",
   "IDAdsChannel": "",
   "WebhookLogs": {
+    "WebhookLogsActivated": true,
     "id": "",
     "token": ""
   },
