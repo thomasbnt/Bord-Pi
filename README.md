@@ -78,10 +78,23 @@ Permissions bot :
 ## Comment le faire fonctionner
 
 1. Assurez-vous d'avoir la version de **NodeJS** supérieure à **16.9.0**.
-2. Installez les dépendences avec un coup de `npm install` ou `yarn add`.
+2. Installez les dépendances avec un coup de `npm install` ou `yarn add`.
 3. Copiez le fichier `config.exemple.json` en `config.json`.
 4. Remplissez les configurations dans `config.json`.
 5. Vous pouvez désormais allumer votre robot avec `npm run start`.
+
+## Les Logs
+
+Vous avez la possibilité d'activer les logs pour avoir un suivi des arrivées et départs des membres.
+Pour l'activer, vous devez renseigner deux informations dans `config.json` :
+
+| value                 | default | type    | description                                |
+| --------------------- | ------- | ------- | ------------------------------------------ |
+| WebhookLogs.activated | true    | boolean | Activer ou désactiver les logs             |
+| WebhookLogs.id        | null    | string  | L'ID du channel où les logs seront envoyés |
+| WebhookLogs.token     | null    | string  | Le token du webhook pour les logs          |
+
+Si vous l'activez, veillez donc à bien remplir les informations demandées pour que les logs fonctionnent correctement.
 
 ## Les modules complémentaires
 
@@ -153,7 +166,7 @@ Merci à ceux qui le feront. ❤️
 
 ## Informations complémentaires
 
-L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veuillez donc à ne pas l'utiliser publiquement et/ou commercialement. Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
+L'image a été modifiée par [Thomas Bnt](https://github.com/thomasbnt), veillez donc à ne pas l'utiliser publiquement et/ou commercialement. Initialement, l'image appartient à [Raspberry Pi](https://www.raspberrypi.org/trademark-rules/).
 
 - 📣 Suis-moi sur [Twitter](https://twitter.com/Thomasbnt_)
 - 🔗 Passe un tour sur [mon site web](https://thomasbnt.dev) !
