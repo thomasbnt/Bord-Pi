@@ -23,7 +23,7 @@
     "@discordjs/rest": "^2.6.0",
     "@ptkdev/logger": "^1.8.0",
     "discord-api-types": "^0.37.120",
-    "discord.js": "^14.24.2",
+    "discord.js": "^14.25.1",
     "ms": "^2.1.3",
     "node-cron": "^3.0.3",
     "node-fetch": "2.6.11",
