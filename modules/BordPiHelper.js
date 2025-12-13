@@ -94,7 +94,7 @@ class BordPiHelper {
 
   // Une couleur aléatoire pour vos embeds ? C'est ici.
   getRandomColor () {
-    return `#${((Math.random() * 0xffffff) << 0).toString(16)}`
+    return `#${((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0')}`
   }
 
   // Ce sont les phrases qui seront affichées au hasard dans guildMemberAdd pour le message de bienvenue.
