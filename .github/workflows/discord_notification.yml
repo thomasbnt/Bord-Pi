@@ -1,13 +1,11 @@
 name: Discord Webhook
 on: [push]
 jobs:
-  Discord_notification:
+  notify:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    - name: Run Discord Webhook
-      uses: mrrobotdotapp/classic-discord-webhook@main
-      with:
-        id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+      - uses: actions/checkout@v4
+      - uses: mrrobotdotapp/classic-discord-webhook@main
+        with:
+          id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
