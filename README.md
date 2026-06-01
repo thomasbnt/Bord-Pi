@@ -151,13 +151,6 @@ Merci pour vos suggestions !
 
 Pour les utiliser : `config.colors.PrimaryColor`, récupère la couleur primaire.
 
-## Besoin de se faire héberger son propre robot ?
-
-Si vous le souhaitez, vous pouvez avoir **votre propre robot hébergé** pour votre serveur Discord.
-Il serait basé sur ce code, et aura un nom et une image différente que **vous choisirez** ! ✨
-
-[![Ayez votre robot à votre effigie](.github/ExtraBMC.png)](https://www.buymeacoffee.com/thomasbnt/e/12177/?via=thomasbnt)
-
 ## Licence
 
 **Bord Pi** est sous licence [GNU GPL 3](/LICENSE). Veuillez la respecter.
